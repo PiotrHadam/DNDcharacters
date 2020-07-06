@@ -111,13 +111,13 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="DAL\DBConnection.cs" />
-    <Compile Include="DAL\Encje\DALArmor.cs" />
-    <Compile Include="DAL\Encje\DALCharacter.cs" />
-    <Compile Include="DAL\Encje\DALClass.cs" />
-    <Compile Include="DAL\Encje\DALItem.cs" />
-    <Compile Include="DAL\Encje\DALRace.cs" />
-    <Compile Include="DAL\Encje\DALSpell.cs" />
-    <Compile Include="DAL\Encje\DALWeapon.cs" />
+    <Compile Include="DAL\Encje\Armor.cs" />
+    <Compile Include="DAL\Encje\Character.cs" />
+    <Compile Include="DAL\Encje\Class.cs" />
+    <Compile Include="DAL\Encje\Item.cs" />
+    <Compile Include="DAL\Encje\Race.cs" />
+    <Compile Include="DAL\Encje\Spell.cs" />
+    <Compile Include="DAL\Encje\Weapon.cs" />
     <Compile Include="DAL\Repositories\RepositoryArmors.cs" />
     <Compile Include="DAL\Repositories\RepositoryCharacters.cs" />
     <Compile Include="DAL\Repositories\RepositoryClases.cs" />

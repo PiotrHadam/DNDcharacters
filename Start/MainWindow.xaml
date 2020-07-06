@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:resx="clr-namespace:Start.Properties"
         mc:Ignorable="d"
-        Title="Dungeons &amp; Dragons" Height="600" Width="500" ResizeMode="CanMinimize" Foreground="Black">
+        Title="Dungeons &amp; Dragons" Height="600" Width="600" ResizeMode="CanMinimize" Foreground="Black">
 
     <Window.Background>
         <ImageBrush ImageSource="{Binding Source={x:Static resx:Resources.Background}}"/>

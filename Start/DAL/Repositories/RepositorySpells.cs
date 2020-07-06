@@ -11,16 +11,16 @@ namespace Start.DAL.Repositories
         #endregion
 
         #region Metody
-        public static List<DALSpell> ReadAllSpells()
+        public static List<Spell> ReadAllSpells()
         {
-            List<DALSpell> spells = new List<DALSpell>();
+            List<Spell> spells = new List<Spell>();
             using (var connection = DBConnection.Instance.Connection)
             {
                 MySqlCommand command = new MySqlCommand(ALL_SPELLS, connection);
                 connection.Open();
                 var reader = command.ExecuteReader();
                 while (reader.Read())
-                    spells.Add(new DALSpell(reader));
+                    spells.Add(new Spell(reader));
                 connection.Close();
             }
             return spells;

@@ -7,27 +7,27 @@ using System.Threading.Tasks;
 
 namespace Start.DAL.Encje
 {
-    class DALArmor
+    class Armor
     {
         #region Własności
-        public sbyte? ArmorID { get; set; }
-        public sbyte CharacterID { get; set; }
+        public byte? ArmorID { get; set; }
+        public byte CharacterID { get; set; }
         public string ArmorName { get; set; }
-        public sbyte ClassBonus { get; set; }
+        public byte ClassBonus { get; set; }
         public string ItemDescription { get; set; }
         #endregion
 
         #region Konstruktory
-        public DALArmor(MySqlDataReader reader)
+        public Armor(MySqlDataReader reader)
         {
-            ArmorID = sbyte.Parse(reader["armor_id"].ToString());
-            CharacterID = sbyte.Parse(reader["character_id"].ToString());
+            ArmorID = byte.Parse(reader["armor_id"].ToString());
+            CharacterID = byte.Parse(reader["character_id"].ToString());
             ArmorName = reader["armor_name"].ToString();
-            ClassBonus = sbyte.Parse(reader["armor_class_bonus"].ToString());
+            ClassBonus = byte.Parse(reader["armor_class_bonus"].ToString());
             ItemDescription = reader["item_description"].ToString();
         }
 
-        public DALArmor(sbyte characterid, string armorname, sbyte classbonus, string itemdescription)
+        public Armor(byte characterid, string armorname, byte classbonus, string itemdescription)
         {
             ArmorID = null;
             CharacterID = characterid;
@@ -36,7 +36,7 @@ namespace Start.DAL.Encje
             ItemDescription = itemdescription.Trim();
         }
 
-        public DALArmor(DALArmor dalarmor)
+        public Armor(Armor dalarmor)
         {
             ArmorID = dalarmor.ArmorID;
             CharacterID = dalarmor.CharacterID;
@@ -59,7 +59,7 @@ namespace Start.DAL.Encje
 
         public override bool Equals(object obj)
         {
-            var armor = obj as DALArmor;
+            var armor = obj as Armor;
             if (armor is null) return false;
             if (CharacterID != armor.CharacterID) return false;
             if (ArmorName != armor.ArmorName) return false;

@@ -7,25 +7,25 @@ using System.Threading.Tasks;
 
 namespace Start.DAL.Encje
 {
-    class DALItem
+    class Item
     {
         #region Własności
-        public sbyte? ItemID { get; set; }
-        public sbyte CharacterID { get; set; }
+        public byte? ItemID { get; set; }
+        public byte CharacterID { get; set; }
         public string ItemName { get; set; }
         public string ItemDescription { get; set; }
         #endregion
 
         #region Konstruktory
-        public DALItem(MySqlDataReader reader)
+        public Item(MySqlDataReader reader)
         {
-            ItemID = sbyte.Parse(reader["item_id"].ToString());
-            CharacterID = sbyte.Parse(reader["character_id"].ToString());
+            ItemID = byte.Parse(reader["item_id"].ToString());
+            CharacterID = byte.Parse(reader["character_id"].ToString());
             ItemName = reader["item_name"].ToString();
             ItemDescription = reader["item_description"].ToString();
         }
 
-        public DALItem(sbyte characterid, string itemname, string itemdescription)
+        public Item(byte characterid, string itemname, string itemdescription)
         {
             ItemID = null;
             CharacterID = characterid;
@@ -33,7 +33,7 @@ namespace Start.DAL.Encje
             ItemDescription = itemdescription.Trim();
         }
 
-        public DALItem(DALItem dalitem)
+        public Item(Item dalitem)
         {
             ItemID = dalitem.ItemID;
             CharacterID = dalitem.CharacterID;
@@ -55,7 +55,7 @@ namespace Start.DAL.Encje
 
         public override bool Equals(object obj)
         {
-            var item = obj as DALItem;
+            var item = obj as Item;
             if (item is null) return false;
             if (CharacterID != item.CharacterID) return false;
             if (ItemName != item.ItemName) return false;

@@ -13,22 +13,22 @@ namespace Start.DAL.Repositories
         #endregion
 
         #region Metody
-        public static List<DALCharacter> ReadAllCharacters()
+        public static List<Character> ReadAllCharacters()
         {
-            List<DALCharacter> characters = new List<DALCharacter>();
+            List<Character> characters = new List<Character>();
             using (var connection = DBConnection.Instance.Connection)
             {
                 MySqlCommand command = new MySqlCommand(ALL_CHARACTERS, connection);
                 connection.Open();
                 var reader = command.ExecuteReader();
                 while (reader.Read())
-                    characters.Add(new DALCharacter(reader));
+                    characters.Add(new Character(reader));
                 connection.Close();
             }
             return characters;
         }
 
-        public static bool AddToDatabase(DALCharacter character)
+        public static bool AddToDatabase(Character character)
         {
             bool stan = false;
             using (var connection = DBConnection.Instance.Connection)
@@ -37,13 +37,13 @@ namespace Start.DAL.Repositories
                 connection.Open();
                 var id = command.ExecuteNonQuery();
                 stan = true;
-                character.CharacterID = (sbyte)command.LastInsertedId;
+                character.CharacterID = (byte)command.LastInsertedId;
                 connection.Close();
             }
             return stan;
         }
 
-        public static bool EditCharacter(DALCharacter character, sbyte characterID)
+        public static bool EditCharacter(Character character, byte characterID)
         {
             bool stan = false;
             using (var connection = DBConnection.Instance.Connection)
@@ -60,7 +60,7 @@ namespace Start.DAL.Repositories
             return stan;
         }
 
-        public static bool DeleteFromDatabase(DALCharacter character)
+        public static bool DeleteFromDatabase(Character character)
         {
             bool stan = false;
             using (var connection = DBConnection.Instance.Connection)

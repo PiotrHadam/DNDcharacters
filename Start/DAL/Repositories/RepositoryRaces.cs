@@ -15,16 +15,16 @@ namespace Start.DAL.Repositories
         #endregion
 
         #region Metody
-        public static List<DALRace> ReadAllRaces()
+        public static List<Race> ReadAllRaces()
         {
-            List<DALRace> races = new List<DALRace>();
+            List<Race> races = new List<Race>();
             using (var connection = DBConnection.Instance.Connection)
             {
                 MySqlCommand command = new MySqlCommand(ALL_RACES, connection);
                 connection.Open();
                 var reader = command.ExecuteReader();
                 while (reader.Read())
-                    races.Add(new DALRace(reader));
+                    races.Add(new Race(reader));
                 connection.Close();
             }
             return races;

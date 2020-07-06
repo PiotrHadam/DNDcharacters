@@ -7,33 +7,33 @@ using System.Threading.Tasks;
 
 namespace Start.DAL.Encje
 {
-    class DALWeapon
+    class Weapon
     {
         #region Własności
-        public sbyte? WeaponID { get; set; }
-        public sbyte CharacterID { get; set; }
+        public byte? WeaponID { get; set; }
+        public byte CharacterID { get; set; }
         public string WeaponName { get; set; }
-        public sbyte DMGDice { get; set; }
-        public sbyte DMGDiceSize { get; set; }
+        public byte DMGDice { get; set; }
+        public byte DMGDiceSize { get; set; }
         public string AttackRange { get; set; }
         public string DamageType { get; set; }
         public string ItemDescription { get; set; }
         #endregion
 
         #region Konstruktory
-        public DALWeapon(MySqlDataReader reader)
+        public Weapon(MySqlDataReader reader)
         {
-            WeaponID = sbyte.Parse(reader["weapon_id"].ToString());
-            CharacterID = sbyte.Parse(reader["character_id"].ToString());
+            WeaponID = byte.Parse(reader["weapon_id"].ToString());
+            CharacterID = byte.Parse(reader["character_id"].ToString());
             WeaponName = reader["weapon_name"].ToString();
-            DMGDice = sbyte.Parse(reader["required_lvl"].ToString());
-            DMGDiceSize = sbyte.Parse(reader["dmg_dice_size"].ToString());
+            DMGDice = byte.Parse(reader["required_lvl"].ToString());
+            DMGDiceSize = byte.Parse(reader["dmg_dice_size"].ToString());
             AttackRange = reader["attack_range"].ToString();
             DamageType = reader["damage_type"].ToString();
             ItemDescription = reader["item_description"].ToString();
         }
 
-        public DALWeapon(sbyte characterid, string weaponname, sbyte dmgdice, sbyte dmgdicesize, string attackrange, string damagetype, string itemdescription)
+        public Weapon(byte characterid, string weaponname, byte dmgdice, byte dmgdicesize, string attackrange, string damagetype, string itemdescription)
         {
             WeaponID = null;
             CharacterID = characterid;
@@ -45,7 +45,7 @@ namespace Start.DAL.Encje
             ItemDescription = itemdescription.Trim();
         }
 
-        public DALWeapon(DALWeapon dalweapon)
+        public Weapon(Weapon dalweapon)
         {
             WeaponID = dalweapon.WeaponID;
             CharacterID = dalweapon.CharacterID;
@@ -71,7 +71,7 @@ namespace Start.DAL.Encje
 
         public override bool Equals(object obj)
         {
-            var weapon = obj as DALWeapon;
+            var weapon = obj as Weapon;
             if (weapon is null) return false;
             if (CharacterID != weapon.CharacterID) return false;
             if (WeaponName != weapon.WeaponName) return false;
