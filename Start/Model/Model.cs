@@ -16,7 +16,7 @@ namespace Start.Model
         public ObservableCollection<Armor> Armors { get; set; } = new ObservableCollection<Armor>();
         public ObservableCollection<Character> Characters { get; set; } = new ObservableCollection<Character>();
         public ObservableCollection<CharacterSpell> Links { get; set; } = new ObservableCollection<CharacterSpell>();
-        public ObservableCollection<Clas> Classes { get; set; } = new ObservableCollection<Clas>();
+        public ObservableCollection<Class> Classes { get; set; } = new ObservableCollection<Class>();
         public ObservableCollection<Item> Items { get; set; } = new ObservableCollection<Item>();
         public ObservableCollection<Race> Races { get; set; } = new ObservableCollection<Race>();
         public ObservableCollection<Spell> Spells { get; set; } = new ObservableCollection<Spell>();
@@ -80,7 +80,7 @@ namespace Start.Model
         #endregion
 
         #region Złączenie postaci z klasą
-        private Clas FindClassByID(byte id)
+        private Class FindClassByID(byte id)
         {
             foreach (var c in Classes)
             {
@@ -90,12 +90,12 @@ namespace Start.Model
             return null;
         }
 
-        public Clas ReadClassOfCharacter(Character character)
+        public Class ReadClassOfCharacter(Character character)
         {
-            var clas = new Clas();
+            var clas = new Class();
             foreach (var c in Classes)
             {
-                if (c.ClassID == character.Clas)
+                if (c.ClassID == character.Class.ClassID)
                 {
                     clas = FindClassByID(clas.ClassID);
                 }
@@ -120,7 +120,7 @@ namespace Start.Model
             var race = new Race();
             foreach (var r in Races)
             {
-                if (r.RaceID == character.Race)
+                if (r.RaceID == character.Race.RaceID)
                 {
                     race = FindRaceByID(race.RaceID);
                 }

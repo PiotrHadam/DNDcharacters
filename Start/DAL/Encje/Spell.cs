@@ -1,8 +1,9 @@
 ﻿using MySql.Data.MySqlClient;
+using System;
 
 namespace Start.DAL.Encje
 {
-    class Spell
+    class Spell : IComparable<Spell>
     {
         #region Własności
         public byte? SpellID { get; set; }
@@ -45,6 +46,12 @@ namespace Start.DAL.Encje
             IsWizardSpell = byte.Parse(reader["is_wizzard_spell"].ToString());
             Description = reader["description"].ToString();
         }
+
+        public int CompareTo(Spell other) {
+            return this.RequiredLvl.CompareTo(other.RequiredLvl);
+        }
         #endregion
+
+
     }
 }

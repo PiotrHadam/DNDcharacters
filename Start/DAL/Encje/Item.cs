@@ -64,6 +64,10 @@ namespace Start.DAL.Encje
         {
             return base.GetHashCode();
         }
+
+        public override string ToString() {
+            return $"{ItemName}";
+        }
         #endregion
     }
 }
