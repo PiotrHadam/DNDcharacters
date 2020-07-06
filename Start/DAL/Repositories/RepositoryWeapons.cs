@@ -48,7 +48,7 @@ namespace Start.DAL.Repositories
             bool stan = false;
             using (var connection = DBConnection.Instance.Connection)
             {
-                string EDIT_WEAPON = $"UPDATE wepons SET weapon_name='{weapon.WeaponName}', dmg_dice={weapon.DMGDice}, dmg_dice_size={weapon.DMGDiceSize}, attack_range='{weapon.AttackRange}', damage_type='{weapon.DamageType}', item_description={weapon.ItemDescription} WHERE weapon_id={armorID}";
+                string EDIT_WEAPON = $"UPDATE wepons SET weapon_name='{weapon.WeaponName}', dmg_dice={weapon.DMG.Amount}, dmg_dice_size={weapon.DMG.Size}, attack_range='{weapon.AttackRange}', damage_type='{weapon.DamageType}', item_description={weapon.ItemDescription} WHERE weapon_id={armorID}";
 
                 MySqlCommand command = new MySqlCommand(EDIT_WEAPON, connection);
                 connection.Open();

@@ -1,15 +1,34 @@
 ﻿using MySql.Data.MySqlClient;
+using Start.DAL.Helpers;
+using Start.DAL.Repositories;
+using System;
+using System.Collections.Generic;
+using System.IO.Packaging;
 
 namespace Start.DAL.Encje
 {
-    class Character
-    {
+    class Character {
         #region Własności
+        // własności niewczytywane
+        public Class Class { get; set; }
+        public Race Race { get; set; }
+        public List<Weapon> Weapons { get; set; }
+        public Armor Armor { get; set; }
+        public List<Item> Equipment { get; set; }
+
+        // własności wczytywane
+        private byte _classID { get; set; }
         public byte? CharacterID { get; set; }
+        public byte _raceID { get; set; }
         public string Name { get; set; }
-        public byte Race { get; set; }
-        public byte Clas { get; set; }
         public string Image { get; set; }
+
+        public Dictionary<string,byte> Abilities { get; set; }
+        
+        /// <summary>
+        /// First lvl next amount of spells on given lvl
+        /// </summary>
+        public Dictionary<byte, byte> PossibleSpellsPerDay { get; set; }
         public int Money { get; set; }
         public int HitPoints { get; set; }
         public byte Strength { get; set; }
@@ -18,6 +37,8 @@ namespace Start.DAL.Encje
         public byte Intelligence { get; set; }
         public byte Wisdom { get; set; }
         public byte Charisma { get; set; }
+        
+        /*
         public byte A_Acrobatics { get; set; }
         public byte A_AnimalHanding { get; set; }
         public byte A_Arcana { get; set; }
@@ -35,8 +56,8 @@ namespace Start.DAL.Encje
         public byte A_Religion { get; set; }
         public byte A_SleightOfHand { get; set; }
         public byte A_Stealth { get; set; }
-        public byte A_Survival { get; set; }
-        public byte KnownSpells0 { get; set; }
+        public byte A_Survival { get; set; }*/
+        /*public byte KnownSpells0 { get; set; }
         public byte KnownSpells1 { get; set; }
         public byte KnownSpells2 { get; set; }
         public byte KnownSpells3 { get; set; }
@@ -46,7 +67,7 @@ namespace Start.DAL.Encje
         public byte KnownSpells7 { get; set; }
         public byte KnownSpells8 { get; set; }
         public byte KnownSpells9 { get; set; }
-        public byte KnownSpells10 { get; set; }
+        public byte KnownSpells10 { get; set; }*/
         public byte IsInspired { get; set; }
         public string Description { get; set; }
         public string Story { get; set; }
@@ -60,8 +81,8 @@ namespace Start.DAL.Encje
         {
             CharacterID = byte.Parse(reader["character_id"].ToString());
             Name = reader["character_name"].ToString();
-            Race = byte.Parse(reader["character_race"].ToString());
-            Clas = byte.Parse(reader["character_class"].ToString());
+            _raceID = byte.Parse(reader["character_race"].ToString());
+            _classID = byte.Parse(reader["character_class"].ToString());
             Image = reader["character_image_path"].ToString();
             Money = int.Parse(reader["character_money"].ToString());
             HitPoints = int.Parse(reader["hit_points"].ToString());
@@ -71,7 +92,25 @@ namespace Start.DAL.Encje
             Intelligence = byte.Parse(reader["inteligence"].ToString());
             Wisdom = byte.Parse(reader["wisdom"].ToString());
             Charisma = byte.Parse(reader["charisma"].ToString());
-            A_Acrobatics = byte.Parse(reader["ability_acrobatics"].ToString());
+            Abilities.Add(Rules.Abilities[0], byte.Parse(reader["ability_acrobatics"].ToString()));
+            Abilities.Add(Rules.Abilities[1], byte.Parse(reader["ability_animal_handing"].ToString()));
+            Abilities.Add(Rules.Abilities[2], byte.Parse(reader["ability_arcana"].ToString()));
+            Abilities.Add(Rules.Abilities[3], byte.Parse(reader["ability_athletics"].ToString()));
+            Abilities.Add(Rules.Abilities[4], byte.Parse(reader["ability_deception"].ToString()));
+            Abilities.Add(Rules.Abilities[5], byte.Parse(reader["ability_history"].ToString()));
+            Abilities.Add(Rules.Abilities[6], byte.Parse(reader["ability_insight"].ToString()));
+            Abilities.Add(Rules.Abilities[7], byte.Parse(reader["ability_intimidation"].ToString()));
+            Abilities.Add(Rules.Abilities[8], byte.Parse(reader["ability_investigation"].ToString()));
+            Abilities.Add(Rules.Abilities[9], byte.Parse(reader["ability_medicine"].ToString()));
+            Abilities.Add(Rules.Abilities[10], byte.Parse(reader["ability_nature"].ToString()));
+            Abilities.Add(Rules.Abilities[11], byte.Parse(reader["ability_perception"].ToString()));
+            Abilities.Add(Rules.Abilities[12], byte.Parse(reader["ability_performance"].ToString()));
+            Abilities.Add(Rules.Abilities[13], byte.Parse(reader["ability_persuasion"].ToString()));
+            Abilities.Add(Rules.Abilities[14], byte.Parse(reader["ability_religion"].ToString()));
+            Abilities.Add(Rules.Abilities[15], byte.Parse(reader["ability_sleight_of_hand"].ToString()));
+            Abilities.Add(Rules.Abilities[16], byte.Parse(reader["ability_stealh"].ToString()));
+            Abilities.Add(Rules.Abilities[17], byte.Parse(reader["ability_survival"].ToString()));
+            /*A_Acrobatics = byte.Parse(reader["ability_acrobatics"].ToString());
             A_AnimalHanding = byte.Parse(reader["ability_animal_handing"].ToString());
             A_Arcana = byte.Parse(reader["ability_arcana"].ToString());
             A_Athletics= byte.Parse(reader["ability_athletics"].ToString());
@@ -88,8 +127,18 @@ namespace Start.DAL.Encje
             A_Religion = byte.Parse(reader["ability_religion"].ToString());
             A_SleightOfHand = byte.Parse(reader["ability_sleight_of_hand"].ToString());
             A_Stealth = byte.Parse(reader["ability_stealh"].ToString());
-            A_Survival = byte.Parse(reader["ability_survival"].ToString());
-            KnownSpells0 = byte.Parse(reader["known_spells_0"].ToString());
+            A_Survival = byte.Parse(reader["ability_survival"].ToString());*/
+            PossibleSpellsPerDay.Add(1, byte.Parse(reader["known_spells_0"].ToString()));
+            PossibleSpellsPerDay.Add(2, byte.Parse(reader["known_spells_1"].ToString()));
+            PossibleSpellsPerDay.Add(3, byte.Parse(reader["known_spells_2"].ToString()));
+            PossibleSpellsPerDay.Add(4, byte.Parse(reader["known_spells_3"].ToString()));
+            PossibleSpellsPerDay.Add(5, byte.Parse(reader["known_spells_4"].ToString()));
+            PossibleSpellsPerDay.Add(6, byte.Parse(reader["known_spells_5"].ToString()));
+            PossibleSpellsPerDay.Add(7, byte.Parse(reader["known_spells_6"].ToString()));
+            PossibleSpellsPerDay.Add(8, byte.Parse(reader["known_spells_7"].ToString()));
+            PossibleSpellsPerDay.Add(9, byte.Parse(reader["known_spells_8"].ToString()));
+            PossibleSpellsPerDay.Add(10, byte.Parse(reader["known_spells_9"].ToString()));
+            /*KnownSpells0 = byte.Parse(reader["known_spells_0"].ToString());
             KnownSpells1 = byte.Parse(reader["known_spells_1"].ToString());
             KnownSpells2 = byte.Parse(reader["known_spells_2"].ToString());
             KnownSpells3 = byte.Parse(reader["known_spells_3"].ToString());
@@ -98,20 +147,71 @@ namespace Start.DAL.Encje
             KnownSpells6 = byte.Parse(reader["known_spells_6"].ToString());
             KnownSpells7 = byte.Parse(reader["known_spells_7"].ToString());
             KnownSpells8 = byte.Parse(reader["known_spells_8"].ToString());
-            KnownSpells9 = byte.Parse(reader["known_spells_9"].ToString());
-            KnownSpells10 = byte.Parse(reader["known_spells_10"].ToString());
+            KnownSpells9 = byte.Parse(reader["known_spells_9"].ToString());*/
             IsInspired = byte.Parse(reader["is_inspired"].ToString());
             Description = reader["character_description"].ToString();
             Story = reader["character_story"].ToString();
             Level = byte.Parse(reader["character_lvl"].ToString());
-        }
 
+            // Znajdywanie klasy po numerze ID klasy odczytanym z bazy
+            foreach(Class x in RepositoryClases.ReadAllClases()) {
+                if(x.ClassID == _classID) {
+                    Class = x;
+                    break;
+                }
+                else
+                    throw new Exception("Invalid class ID");
+            }
+
+            // Znajdywanie klasy po numerze ID odczytanym z bazy
+            foreach(Race x in RepositoryRaces.ReadAllRaces()) {
+                if(x.RaceID == _raceID) {
+                    Race = x;
+                    break;
+                }
+                else
+                    throw new Exception("Invalid class ID");
+            }
+
+            // Znajdywanie broni postaci w repozytorium wszystkich broni
+            Weapons = new List<Weapon>();
+            foreach(Weapon weapon in RepositoryWeapons.ReadAllWeapons()) {
+                
+                if(weapon.CharacterID == CharacterID) {
+                    Weapons.Add(weapon);
+                }
+                else
+                    throw new Exception("Invalid weapon ID");
+            }
+
+            Armor = null;
+            // Znajdowanie zbroi w repozytroium zbro
+            foreach(Armor armor in RepositoryArmors.ReadAllArmors()) {
+
+                if(armor.CharacterID == CharacterID) {
+                    Armor = armor;
+                    break;
+                }                
+            }
+
+            // Dodawanie 
+            Equipment = new List<Item>();
+            foreach(Item item in RepositoryItems.ReadAllItems()) {
+                if(item.CharacterID == CharacterID) {
+                    Equipment.Add(item);
+                }
+                else
+                    throw new Exception("Invalid class ID");
+            }
+
+        }
+        /*
         public Character(string name, byte race, byte clas, string image, int money, int hitpoints, byte strength, byte dexterity, byte constitution, byte intelligence, byte wisdom, byte charisma, byte acrobatics, byte animalhanding, byte arcana, byte athletics, byte deception, byte history, byte insight, byte intimidation, byte investigation, byte medicine, byte nature, byte perception, byte performance, byte persuasion, byte religion, byte sleightofhand, byte stealth, byte survival, byte knownspells0, byte knownspells1, byte knownspells2, byte knownspells3, byte knownspells4, byte knownspells5, byte knownspells6, byte knownspells7, byte knownspells8, byte knownspells9, byte knownspells10, byte isinspired, string description, string story, byte level)
         {
             CharacterID = null;
             Name = name.Trim();
-            Race = race;
-            Clas = clas;
+            _raceID = race;
+            _classID = clas;
             Image = image.Trim();
             Money = money;
             HitPoints = hitpoints;
@@ -154,14 +254,14 @@ namespace Start.DAL.Encje
             Description = description.Trim();
             Story = story.Trim();
             Level = level;
-        }
+        }*/
 
         public Character(Character character)
         {
             CharacterID = character.CharacterID;
             Name = character.Name;
-            Race = character.Race;
-            Clas = character.Clas;
+            _raceID = character._raceID;
+            _classID = character._classID;
             Image = character.Image;
             Money = character.Money;
             HitPoints = character.HitPoints;
@@ -170,42 +270,64 @@ namespace Start.DAL.Encje
             Constitution = character.Constitution;
             Intelligence = character.Intelligence;
             Wisdom = character.Wisdom;
-            Charisma = character.Charisma;
-            A_Acrobatics = character.A_Acrobatics;
-            A_AnimalHanding = character.A_AnimalHanding;
-            A_Arcana = character.A_Arcana;
-            A_Athletics = character.A_Athletics;
-            A_Deception = character.A_Deception;
-            A_History = character.A_History;
-            A_Insight = character.A_Insight;
-            A_Intimidation = character.A_Intimidation;
-            A_Investigation = character.A_Investigation;
-            A_Medicine = character.A_Medicine;
-            A_Nature = character.A_Nature;
-            A_Perception = character.A_Perception;
-            A_Performance = character.A_Performance;
-            A_Persuasion = character.A_Persuasion;
-            A_Religion = character.A_Religion;
-            A_SleightOfHand = character.A_SleightOfHand;
-            A_Stealth = character.A_Stealth;
-            A_Survival = character.A_Survival;
-            KnownSpells0 = character.KnownSpells0;
-            KnownSpells1 = character.KnownSpells1;
-            KnownSpells2 = character.KnownSpells2;
-            KnownSpells3 = character.KnownSpells3;
-            KnownSpells4 = character.KnownSpells4;
-            KnownSpells5 = character.KnownSpells5;
-            KnownSpells6 = character.KnownSpells6;
-            KnownSpells7 = character.KnownSpells7;
-            KnownSpells8 = character.KnownSpells8;
-            KnownSpells9 = character.KnownSpells9;
-            KnownSpells10 = character.KnownSpells10;
+            Charisma = character.Charisma;            
             IsInspired = character.IsInspired;
             Description = character.Description;
             Story = character.Story;
             Level = character.Level;
-        }
 
+            // Znajdywanie klasy po numerze ID klasy odczytanym z bazy
+            foreach(Class x in RepositoryClases.ReadAllClases()) {
+                if(x.ClassID == _classID) {
+                    Class = x;
+                    break;
+                }
+                else
+                    throw new Exception("Invalid class ID");
+            }
+
+            // Znajdywanie klasy po numerze ID odczytanym z bazy
+            foreach(Race x in RepositoryRaces.ReadAllRaces()) {
+                if(x.RaceID == _raceID) {
+                    Race = x;
+                    break;
+                }
+                else
+                    throw new Exception("Invalid class ID");
+            }
+
+            // Znajdywanie broni postaci w repozytorium wszystkich broni
+            Weapons = new List<Weapon>();
+            foreach(Weapon weapon in RepositoryWeapons.ReadAllWeapons()) {
+
+                if(weapon.CharacterID == CharacterID) {
+                    Weapons.Add(weapon);
+                }
+                else
+                    throw new Exception("Invalid weapon ID");
+            }
+
+            Armor = null;
+            // Znajdowanie zbroi w repozytroium zbro
+            foreach(Armor armor in RepositoryArmors.ReadAllArmors()) {
+
+                if(armor.CharacterID == CharacterID) {
+                    Armor = armor;
+                    break;
+                }
+            }
+
+            // Dodawanie 
+            Equipment = new List<Item>();
+            foreach(Item item in RepositoryItems.ReadAllItems()) {
+                if(item.CharacterID == CharacterID) {
+                    Equipment.Add(item);
+                }
+                else
+                    throw new Exception("Invalid class ID");
+            }
+        }
+        
         #endregion
 
         #region Metody
@@ -213,7 +335,18 @@ namespace Start.DAL.Encje
 
         public string ToInsert()
         {
-            return $"('{Name}', {Race}, {Clas}, '{Image}', {Money}, {HitPoints}, {Charisma}, {Constitution}, {Dexterity}, {Intelligence}, {Strength}, {Wisdom}, {A_Acrobatics}, {A_AnimalHanding}, {A_Arcana}, {A_Athletics}, {A_Deception}, {A_History}, {A_Insight}, {A_Intimidation}, {A_Investigation}, {A_Medicine}, {A_Nature}, {A_Perception}, {A_Performance}, {A_Persuasion}, {A_Religion}, {A_SleightOfHand}, {A_Stealth}, {A_Survival}, {KnownSpells0}, {KnownSpells1}, {KnownSpells2}, {KnownSpells3}, {KnownSpells4}, {KnownSpells5}, {KnownSpells6}, {KnownSpells7}, {KnownSpells8}, {KnownSpells9}, {KnownSpells10}, {IsInspired}, \"{Description}\", \"{Story}\", {Level})";
+            string possibleSpellsPerDay = string.Empty;
+            string abilities = string.Empty;
+            for(byte i= 0; i < PossibleSpellsPerDay.Count; i++) {
+                possibleSpellsPerDay += PossibleSpellsPerDay[i].ToString() + ", ";
+            };
+            foreach(KeyValuePair<string,byte> ability in Abilities) {
+                abilities += ability.Value.ToString() + ", ";
+            }
+            return $"('{Name}', {_raceID}, {_raceID}, '{Image}', {Money}, {HitPoints}, {Charisma}, " +
+                $"{Constitution}, {Dexterity}, {Intelligence}, {Strength}, {Wisdom}, " +
+                $"{abilities} {possibleSpellsPerDay}" + // przecinki już są na końcu tych wyrażeń              
+                $" {IsInspired}, \"{Description}\", \"{Story}\", {Level})";
         }
 
         public string ToDelete()
@@ -221,45 +354,7 @@ namespace Start.DAL.Encje
             return $"'{CharacterID}";
         }
 
-        public override bool Equals(object obj)
-        {
-            var character = obj as Character;
-            if (character is null) return false;
-            if (Name.ToLower() != character.Name.ToLower()) return false;
-            if (Race != character.Race) return false;
-            if (Clas != character.Clas) return false;
-            if (Money != character.Money) return false;
-            if (HitPoints != character.HitPoints) return false;
-            if (Strength != character.Strength) return false;
-            if (Dexterity != character.Dexterity) return false;
-            if (Constitution != character.Constitution) return false;
-            if (Intelligence != character.Intelligence) return false;
-            if (Wisdom != character.Wisdom) return false;
-            if (Charisma != character.Charisma) return false;
-            if (A_Acrobatics != character.A_Acrobatics) return false;
-            if (A_AnimalHanding != character.A_AnimalHanding) return false;
-            if (A_Arcana != character.A_Arcana) return false;
-            if (A_Athletics != character.A_Athletics) return false;
-            if (A_Deception != character.A_Deception) return false;
-            if (A_History != character.A_History) return false;
-            if (A_Insight != character.A_Insight) return false;
-            if (A_Intimidation != character.A_Intimidation) return false;
-            if (A_Investigation != character.A_Investigation) return false;
-            if (A_Medicine != character.A_Medicine) return false;
-            if (A_Nature != character.A_Nature) return false;
-            if (A_Perception != character.A_Perception) return false;
-            if (A_Performance != character.A_Performance) return false;
-            if (A_Persuasion != character.A_Persuasion) return false;
-            if (A_Religion != character.A_Religion) return false;
-            if (A_SleightOfHand != character.A_SleightOfHand) return false;
-            if (A_Stealth != character.A_Stealth) return false;
-            if (A_Survival != character.A_Survival) return false;
-            if (IsInspired != character.IsInspired) return false;
-            if (Description != character.Description) return false;
-            if (Story != character.Story) return false;
-            if (Level != character.Level) return false;
-            return true;
-        }
+       
 
         public override int GetHashCode()
         {

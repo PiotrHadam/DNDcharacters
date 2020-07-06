@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+//Siema piotrek no co tam 
 namespace Start.DAL
 {
     class DBConnection
