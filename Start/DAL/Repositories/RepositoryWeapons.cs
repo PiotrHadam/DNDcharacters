@@ -13,22 +13,22 @@ namespace Start.DAL.Repositories
         #endregion
 
         #region Metody
-        public static List<DALWeapon> ReadAllWeapons()
+        public static List<Weapon> ReadAllWeapons()
         {
-            List<DALWeapon> weapons = new List<DALWeapon>();
+            List<Weapon> weapons = new List<Weapon>();
             using (var connection = DBConnection.Instance.Connection)
             {
                 MySqlCommand command = new MySqlCommand(ALL_WEAPONS, connection);
                 connection.Open();
                 var reader = command.ExecuteReader();
                 while (reader.Read())
-                    weapons.Add(new DALWeapon(reader));
+                    weapons.Add(new Weapon(reader));
                 connection.Close();
             }
             return weapons;
         }
 
-        public static bool AddToDatabase(DALWeapon weapon)
+        public static bool AddToDatabase(Weapon weapon)
         {
             bool stan = false;
             using (var connection = DBConnection.Instance.Connection)
@@ -43,12 +43,12 @@ namespace Start.DAL.Repositories
             return stan;
         }
 
-        public static bool EditWeapon(DALWeapon weapon, sbyte armorID)
+        public static bool EditWeapon(Weapon weapon, sbyte armorID)
         {
             bool stan = false;
             using (var connection = DBConnection.Instance.Connection)
             {
-                string EDIT_WEAPON = $"UPDATE wepons SET weapon_name='{weapon.WeaponName}', dmg_dice={weapon.DMGDice}, dmg_dice_size={weapon.DMGDiceSize}, attack_range='{weapon.AttackRange}', damage_type='{weapon.DamageType}', item_description={weapon.ItemDescription} WHERE armor_id={armorID}";
+                string EDIT_WEAPON = $"UPDATE wepons SET weapon_name='{weapon.WeaponName}', dmg_dice={weapon.DMGDice}, dmg_dice_size={weapon.DMGDiceSize}, attack_range='{weapon.AttackRange}', damage_type='{weapon.DamageType}', item_description={weapon.ItemDescription} WHERE weapon_id={armorID}";
 
                 MySqlCommand command = new MySqlCommand(EDIT_WEAPON, connection);
                 connection.Open();
@@ -60,7 +60,7 @@ namespace Start.DAL.Repositories
             return stan;
         }
 
-        public static bool DeleteFromDatabase(DALWeapon weapon)
+        public static bool DeleteFromDatabase(Weapon weapon)
         {
             bool stan = false;
             using (var connection = DBConnection.Instance.Connection)

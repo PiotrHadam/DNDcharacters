@@ -142,6 +142,9 @@
   <data name="Exit" xml:space="preserve">
     <value>WYJŚCIE</value>
   </data>
+  <data name="Name" xml:space="preserve">
+    <value>Imię</value>
+  </data>
   <data name="Save" xml:space="preserve">
     <value>ZAPISZ</value>
   </data>

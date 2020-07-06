@@ -7,110 +7,110 @@ using System.Threading.Tasks;
 
 namespace Start.DAL.Encje
 {
-    class DALCharacter
+    class Character
     {
         #region Własności
-        public sbyte? CharacterID { get; set; }
+        public byte? CharacterID { get; set; }
         public string Name { get; set; }
-        public sbyte Race { get; set; }
-        public sbyte Clas { get; set; }
+        public byte Race { get; set; }
+        public byte Clas { get; set; }
         public string Image { get; set; }
         public int Money { get; set; }
         public int HitPoints { get; set; }
-        public sbyte Strength { get; set; }
-        public sbyte Dexterity { get; set; }
-        public sbyte Constitution { get; set; }
-        public sbyte Intelligence { get; set; }
-        public sbyte Wisdom { get; set; }
-        public sbyte Charisma { get; set; }
-        public sbyte A_Acrobatics { get; set; }
-        public sbyte A_AnimalHanding { get; set; }
-        public sbyte A_Arcana { get; set; }
-        public sbyte A_Athletics { get; set; }
-        public sbyte A_Deception { get; set; }
-        public sbyte A_History { get; set; }
-        public sbyte A_Insight { get; set; }
-        public sbyte A_Intimidation { get; set; }
-        public sbyte A_Investigation { get; set; }
-        public sbyte A_Medicine { get; set; }
-        public sbyte A_Nature { get; set; }
-        public sbyte A_Perception { get; set; }
-        public sbyte A_Performance { get; set; }
-        public sbyte A_Persuasion { get; set; }
-        public sbyte A_Religion { get; set; }
-        public sbyte A_SleightOfHand { get; set; }
-        public sbyte A_Stealth { get; set; }
-        public sbyte A_Survival { get; set; }
-        public sbyte KnownSpells0 { get; set; }
-        public sbyte KnownSpells1 { get; set; }
-        public sbyte KnownSpells2 { get; set; }
-        public sbyte KnownSpells3 { get; set; }
-        public sbyte KnownSpells4 { get; set; }
-        public sbyte KnownSpells5 { get; set; }
-        public sbyte KnownSpells6 { get; set; }
-        public sbyte KnownSpells7 { get; set; }
-        public sbyte KnownSpells8 { get; set; }
-        public sbyte KnownSpells9 { get; set; }
-        public sbyte KnownSpells10 { get; set; }
-        public sbyte IsInspired { get; set; }
+        public byte Strength { get; set; }
+        public byte Dexterity { get; set; }
+        public byte Constitution { get; set; }
+        public byte Intelligence { get; set; }
+        public byte Wisdom { get; set; }
+        public byte Charisma { get; set; }
+        public byte A_Acrobatics { get; set; }
+        public byte A_AnimalHanding { get; set; }
+        public byte A_Arcana { get; set; }
+        public byte A_Athletics { get; set; }
+        public byte A_Deception { get; set; }
+        public byte A_History { get; set; }
+        public byte A_Insight { get; set; }
+        public byte A_Intimidation { get; set; }
+        public byte A_Investigation { get; set; }
+        public byte A_Medicine { get; set; }
+        public byte A_Nature { get; set; }
+        public byte A_Perception { get; set; }
+        public byte A_Performance { get; set; }
+        public byte A_Persuasion { get; set; }
+        public byte A_Religion { get; set; }
+        public byte A_SleightOfHand { get; set; }
+        public byte A_Stealth { get; set; }
+        public byte A_Survival { get; set; }
+        public byte KnownSpells0 { get; set; }
+        public byte KnownSpells1 { get; set; }
+        public byte KnownSpells2 { get; set; }
+        public byte KnownSpells3 { get; set; }
+        public byte KnownSpells4 { get; set; }
+        public byte KnownSpells5 { get; set; }
+        public byte KnownSpells6 { get; set; }
+        public byte KnownSpells7 { get; set; }
+        public byte KnownSpells8 { get; set; }
+        public byte KnownSpells9 { get; set; }
+        public byte KnownSpells10 { get; set; }
+        public byte IsInspired { get; set; }
         public string Description { get; set; }
         public string Story { get; set; }
-        public sbyte Level { get; set; }
+        public byte Level { get; set; }
         #endregion
 
         #region Konstruktory
 
-        public DALCharacter(MySqlDataReader reader)
+        public Character(MySqlDataReader reader)
         {
-            CharacterID = sbyte.Parse(reader["character_id"].ToString());
+            CharacterID = byte.Parse(reader["character_id"].ToString());
             Name = reader["character_name"].ToString();
-            Race = sbyte.Parse(reader["character_race"].ToString());
-            Clas = sbyte.Parse(reader["character_class"].ToString());
+            Race = byte.Parse(reader["character_race"].ToString());
+            Clas = byte.Parse(reader["character_class"].ToString());
             Image = reader["character_image_path"].ToString();
             Money = int.Parse(reader["character_money"].ToString());
             HitPoints = int.Parse(reader["hit_points"].ToString());
-            Strength = sbyte.Parse(reader["stregth"].ToString());
-            Dexterity = sbyte.Parse(reader["dexterity"].ToString());
-            Constitution = sbyte.Parse(reader["constitution"].ToString());
-            Intelligence = sbyte.Parse(reader["inteligence"].ToString());
-            Wisdom = sbyte.Parse(reader["wisdom"].ToString());
-            Charisma = sbyte.Parse(reader["charisma"].ToString());
-            A_Acrobatics = sbyte.Parse(reader["ability_acrobatics"].ToString());
-            A_AnimalHanding = sbyte.Parse(reader["ability_animal_handing"].ToString());
-            A_Arcana = sbyte.Parse(reader["ability_arcana"].ToString());
-            A_Athletics= sbyte.Parse(reader["ability_athletics"].ToString());
-            A_Deception = sbyte.Parse(reader["ability_deception"].ToString());
-            A_History = sbyte.Parse(reader["ability_history"].ToString());
-            A_Insight = sbyte.Parse(reader["ability_insight"].ToString());
-            A_Intimidation = sbyte.Parse(reader["ability_intimidation"].ToString());
-            A_Investigation = sbyte.Parse(reader["ability_investigation"].ToString());
-            A_Medicine = sbyte.Parse(reader["ability_medicine"].ToString());
-            A_Nature = sbyte.Parse(reader["ability_nature"].ToString());
-            A_Perception = sbyte.Parse(reader["ability_perception"].ToString());
-            A_Performance = sbyte.Parse(reader["ability_performance"].ToString());
-            A_Persuasion = sbyte.Parse(reader["ability_persuasion"].ToString());
-            A_Religion = sbyte.Parse(reader["ability_religion"].ToString());
-            A_SleightOfHand = sbyte.Parse(reader["ability_sleight_of_hand"].ToString());
-            A_Stealth = sbyte.Parse(reader["ability_stealh"].ToString());
-            A_Survival = sbyte.Parse(reader["ability_survival"].ToString());
-            KnownSpells0 = sbyte.Parse(reader["known_spells_0"].ToString());
-            KnownSpells1 = sbyte.Parse(reader["known_spells_1"].ToString());
-            KnownSpells2 = sbyte.Parse(reader["known_spells_2"].ToString());
-            KnownSpells3 = sbyte.Parse(reader["known_spells_3"].ToString());
-            KnownSpells4 = sbyte.Parse(reader["known_spells_4"].ToString());
-            KnownSpells5 = sbyte.Parse(reader["known_spells_5"].ToString());
-            KnownSpells6 = sbyte.Parse(reader["known_spells_6"].ToString());
-            KnownSpells7 = sbyte.Parse(reader["known_spells_7"].ToString());
-            KnownSpells8 = sbyte.Parse(reader["known_spells_8"].ToString());
-            KnownSpells9 = sbyte.Parse(reader["known_spells_9"].ToString());
-            KnownSpells10 = sbyte.Parse(reader["known_spells_10"].ToString());
-            IsInspired = sbyte.Parse(reader["is_inspired"].ToString());
+            Strength = byte.Parse(reader["stregth"].ToString());
+            Dexterity = byte.Parse(reader["dexterity"].ToString());
+            Constitution = byte.Parse(reader["constitution"].ToString());
+            Intelligence = byte.Parse(reader["inteligence"].ToString());
+            Wisdom = byte.Parse(reader["wisdom"].ToString());
+            Charisma = byte.Parse(reader["charisma"].ToString());
+            A_Acrobatics = byte.Parse(reader["ability_acrobatics"].ToString());
+            A_AnimalHanding = byte.Parse(reader["ability_animal_handing"].ToString());
+            A_Arcana = byte.Parse(reader["ability_arcana"].ToString());
+            A_Athletics= byte.Parse(reader["ability_athletics"].ToString());
+            A_Deception = byte.Parse(reader["ability_deception"].ToString());
+            A_History = byte.Parse(reader["ability_history"].ToString());
+            A_Insight = byte.Parse(reader["ability_insight"].ToString());
+            A_Intimidation = byte.Parse(reader["ability_intimidation"].ToString());
+            A_Investigation = byte.Parse(reader["ability_investigation"].ToString());
+            A_Medicine = byte.Parse(reader["ability_medicine"].ToString());
+            A_Nature = byte.Parse(reader["ability_nature"].ToString());
+            A_Perception = byte.Parse(reader["ability_perception"].ToString());
+            A_Performance = byte.Parse(reader["ability_performance"].ToString());
+            A_Persuasion = byte.Parse(reader["ability_persuasion"].ToString());
+            A_Religion = byte.Parse(reader["ability_religion"].ToString());
+            A_SleightOfHand = byte.Parse(reader["ability_sleight_of_hand"].ToString());
+            A_Stealth = byte.Parse(reader["ability_stealh"].ToString());
+            A_Survival = byte.Parse(reader["ability_survival"].ToString());
+            KnownSpells0 = byte.Parse(reader["known_spells_0"].ToString());
+            KnownSpells1 = byte.Parse(reader["known_spells_1"].ToString());
+            KnownSpells2 = byte.Parse(reader["known_spells_2"].ToString());
+            KnownSpells3 = byte.Parse(reader["known_spells_3"].ToString());
+            KnownSpells4 = byte.Parse(reader["known_spells_4"].ToString());
+            KnownSpells5 = byte.Parse(reader["known_spells_5"].ToString());
+            KnownSpells6 = byte.Parse(reader["known_spells_6"].ToString());
+            KnownSpells7 = byte.Parse(reader["known_spells_7"].ToString());
+            KnownSpells8 = byte.Parse(reader["known_spells_8"].ToString());
+            KnownSpells9 = byte.Parse(reader["known_spells_9"].ToString());
+            KnownSpells10 = byte.Parse(reader["known_spells_10"].ToString());
+            IsInspired = byte.Parse(reader["is_inspired"].ToString());
             Description = reader["character_description"].ToString();
             Story = reader["character_story"].ToString();
-            Level = sbyte.Parse(reader["character_lvl"].ToString());
+            Level = byte.Parse(reader["character_lvl"].ToString());
         }
 
-        public DALCharacter(string name, sbyte race, sbyte clas, string image, int money, int hitpoints, sbyte strength, sbyte dexterity, sbyte constitution, sbyte intelligence, sbyte wisdom, sbyte charisma, sbyte acrobatics, sbyte animalhanding, sbyte arcana, sbyte athletics, sbyte deception, sbyte history, sbyte insight, sbyte intimidation, sbyte investigation, sbyte medicine, sbyte nature, sbyte perception, sbyte performance, sbyte persuasion, sbyte religion, sbyte sleightofhand, sbyte stealth, sbyte survival, sbyte knownspells0, sbyte knownspells1, sbyte knownspells2, sbyte knownspells3, sbyte knownspells4, sbyte knownspells5, sbyte knownspells6, sbyte knownspells7, sbyte knownspells8, sbyte knownspells9, sbyte knownspells10, sbyte isinspired, string description, string story, sbyte level)
+        public Character(string name, byte race, byte clas, string image, int money, int hitpoints, byte strength, byte dexterity, byte constitution, byte intelligence, byte wisdom, byte charisma, byte acrobatics, byte animalhanding, byte arcana, byte athletics, byte deception, byte history, byte insight, byte intimidation, byte investigation, byte medicine, byte nature, byte perception, byte performance, byte persuasion, byte religion, byte sleightofhand, byte stealth, byte survival, byte knownspells0, byte knownspells1, byte knownspells2, byte knownspells3, byte knownspells4, byte knownspells5, byte knownspells6, byte knownspells7, byte knownspells8, byte knownspells9, byte knownspells10, byte isinspired, string description, string story, byte level)
         {
             CharacterID = null;
             Name = name.Trim();
@@ -160,7 +160,7 @@ namespace Start.DAL.Encje
             Level = level;
         }
 
-        public DALCharacter(DALCharacter character)
+        public Character(Character character)
         {
             CharacterID = character.CharacterID;
             Name = character.Name;
@@ -227,7 +227,7 @@ namespace Start.DAL.Encje
 
         public override bool Equals(object obj)
         {
-            var character = obj as DALCharacter;
+            var character = obj as Character;
             if (character is null) return false;
             if (Name.ToLower() != character.Name.ToLower()) return false;
             if (Race != character.Race) return false;

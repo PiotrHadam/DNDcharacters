@@ -17,22 +17,22 @@ namespace Start.DAL.Repositories
         #endregion
 
         #region Metody
-        public static List<DALItem> ReadAllItems()
+        public static List<Item> ReadAllItems()
         {
-            List<DALItem> items = new List<DALItem>();
+            List<Item> items = new List<Item>();
             using (var connection = DBConnection.Instance.Connection)
             {
                 MySqlCommand command = new MySqlCommand(ALL_ITEMS, connection);
                 connection.Open();
                 var reader = command.ExecuteReader();
                 while (reader.Read())
-                    items.Add(new DALItem(reader));
+                    items.Add(new Item(reader));
                 connection.Close();
             }
             return items;
         }
 
-        public static bool AddToDatabase(DALItem item)
+        public static bool AddToDatabase(Item item)
         {
             bool stan = false;
             using (var connection = DBConnection.Instance.Connection)
@@ -47,7 +47,7 @@ namespace Start.DAL.Repositories
             return stan;
         }
 
-        public static bool EditItem(DALItem item, sbyte itemID)
+        public static bool EditItem(Item item, sbyte itemID)
         {
             bool stan = false;
             using (var connection = DBConnection.Instance.Connection)
@@ -64,7 +64,7 @@ namespace Start.DAL.Repositories
             return stan;
         }
 
-        public static bool DeleteFromDatabase(DALItem item)
+        public static bool DeleteFromDatabase(Item item)
         {
             bool stan = false;
             using (var connection = DBConnection.Instance.Connection)

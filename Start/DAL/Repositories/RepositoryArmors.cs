@@ -17,22 +17,22 @@ namespace Start.DAL.Repositories
         #endregion
 
         #region Metody
-        public static List<DALArmor> ReadAllArmors()
+        public static List<Armor> ReadAllArmors()
         {
-            List<DALArmor> armors = new List<DALArmor>();
+            List<Armor> armors = new List<Armor>();
             using (var connection = DBConnection.Instance.Connection)
             {
                 MySqlCommand command = new MySqlCommand(ALL_ARMORS, connection);
                 connection.Open();
                 var reader = command.ExecuteReader();
                 while (reader.Read())
-                    armors.Add(new DALArmor(reader));
+                    armors.Add(new Armor(reader));
                 connection.Close();
             }
             return armors;
         }
 
-        public static bool AddToDatabase(DALArmor armor)
+        public static bool AddToDatabase(Armor armor)
         {
             bool stan = false;
             using (var connection = DBConnection.Instance.Connection)
@@ -47,7 +47,7 @@ namespace Start.DAL.Repositories
             return stan;
         }
 
-        public static bool EditArmor(DALArmor armor, sbyte armorID)
+        public static bool EditArmor(Armor armor, sbyte armorID)
         {
             bool stan = false;
             using (var connection = DBConnection.Instance.Connection)
@@ -64,7 +64,7 @@ namespace Start.DAL.Repositories
             return stan;
         }
 
-        public static bool DeleteFromDatabase(DALArmor armor)
+        public static bool DeleteFromDatabase(Armor armor)
         {
             bool stan = false;
             using (var connection = DBConnection.Instance.Connection)
