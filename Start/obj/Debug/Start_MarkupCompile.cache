@@ -4,21 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Piotr Hadam\source\repos\Start\Start\obj\Debug\
+D:\repos2\NewAttempt\DNDcharacters\Start\obj\Debug\
 Start
 none
 false
 DEBUG;TRACE
-C:\Users\Piotr Hadam\source\repos\Start\Start\App.xaml
+D:\repos2\NewAttempt\DNDcharacters\Start\App.xaml
 52020046658
 
-<<<<<<< HEAD
-33-764692920
-=======
-33446838553
->>>>>>> Mordtimer-master
-141-1262988919
+321289197920
+1411917395382
 MainWindow.xaml;View\AddCharacter.xaml;View\CharacterView.xaml;View\ListOfCharacters.xaml;View\MainPage.xaml;
 
-True
+False
 
