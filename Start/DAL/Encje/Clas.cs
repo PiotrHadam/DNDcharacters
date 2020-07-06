@@ -1,13 +1,8 @@
 ﻿using MySql.Data.MySqlClient;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Start.DAL.Encje
 {
-    class Class
+    class Clas
     {
         #region Własności
         public byte ClassID { get; set; }
@@ -19,7 +14,7 @@ namespace Start.DAL.Encje
         #endregion
 
         #region Konstruktory
-        public Class(MySqlDataReader reader)
+        public Clas(MySqlDataReader reader)
         {
             ClassID = byte.Parse(reader["class_id"].ToString());
             ClassName = reader["class_name"].ToString();

@@ -107,11 +107,38 @@ namespace Start.Properties {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Charyzma.
+        /// </summary>
+        public static string Charisma {
+            get {
+                return ResourceManager.GetString("Charisma", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu WYBIERZ.
         /// </summary>
         public static string Choose {
             get {
                 return ResourceManager.GetString("Choose", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Klasa.
+        /// </summary>
+        public static string Clas {
+            get {
+                return ResourceManager.GetString("Clas", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Kondycja.
+        /// </summary>
+        public static string Constitution {
+            get {
+                return ResourceManager.GetString("Constitution", resourceCulture);
             }
         }
         
@@ -125,11 +152,47 @@ namespace Start.Properties {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Zręczność.
+        /// </summary>
+        public static string Dexterity {
+            get {
+                return ResourceManager.GetString("Dexterity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu WYJŚCIE.
         /// </summary>
         public static string Exit {
             get {
                 return ResourceManager.GetString("Exit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Uderzenie.
+        /// </summary>
+        public static string HitPoints {
+            get {
+                return ResourceManager.GetString("HitPoints", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Inteligencja.
+        /// </summary>
+        public static string Intelligence {
+            get {
+                return ResourceManager.GetString("Intelligence", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Pieniądze.
+        /// </summary>
+        public static string Money {
+            get {
+                return ResourceManager.GetString("Money", resourceCulture);
             }
         }
         
@@ -143,11 +206,29 @@ namespace Start.Properties {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Rasa.
+        /// </summary>
+        public static string Race {
+            get {
+                return ResourceManager.GetString("Race", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu ZAPISZ.
         /// </summary>
         public static string Save {
             get {
                 return ResourceManager.GetString("Save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Siła.
+        /// </summary>
+        public static string Strength {
+            get {
+                return ResourceManager.GetString("Strength", resourceCulture);
             }
         }
         
@@ -167,6 +248,15 @@ namespace Start.Properties {
             get {
                 object obj = ResourceManager.GetObject("title1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Mądrość.
+        /// </summary>
+        public static string Wisdom {
+            get {
+                return ResourceManager.GetString("Wisdom", resourceCulture);
             }
         }
     }

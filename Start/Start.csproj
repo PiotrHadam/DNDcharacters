@@ -113,13 +113,15 @@
     <Compile Include="DAL\DBConnection.cs" />
     <Compile Include="DAL\Encje\Armor.cs" />
     <Compile Include="DAL\Encje\Character.cs" />
-    <Compile Include="DAL\Encje\Class.cs" />
+    <Compile Include="DAL\Encje\CharacterSpell.cs" />
+    <Compile Include="DAL\Encje\Clas.cs" />
     <Compile Include="DAL\Encje\Item.cs" />
     <Compile Include="DAL\Encje\Race.cs" />
     <Compile Include="DAL\Encje\Spell.cs" />
     <Compile Include="DAL\Encje\Weapon.cs" />
     <Compile Include="DAL\Repositories\RepositoryArmors.cs" />
     <Compile Include="DAL\Repositories\RepositoryCharacters.cs" />
+    <Compile Include="DAL\Repositories\RepositoryCharacterSpells.cs" />
     <Compile Include="DAL\Repositories\RepositoryClases.cs" />
     <Compile Include="DAL\Repositories\RepositoryItems.cs" />
     <Compile Include="DAL\Repositories\RepositoryRaces.cs" />

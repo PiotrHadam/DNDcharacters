@@ -11,16 +11,16 @@ namespace Start.DAL.Repositories
         #endregion
 
         #region Metody
-        public static List<Class> ReadAllClases()
+        public static List<Clas> ReadAllClases()
         {
-            List<Class> classes = new List<Class>();
+            List<Clas> classes = new List<Clas>();
             using (var connection = DBConnection.Instance.Connection)
             {
                 MySqlCommand command = new MySqlCommand(ALL_CLASSES, connection);
                 connection.Open();
                 var reader = command.ExecuteReader();
                 while (reader.Read())
-                    classes.Add(new Class(reader));
+                    classes.Add(new Clas(reader));
                 connection.Close();
             }
             return classes;

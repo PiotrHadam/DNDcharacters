@@ -6,7 +6,7 @@
     xmlns:resx="clr-namespace:Start.Properties"
     xmlns:local="clr-namespace:Start.View"
     mc:Ignorable="d" 
-    d:DesignHeight="600" d:DesignWidth="500" x:Name="MainMenu">
+    d:DesignHeight="600" d:DesignWidth="700" x:Name="MainMenu">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -18,9 +18,9 @@
         <Image Source="{Binding Source={x:Static resx:Resources.Title}}" Grid.Row="0" />
 
         <StackPanel Grid.Row="1">
-            <Button x:Name="All" Click="Button_Click" Content="{Binding Source={x:Static resx:Resources.CharactersList}}" Height="40" Width="160" Margin="20,100,20,20" FontFamily="Viner Hand ITC" FontSize="16"/>
-            <Button x:Name="Add" Click="Button_Click" Content="{Binding Source={x:Static resx:Resources.AddCharacter}}" Height="40" Width="160" Margin="20" FontFamily="Viner Hand ITC" FontSize="16"/>
-            <Button Click="Exit_Click" Content="{Binding Source={x:Static resx:Resources.Exit}}" Height="40" Width="160" Margin="20" FontFamily="Viner Hand ITC" FontSize="16"/>
+            <Button x:Name="All" Click="Button_Click" Content="{Binding Source={x:Static resx:Resources.CharactersList}}" Height="40" Width="200" Margin="20,100,20,20" FontFamily="Viner Hand ITC" FontSize="16"/>
+            <Button x:Name="Add" Click="Button_Click" Content="{Binding Source={x:Static resx:Resources.AddCharacter}}" Height="40" Width="200" Margin="20" FontFamily="Viner Hand ITC" FontSize="16"/>
+            <Button Click="Exit_Click" Content="{Binding Source={x:Static resx:Resources.Exit}}" Height="40" Width="200" Margin="20" FontFamily="Viner Hand ITC" FontSize="16"/>
         </StackPanel>
     </Grid>
 </Page>

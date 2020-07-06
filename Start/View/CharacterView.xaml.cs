@@ -33,7 +33,7 @@ namespace Start.View
                 //funkcja do usuwania postaci
                 this.NavigationService.Navigate(new ListOfCharacters());
             }
-            else if (b == Back) this.NavigationService.Navigate(new MainPage());
+            else if (b == Back) this.NavigationService.Navigate(new ListOfCharacters());
         }
     }
 }
