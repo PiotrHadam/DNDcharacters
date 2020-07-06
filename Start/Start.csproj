@@ -156,8 +156,12 @@
     <Compile Include="DAL\Repositories\RepositorySpells.cs" />
     <Compile Include="DAL\Repositories\RepositoryWeapons.cs" />
     <Compile Include="Model\Model.cs" />
+    <Compile Include="ViewModel\AddCharacterViewModel.cs" />
     <Compile Include="ViewModel\BaseClasses\RelayCommand.cs" />
     <Compile Include="ViewModel\BaseClasses\ViewModelBase.cs" />
+    <Compile Include="ViewModel\CharacterViewModel.cs" />
+    <Compile Include="ViewModel\ListOfCharactersViewModel.cs" />
+    <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="View\AddCharacter.xaml.cs">
       <DependentUpon>AddCharacter.xaml</DependentUpon>
     </Compile>

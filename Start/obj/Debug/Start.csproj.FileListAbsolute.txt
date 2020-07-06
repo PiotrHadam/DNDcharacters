@@ -100,6 +100,7 @@ D:\repos2\DNDcharacters\Start\obj\Debug\Start.Properties.Resources.resources
 D:\repos2\DNDcharacters\Start\obj\Debug\Start.csproj.GenerateResource.cache
 D:\repos2\DNDcharacters\Start\obj\Debug\Start.csproj.CoreCompileInputs.cache
 D:\repos2\DNDcharacters\Start\obj\Debug\Start.csproj.CopyComplete
+<<<<<<< HEAD
 D:\repos2\NewAttempt\DNDcharacters\Start\obj\Debug\Start.csprojAssemblyReference.cache
 D:\repos2\NewAttempt\DNDcharacters\Start\obj\Debug\MainWindow.g.cs
 D:\repos2\NewAttempt\DNDcharacters\Start\obj\Debug\View\AddCharacter.g.cs
@@ -151,3 +152,7 @@ D:\repos2\NewAttempt\DNDcharacters\Start\obj\Debug\Start.Properties.Resources.re
 D:\repos2\NewAttempt\DNDcharacters\Start\obj\Debug\Start.csproj.GenerateResource.cache
 D:\repos2\NewAttempt\DNDcharacters\Start\obj\Debug\Start.csproj.CoreCompileInputs.cache
 D:\repos2\NewAttempt\DNDcharacters\Start\obj\Debug\Start.csproj.CopyComplete
+=======
+C:\Users\Piotr Hadam\source\repos\Start\Start\obj\Debug\GeneratedInternalTypeHelper.g.cs
+>>>>>>> 7ad30acbfe13fdee9bb628817a19ba8c99877478
+D:\repos2\NewAttempt\DNDcharacters\Start\obj\Debug\GeneratedInternalTypeHelper.g.cs
