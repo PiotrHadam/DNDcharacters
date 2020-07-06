@@ -128,7 +128,7 @@ namespace Start.Model
             return race;
         }
         #endregion
-
+        /*
         #region Złączenie postaci z przedmiotami
         private Item FindItemByID(byte? id)
         {
@@ -203,7 +203,7 @@ namespace Start.Model
             return armor;
         }
         #endregion
-
+        */
         #region Metody dla postaci
         public bool IsCharacterInRepository(Character character) => Characters.Contains(character);
 

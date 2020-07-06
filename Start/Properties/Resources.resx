@@ -148,8 +148,14 @@
   <data name="Delete" xml:space="preserve">
     <value>USUŃ</value>
   </data>
+  <data name="Description" xml:space="preserve">
+    <value>Opis</value>
+  </data>
   <data name="Dexterity" xml:space="preserve">
     <value>Zręczność</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edytuj</value>
   </data>
   <data name="Exit" xml:space="preserve">
     <value>WYJŚCIE</value>
@@ -159,6 +165,9 @@
   </data>
   <data name="Intelligence" xml:space="preserve">
     <value>Inteligencja</value>
+  </data>
+  <data name="IsInspired" xml:space="preserve">
+    <value>Postać inspirowana</value>
   </data>
   <data name="Money" xml:space="preserve">
     <value>Pieniądze</value>
@@ -171,6 +180,9 @@
   </data>
   <data name="Save" xml:space="preserve">
     <value>ZAPISZ</value>
+  </data>
+  <data name="Story" xml:space="preserve">
+    <value>Historia</value>
   </data>
   <data name="Strength" xml:space="preserve">
     <value>Siła</value>

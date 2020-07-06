@@ -16,6 +16,7 @@ using System.Windows.Shapes;
 
 namespace Start.View
 {
+    using DAL.Encje;
     /// <summary>
     /// Logika interakcji dla klasy AddCharacter.xaml
     /// </summary>

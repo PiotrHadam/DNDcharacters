@@ -24,7 +24,7 @@
 
 
         <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" >
-            <Button x:Name="Delete" Click="Button_Click" Content="{Binding Source={x:Static resx:Resources.Delete}}" Width="100" Height="40" FontFamily="Viner Hand ITC"  Margin="0,0,120,0"/>
+            <Button x:Name="Delete" Click="Button_Click" Content="{Binding Source={x:Static resx:Resources.Edit}}" Width="100" Height="40" FontFamily="Viner Hand ITC"  Margin="0,0,120,0"/>
             <Button x:Name="Back" Click="Button_Click" Content="{Binding Source={x:Static resx:Resources.Back}}" Width="100" Height="40" FontFamily="Viner Hand ITC"  Margin="120,0,0,0"/>
         </StackPanel>
     </Grid>

@@ -152,11 +152,29 @@ namespace Start.Properties {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Opis.
+        /// </summary>
+        public static string Description {
+            get {
+                return ResourceManager.GetString("Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu Zręczność.
         /// </summary>
         public static string Dexterity {
             get {
                 return ResourceManager.GetString("Dexterity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Edytuj.
+        /// </summary>
+        public static string Edit {
+            get {
+                return ResourceManager.GetString("Edit", resourceCulture);
             }
         }
         
@@ -184,6 +202,15 @@ namespace Start.Properties {
         public static string Intelligence {
             get {
                 return ResourceManager.GetString("Intelligence", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Postać inspirowana.
+        /// </summary>
+        public static string IsInspired {
+            get {
+                return ResourceManager.GetString("IsInspired", resourceCulture);
             }
         }
         
@@ -220,6 +247,15 @@ namespace Start.Properties {
         public static string Save {
             get {
                 return ResourceManager.GetString("Save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Historia.
+        /// </summary>
+        public static string Story {
+            get {
+                return ResourceManager.GetString("Story", resourceCulture);
             }
         }
         

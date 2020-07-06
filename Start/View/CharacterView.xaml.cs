@@ -30,8 +30,8 @@ namespace Start.View
             Button b = (Button)sender;
             if (b == Delete)
             {
-                //funkcja do usuwania postaci
-                this.NavigationService.Navigate(new ListOfCharacters());
+                //funkcja do edytowania postaci
+                this.NavigationService.Navigate(new AddCharacter());
             }
             else if (b == Back) this.NavigationService.Navigate(new ListOfCharacters());
         }

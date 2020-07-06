@@ -3,10 +3,7 @@ using Start.DAL.Helpers;
 using Start.DAL.Repositories;
 using System;
 using System.Collections.Generic;
-<<<<<<< HEAD
 using System.IO.Packaging;
-=======
->>>>>>> Mordtimer-master
 
 namespace Start.DAL.Encje
 {
