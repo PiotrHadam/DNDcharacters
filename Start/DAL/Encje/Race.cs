@@ -11,7 +11,7 @@ namespace Start.DAL.Encje
     {
         #region Własności
         public byte RaceID { get; set; }
-        public string RaceName { get; set; }
+        public string Name { get; set; }
         public byte CharismaBonus { get; set; }
         public byte ConstitutionThrowBonus { get; set; }
         public byte DexterityBonus { get; set; }
@@ -24,7 +24,7 @@ namespace Start.DAL.Encje
         public Race(MySqlDataReader reader)
         {
             RaceID = byte.Parse(reader["race_id"].ToString());
-            RaceName = reader["race_name"].ToString();
+            Name = reader["race_name"].ToString();
             ConstitutionThrowBonus = byte.Parse(reader["constitution_throw_bonus"].ToString());
             DexterityBonus = byte.Parse(reader["dexterity_bonus"].ToString());
             IntelligenceThrowBonus = byte.Parse(reader["inteligence_throw_bonus"].ToString());
@@ -32,5 +32,8 @@ namespace Start.DAL.Encje
             WisdomThrowBonus = byte.Parse(reader["wisdom_throw_bonus"].ToString());
         }
         #endregion
+        public override string ToString() {
+            return Name;
+        }
     }
 }

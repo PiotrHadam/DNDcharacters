@@ -1,9 +1,12 @@
 ﻿using MySql.Data.MySqlClient;
+using Org.BouncyCastle.Cms;
+using Start.DAL.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Start.DAL.Encje
 {
@@ -13,21 +16,20 @@ namespace Start.DAL.Encje
         public byte? WeaponID { get; set; }
         public byte CharacterID { get; set; }
         public string WeaponName { get; set; }
-        public byte DMGDice { get; set; }
-        public byte DMGDiceSize { get; set; }
+        public Dice DMG { get; set; }
         public string AttackRange { get; set; }
         public string DamageType { get; set; }
         public string ItemDescription { get; set; }
         #endregion
 
+        
         #region Konstruktory
         public Weapon(MySqlDataReader reader)
         {
             WeaponID = byte.Parse(reader["weapon_id"].ToString());
             CharacterID = byte.Parse(reader["character_id"].ToString());
             WeaponName = reader["weapon_name"].ToString();
-            DMGDice = byte.Parse(reader["required_lvl"].ToString());
-            DMGDiceSize = byte.Parse(reader["dmg_dice_size"].ToString());
+            DMG = new Dice(byte.Parse(reader["dmq_dice"].ToString()), byte.Parse(reader["dmg_dice_size"].ToString()));
             AttackRange = reader["attack_range"].ToString();
             DamageType = reader["damage_type"].ToString();
             ItemDescription = reader["item_description"].ToString();
@@ -38,8 +40,7 @@ namespace Start.DAL.Encje
             WeaponID = null;
             CharacterID = characterid;
             WeaponName = weaponname.Trim();
-            DMGDice = dmgdice;
-            DMGDiceSize = dmgdicesize;
+            DMG = new Dice(dmgdice, dmgdicesize);
             AttackRange = attackrange.Trim();
             DamageType = damagetype.Trim();
             ItemDescription = itemdescription.Trim();
@@ -50,8 +51,7 @@ namespace Start.DAL.Encje
             WeaponID = dalweapon.WeaponID;
             CharacterID = dalweapon.CharacterID;
             WeaponName = dalweapon.WeaponName;
-            DMGDice = dalweapon.DMGDice;
-            DMGDiceSize = dalweapon.DMGDiceSize;
+            DMG = dalweapon.DMG;
             AttackRange = dalweapon.AttackRange;
             DamageType = dalweapon.DamageType;
             ItemDescription = dalweapon.ItemDescription;
@@ -61,12 +61,12 @@ namespace Start.DAL.Encje
         #region Metody
         public string ToInsert()
         {
-            return $"({CharacterID}, '{WeaponName}', {DMGDice}, {DMGDiceSize}, '{AttackRange}', '{DamageType}', '{ItemDescription}')";
+            return $"({CharacterID}, '{WeaponName}', {DMG}, '{AttackRange}', '{DamageType}', '{ItemDescription}')";
         }
 
         public string ToDelete()
         {
-            return $"{WeaponID}";
+            return $"{WeaponID} {DMG}";
         }
 
         public override bool Equals(object obj)
@@ -75,8 +75,7 @@ namespace Start.DAL.Encje
             if (weapon is null) return false;
             if (CharacterID != weapon.CharacterID) return false;
             if (WeaponName != weapon.WeaponName) return false;
-            if (DMGDice != weapon.DMGDice) return false;
-            if (DMGDiceSize != weapon.DMGDiceSize) return false;
+            if (DMG != weapon.DMG) return false;
             if (AttackRange != weapon.AttackRange) return false;
             if (DamageType != weapon.DamageType) return false;
             if (ItemDescription != weapon.ItemDescription) return false;
@@ -86,6 +85,10 @@ namespace Start.DAL.Encje
         public override int GetHashCode()
         {
             return base.GetHashCode();
+        }
+
+        public override string ToString() {
+            return $"{this.WeaponName} {this.DMG}";
         }
         #endregion
     }
