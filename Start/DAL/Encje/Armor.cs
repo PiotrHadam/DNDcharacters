@@ -13,6 +13,8 @@ namespace Start.DAL.Encje
         #endregion
 
         #region Konstruktory
+        public Armor() { }
+
         public Armor(MySqlDataReader reader)
         {
             ArmorID = byte.Parse(reader["armor_id"].ToString());

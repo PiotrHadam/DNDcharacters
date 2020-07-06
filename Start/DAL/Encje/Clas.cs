@@ -14,6 +14,8 @@ namespace Start.DAL.Encje
         #endregion
 
         #region Konstruktory
+        public Clas() { }
+
         public Clas(MySqlDataReader reader)
         {
             ClassID = byte.Parse(reader["class_id"].ToString());

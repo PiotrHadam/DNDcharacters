@@ -12,6 +12,8 @@ namespace Start.DAL.Encje
         #endregion
 
         #region Konstruktory
+        public Item() { }
+
         public Item(MySqlDataReader reader)
         {
             ItemID = byte.Parse(reader["item_id"].ToString());

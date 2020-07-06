@@ -12,6 +12,8 @@ namespace Start.DAL.Encje
         #endregion
 
         #region Konstruktor
+        public CharacterSpell() { }
+
         public CharacterSpell(MySqlDataReader reader)
         {
             LinkID = byte.Parse(reader["link_id"].ToString());

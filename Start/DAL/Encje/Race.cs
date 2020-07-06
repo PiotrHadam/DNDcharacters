@@ -16,6 +16,8 @@ namespace Start.DAL.Encje
         #endregion
 
         #region Konstruktory
+        public Race() { }
+
         public Race(MySqlDataReader reader)
         {
             RaceID = byte.Parse(reader["race_id"].ToString());

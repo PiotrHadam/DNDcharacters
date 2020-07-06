@@ -54,6 +54,7 @@ namespace Start.DAL.Encje
         #endregion
 
         #region Konstruktory
+        public Character() { }
 
         public Character(MySqlDataReader reader)
         {

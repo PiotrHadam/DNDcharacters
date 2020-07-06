@@ -44,7 +44,7 @@ namespace Start.DAL.Repositories
             return stan;
         }
 
-        public static bool EditItem(CharacterSpell link, byte linkID)
+        public static bool EditLink(CharacterSpell link, byte linkID)
         {
             bool stan = false;
             using (var connection = DBConnection.Instance.Connection)
