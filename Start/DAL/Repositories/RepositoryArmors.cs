@@ -41,13 +41,13 @@ namespace Start.DAL.Repositories
                 connection.Open();
                 var id = command.ExecuteNonQuery();
                 stan = true;
-                armor.ArmorID = (sbyte)command.LastInsertedId;
+                armor.ArmorID = (byte)command.LastInsertedId;
                 connection.Close();
             }
             return stan;
         }
 
-        public static bool EditArmor(Armor armor, sbyte armorID)
+        public static bool EditArmor(Armor armor, byte armorID)
         {
             bool stan = false;
             using (var connection = DBConnection.Instance.Connection)

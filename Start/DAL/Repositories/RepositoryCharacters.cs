@@ -37,13 +37,13 @@ namespace Start.DAL.Repositories
                 connection.Open();
                 var id = command.ExecuteNonQuery();
                 stan = true;
-                character.CharacterID = (sbyte)command.LastInsertedId;
+                character.CharacterID = (byte)command.LastInsertedId;
                 connection.Close();
             }
             return stan;
         }
 
-        public static bool EditCharacter(Character character, sbyte characterID)
+        public static bool EditCharacter(Character character, byte characterID)
         {
             bool stan = false;
             using (var connection = DBConnection.Instance.Connection)
