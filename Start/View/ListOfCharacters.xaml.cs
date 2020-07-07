@@ -28,8 +28,7 @@ namespace Start.View
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Button b = (Button)sender;
-            if (b == Choose) this.NavigationService.Navigate(new CharacterView());
-            else if (b == Back) this.NavigationService.Navigate(new MainPage());
+            if (b == Back) this.NavigationService.Navigate(new Uri("View/MainPage.xaml", UriKind.Relative));
         }
     }
 }

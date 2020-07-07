@@ -8,13 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
+
 namespace Start.DAL.Encje
 {
     class Weapon
     {
         #region Własności
-        public byte? WeaponID { get; set; }
-        public byte CharacterID { get; set; }
+        public ushort? WeaponID { get; set; }
+        public ushort CharacterID { get; set; }
         public string WeaponName { get; set; }
         public Dice DMG { get; set; }
         public string AttackRange { get; set; }
@@ -26,8 +28,8 @@ namespace Start.DAL.Encje
         #region Konstruktory
         public Weapon(MySqlDataReader reader)
         {
-            WeaponID = byte.Parse(reader["weapon_id"].ToString());
-            CharacterID = byte.Parse(reader["character_id"].ToString());
+            WeaponID = ushort.Parse(reader["weapon_id"].ToString());
+            CharacterID = ushort.Parse(reader["character_id"].ToString());
             WeaponName = reader["weapon_name"].ToString();
             DMG = new Dice(byte.Parse(reader["dmq_dice"].ToString()), byte.Parse(reader["dmg_dice_size"].ToString()));
             AttackRange = reader["attack_range"].ToString();
@@ -35,7 +37,7 @@ namespace Start.DAL.Encje
             ItemDescription = reader["item_description"].ToString();
         }
 
-        public Weapon(byte characterid, string weaponname, byte dmgdice, byte dmgdicesize, string attackrange, string damagetype, string itemdescription)
+        public Weapon(ushort characterid, string weaponname, byte dmgdice, byte dmgdicesize, string attackrange, string damagetype, string itemdescription)
         {
             WeaponID = null;
             CharacterID = characterid;

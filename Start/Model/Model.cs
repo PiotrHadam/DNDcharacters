@@ -54,7 +54,7 @@ namespace Start.Model
         #endregion
 
         #region Złączenie postaci z zaklęciami
-        private Spell FindSpellByID(byte id)
+        private Spell FindSpellByID(ushort id)
         {
             foreach (var s in Spells)
             {
@@ -78,7 +78,7 @@ namespace Start.Model
             return spells;
         }
         #endregion
-
+        /*
         #region Złączenie postaci z klasą
         private Class FindClassByID(byte id)
         {
@@ -128,7 +128,7 @@ namespace Start.Model
             return race;
         }
         #endregion
-        /*
+        
         #region Złączenie postaci z przedmiotami
         private Item FindItemByID(byte? id)
         {
@@ -220,7 +220,7 @@ namespace Start.Model
             return false;
         }
 
-        public bool EditCharacterInDatabase(Character character, byte characterID)
+        public bool EditCharacterInDatabase(Character character, ushort characterID)
         {
             if (RepositoryCharacters.EditCharacter(character, characterID))
             {
@@ -301,7 +301,7 @@ namespace Start.Model
             return false;
         }
 
-        public bool EditItemInDatabase(Item item, byte itemID)
+        public bool EditItemInDatabase(Item item, ushort itemID)
         {
             if (RepositoryItems.EditItem(item, itemID))
             {
@@ -351,7 +351,7 @@ namespace Start.Model
             return false;
         }
 
-        public bool EditArmorInDatabase(Armor armor, byte armorID)
+        public bool EditArmorInDatabase(Armor armor, ushort armorID)
         {
             if (RepositoryArmors.EditArmor(armor, armorID))
             {
@@ -401,7 +401,7 @@ namespace Start.Model
             return false;
         }
 
-        public bool EditWeaponInDatabase(Weapon weapon, byte weaponID)
+        public bool EditWeaponInDatabase(Weapon weapon, ushort weaponID)
         {
             if (RepositoryWeapons.EditWeapon(weapon, weaponID))
             {
@@ -451,7 +451,7 @@ namespace Start.Model
             return false;
         }
 
-        public bool EditLinkInDatabase(CharacterSpell link, byte linkID)
+        public bool EditLinkInDatabase(CharacterSpell link, ushort linkID)
         {
             if (RepositoryCharacterSpells.EditLink(link, linkID))
             {

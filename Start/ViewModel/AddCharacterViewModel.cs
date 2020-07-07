@@ -16,9 +16,10 @@ namespace Start.ViewModel
         #region Składowe prywatne
         private Model model = null;
 
-        private string name, image, description, story;
+        private string name = "", image, description = "", story = "";
         private int money = 20000, hitpoints = 20;
-        private byte strength = 0, dexterity = 0, constitution = 0, intelligence = 0, wisdom = 0, charisma = 0, isinspired = 0, level = 0;
+        private byte strength = 0, dexterity = 0, constitution = 0, intelligence = 0, wisdom = 0, charisma = 0, level = 0;
+        private bool isInspired = false;
         private Dictionary<string, byte> abilities;
         private Dictionary<byte, byte> possiblespellsperday;
         private bool addingAbility = true;
@@ -158,12 +159,12 @@ namespace Start.ViewModel
             }
         }
 
-        public byte IsInspired
+        public bool IsInspired
         {
-            get { return isinspired; }
+            get { return isInspired; }
             set
             {
-                isinspired = value;
+                isInspired = value;
                 onPropertyChanged(nameof(IsInspired));
             }
         }
@@ -233,7 +234,7 @@ namespace Start.ViewModel
             intelligence = 0;
             wisdom = 0;
             charisma = 0;
-            isinspired = 0;
+            isInspired = false;
             description = "";
             story = "";
             level = 0;
@@ -258,11 +259,11 @@ namespace Start.ViewModel
                             if (model.AddCharacterToDatabase(character))
                             {
                                 CzyscFormularz();
-                                System.Windows.MessageBox.Show("Osoba została dodana do bazy!");
+                                System.Windows.MessageBox.Show("Postać została dodana do bazy!");
                             }
                         }
                         ,
-                        arg => (Name != "") && (Image != "") && (Story != "") && (Description != "")
+                        arg => (Name != "") && (Story != "") && (Description != "")
                         );
 
 

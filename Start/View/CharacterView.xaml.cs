@@ -31,9 +31,9 @@ namespace Start.View
             if (b == Delete)
             {
                 //funkcja do edytowania postaci
-                this.NavigationService.Navigate(new AddCharacter());
+                this.NavigationService.Navigate(new Uri("View/AddCharacter.xaml", UriKind.Relative));
             }
-            else if (b == Back) this.NavigationService.Navigate(new ListOfCharacters());
+            else if (b == Back) this.NavigationService.Navigate(new Uri("View/ListOfCharacters.xaml", UriKind.Relative));
         }
     }
 }

@@ -38,13 +38,13 @@ namespace Start.DAL.Repositories
                 connection.Open();
                 var id = command.ExecuteNonQuery();
                 stan = true;
-                link.LinkID = (byte)command.LastInsertedId;
+                link.LinkID = (ushort)command.LastInsertedId;
                 connection.Close();
             }
             return stan;
         }
 
-        public static bool EditLink(CharacterSpell link, byte linkID)
+        public static bool EditLink(CharacterSpell link, ushort linkID)
         {
             bool stan = false;
             using (var connection = DBConnection.Instance.Connection)

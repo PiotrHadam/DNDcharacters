@@ -5,8 +5,8 @@ namespace Start.DAL.Encje
     class Armor
     {
         #region Własności
-        public byte? ArmorID { get; set; }
-        public byte CharacterID { get; set; }
+        public ushort? ArmorID { get; set; }
+        public ushort CharacterID { get; set; }
         public string ArmorName { get; set; }
         public byte ClassBonus { get; set; }
         public string ItemDescription { get; set; }
@@ -17,14 +17,14 @@ namespace Start.DAL.Encje
 
         public Armor(MySqlDataReader reader)
         {
-            ArmorID = byte.Parse(reader["armor_id"].ToString());
-            CharacterID = byte.Parse(reader["character_id"].ToString());
+            ArmorID = ushort.Parse(reader["armor_id"].ToString());
+            CharacterID = ushort.Parse(reader["character_id"].ToString());
             ArmorName = reader["armor_name"].ToString();
             ClassBonus = byte.Parse(reader["armor_class_bonus"].ToString());
             ItemDescription = reader["item_description"].ToString();
         }
 
-        public Armor(byte characterid, string armorname, byte classbonus, string itemdescription)
+        public Armor(ushort characterid, string armorname, byte classbonus, string itemdescription)
         {
             ArmorID = null;
             CharacterID = characterid;

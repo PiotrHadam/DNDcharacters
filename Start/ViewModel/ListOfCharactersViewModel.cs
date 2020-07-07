@@ -11,6 +11,8 @@ namespace Start.ViewModel
     using BaseClasses;
     using Model;
     using DAL.Encje;
+    using System.Windows.Navigation;
+
     class ListOfCharactersViewModel : ViewModelBase
     {
         #region Składowe prywatne
@@ -90,6 +92,23 @@ namespace Start.ViewModel
                 return loadAllCharacters;
             }
         }
+
+        private ICommand chooseCharacter = null;
+        public ICommand ChooseCharacter
+        {
+            get
+            {
+                if (chooseCharacter == null)
+                    chooseCharacter = new RelayCommand(
+                        arg =>
+                        {
+                            CharacterViewModel charvm = new CharacterViewModel(model, SelectedCharacter);
+                        },
+                        arg => IndexOfSelectedCharacter >= 0);
+                return chooseCharacter;
+            }
+        }
+
         #endregion
     }
 }

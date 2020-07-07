@@ -206,11 +206,20 @@ namespace Start.Properties {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Postać inspirowana.
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Inspiracja.
         /// </summary>
         public static string IsInspired {
             get {
                 return ResourceManager.GetString("IsInspired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Poziom.
+        /// </summary>
+        public static string Level {
+            get {
+                return ResourceManager.GetString("Level", resourceCulture);
             }
         }
         
@@ -229,6 +238,15 @@ namespace Start.Properties {
         public static string Name {
             get {
                 return ResourceManager.GetString("Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu ID.
+        /// </summary>
+        public static string Number {
+            get {
+                return ResourceManager.GetString("Number", resourceCulture);
             }
         }
         

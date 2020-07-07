@@ -17,6 +17,8 @@ using System.Windows.Shapes;
 namespace Start.View
 {
     using DAL.Encje;
+    using System.Text.RegularExpressions;
+
     /// <summary>
     /// Logika interakcji dla klasy AddCharacter.xaml
     /// </summary>
@@ -46,12 +48,18 @@ namespace Start.View
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Button b = (Button)sender;
-            if (b == Save)
-            {
-                //funkcja do zapisywania postaci
-                this.NavigationService.Navigate(new AddCharacter());
-            }
-            else if (b == Back) this.NavigationService.Navigate(new MainPage());
+            if (b == Back) this.NavigationService.Navigate(new MainPage());
+        }
+
+        private static readonly Regex _regex = new Regex("[^0-9]+"); //regex that matches disallowed text
+        private static bool IsTextAllowed(string text)
+        {
+            return !_regex.IsMatch(text);
+        }
+
+        private void TextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = !IsTextAllowed(e.Text);
         }
     }
 }

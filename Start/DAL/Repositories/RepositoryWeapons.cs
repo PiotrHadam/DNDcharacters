@@ -37,13 +37,13 @@ namespace Start.DAL.Repositories
                 connection.Open();
                 var id = command.ExecuteNonQuery();
                 stan = true;
-                weapon.WeaponID = (byte)command.LastInsertedId;
+                weapon.WeaponID = (ushort)command.LastInsertedId;
                 connection.Close();
             }
             return stan;
         }
 
-        public static bool EditWeapon(Weapon weapon, byte armorID)
+        public static bool EditWeapon(Weapon weapon, ushort armorID)
         {
             bool stan = false;
             using (var connection = DBConnection.Instance.Connection)

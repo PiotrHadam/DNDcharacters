@@ -5,8 +5,8 @@ namespace Start.DAL.Encje
     class Item
     {
         #region Własności
-        public byte? ItemID { get; set; }
-        public byte CharacterID { get; set; }
+        public ushort? ItemID { get; set; }
+        public ushort CharacterID { get; set; }
         public string ItemName { get; set; }
         public string ItemDescription { get; set; }
         #endregion
@@ -16,13 +16,13 @@ namespace Start.DAL.Encje
 
         public Item(MySqlDataReader reader)
         {
-            ItemID = byte.Parse(reader["item_id"].ToString());
-            CharacterID = byte.Parse(reader["character_id"].ToString());
+            ItemID = ushort.Parse(reader["item_id"].ToString());
+            CharacterID = ushort.Parse(reader["character_id"].ToString());
             ItemName = reader["item_name"].ToString();
             ItemDescription = reader["item_description"].ToString();
         }
 
-        public Item(byte characterid, string itemname, string itemdescription)
+        public Item(ushort characterid, string itemname, string itemdescription)
         {
             ItemID = null;
             CharacterID = characterid;

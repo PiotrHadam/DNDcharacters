@@ -15,7 +15,7 @@
         <vm:MainViewModel x:Key="mainvm"/>
     </Page.Resources>
 
-    <Grid x:Name="GridRoot" DataContext="{StaticResource mainvm}">
+    <Grid DataContext="{StaticResource mainvm}">
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition Height="18*"/>
@@ -54,7 +54,7 @@
             
             <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0">
                 <TextBlock Text="{Binding Source={x:Static resx:Resources.Name}}" Height="20" FontFamily="Viner Hand ITC" Margin="0,0,10,0"/>
-                <TextBox Background="Transparent" Width="100" Height="20" FontFamily="Viner Hand ITC" Margin="0,0,10,0" />
+                <TextBox Text="{Binding Path=AddCharacterVM.Name, Mode=TwoWay}" Background="Transparent" Width="120" Height="20" FontFamily="Viner Hand ITC" Margin="0,0,10,0"/>
             </StackPanel>
             
             <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2">
@@ -69,61 +69,77 @@
             
             <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
                 <TextBlock Text="{Binding Source={x:Static resx:Resources.Money}}" Height="20" FontFamily="Viner Hand ITC" Margin="0,0,10,0"/>
-                <Slider x:Name="sliderMoney" Minimum="0" Maximum="100000" TickFrequency="1000" IsSnapToTickEnabled="True" Height="30" Width="200" Value="{Binding Path=AddCharacterVM.Money, Mode=TwoWay}"/>
-                <Label VerticalAlignment="Center" FontSize="15" Content="{Binding Path=Value, ElementName=sliderMoney}" FontFamily="Viner Hand ITC"/>
+                <Slider x:Name="sliderMoney" Minimum="0" Maximum="100000" TickFrequency="500" IsSnapToTickEnabled="True" Height="20" Width="200" Value="{Binding Path=AddCharacterVM.Money, Mode=TwoWay}"/>
+                <Label VerticalAlignment="Center" FontSize="12" Content="{Binding Path=Value, ElementName=sliderMoney}" FontFamily="Viner Hand ITC"/>
             </StackPanel>
             
             <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2">
                 <TextBlock Text="{Binding Source={x:Static resx:Resources.HitPoints}}" Height="20" FontFamily="Viner Hand ITC" Margin="40,0,10,0"/>
-                <Slider x:Name="sliderHit" Minimum="0" Maximum="200" TickFrequency="1" IsSnapToTickEnabled="True" Height="30" Width="150" Value="{Binding Path=AddCharacterVM.HitPoints, Mode=TwoWay}"/>
-                <Label VerticalAlignment="Center" FontSize="15" Content="{Binding Path=Value, ElementName=sliderHit}" FontFamily="Viner Hand ITC"/>
+                <Slider x:Name="sliderHit" Minimum="0" Maximum="200" TickFrequency="1" IsSnapToTickEnabled="True" Height="20" Width="150" Value="{Binding Path=AddCharacterVM.HitPoints, Mode=TwoWay}"/>
+                <Label VerticalAlignment="Center" FontSize="12" Content="{Binding Path=Value, ElementName=sliderHit}" FontFamily="Viner Hand ITC"/>
             </StackPanel>
             
             <StackPanel Orientation="Vertical" Grid.Row="2" Grid.Column="0" Grid.RowSpan="4">
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="{Binding Source={x:Static resx:Resources.Charisma}}" Height="20" FontFamily="Viner Hand ITC" Margin="0,0,20,0"/>
-                    <TextBox Background="Transparent" Width="60" Height="20" FontFamily="Viner Hand ITC" Margin="0,0,10,0" />
+                <StackPanel Orientation="Horizontal" >
+                    <TextBlock Text="{Binding Source={x:Static resx:Resources.Charisma}}" Height="20" FontFamily="Viner Hand ITC" HorizontalAlignment="Left" Margin="0,0,30,0"/>
+                    <TextBox Text="{Binding Path=AddCharacterVM.Charisma, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PreviewTextInput="TextBox_PreviewTextInput" MaxLength="2"
+                             Background="Transparent" Width="60" Height="20" FontFamily="Viner Hand ITC" HorizontalAlignment="Right">
+                    </TextBox>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="{Binding Source={x:Static resx:Resources.Constitution}}" Height="20" FontFamily="Viner Hand ITC" Margin="0,0,26,0"/>
-                    <TextBox Background="Transparent" Width="60" Height="20" FontFamily="Viner Hand ITC" Margin="0,0,10,0" />
+                    <TextBlock Text="{Binding Source={x:Static resx:Resources.Constitution}}" Height="20" FontFamily="Viner Hand ITC" Margin="0,0,36,0"/>
+                    <TextBox Text="{Binding Path=AddCharacterVM.Constitution, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PreviewTextInput="TextBox_PreviewTextInput" MaxLength="2"
+                             Background="Transparent" Width="60" Height="20" FontFamily="Viner Hand ITC" Margin="0,0,10,0" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="{Binding Source={x:Static resx:Resources.Dexterity}}" Height="20" FontFamily="Viner Hand ITC" Margin="0,0,27,0"/>
-                    <TextBox Background="Transparent" Width="60" Height="20" FontFamily="Viner Hand ITC" Margin="0,0,10,0" />
+                    <TextBlock Text="{Binding Source={x:Static resx:Resources.Dexterity}}" Height="20" FontFamily="Viner Hand ITC" Margin="0,0,36.5,0"/>
+                    <TextBox Text="{Binding Path=AddCharacterVM.Dexterity, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PreviewTextInput="TextBox_PreviewTextInput" MaxLength="2"
+                             Background="Transparent" Width="60" Height="20" FontFamily="Viner Hand ITC" Margin="0,0,10,0" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="{Binding Source={x:Static resx:Resources.Intelligence}}" Height="20" FontFamily="Viner Hand ITC" Margin="0,0,13,0"/>
-                    <TextBox Background="Transparent" Width="60" Height="20" FontFamily="Viner Hand ITC" Margin="0,0,10,0" />
+                    <TextBlock Text="{Binding Source={x:Static resx:Resources.Intelligence}}" Height="20" FontFamily="Viner Hand ITC" Margin="0,0,22.5,0"/>
+                    <TextBox Text="{Binding Path=AddCharacterVM.Intelligence, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PreviewTextInput="TextBox_PreviewTextInput" MaxLength="2"
+                             Background="Transparent" Width="60" Height="20" FontFamily="Viner Hand ITC" Margin="0,0,10,0" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="{Binding Source={x:Static resx:Resources.Strength}}" Height="20" FontFamily="Viner Hand ITC" Margin="0,0,56,0"/>
-                    <TextBox Background="Transparent" Width="60" Height="20" FontFamily="Viner Hand ITC" Margin="0,0,10,0" />
+                    <TextBlock Text="{Binding Source={x:Static resx:Resources.Strength}}" Height="20" FontFamily="Viner Hand ITC" Margin="0,0,66,0"/>
+                    <TextBox Text="{Binding Path=AddCharacterVM.Strength, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PreviewTextInput="TextBox_PreviewTextInput" MaxLength="2"
+                             Background="Transparent" Width="60" Height="20" FontFamily="Viner Hand ITC" Margin="0,0,10,0" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="{Binding Source={x:Static resx:Resources.Wisdom}}" Height="20" FontFamily="Viner Hand ITC" Margin="0,0,38,0"/>
-                    <TextBox Background="Transparent" Width="60" Height="20" FontFamily="Viner Hand ITC" Margin="0,0,10,0" />
+                    <TextBlock Text="{Binding Source={x:Static resx:Resources.Wisdom}}" Height="20" FontFamily="Viner Hand ITC" Margin="0,0,47.5,0"/>
+                    <TextBox Text="{Binding Path=AddCharacterVM.Wisdom, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PreviewTextInput="TextBox_PreviewTextInput" MaxLength="2"
+                             Background="Transparent" Width="60" Height="20" FontFamily="Viner Hand ITC" Margin="0,0,10,0" />
                 </StackPanel>
-            </StackPanel>
-            
-            <StackPanel Orientation="Vertical" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="4" Grid.RowSpan="2" HorizontalAlignment="Center">
-                <TextBlock Text="{Binding Source={x:Static resx:Resources.Description}}" Height="20" FontFamily="Viner Hand ITC"/>
-                <TextBox Background="Transparent" Width="520" Height="40" FontFamily="Viner Hand ITC" FontSize="12" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible"/>
-            </StackPanel>
-            <StackPanel Orientation="Vertical" Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="4" Grid.RowSpan="2" HorizontalAlignment="Center">
-                <TextBlock Text="{Binding Source={x:Static resx:Resources.Story}}" Height="20" FontFamily="Viner Hand ITC" Foreground="White"/>
-                <TextBox Background="Transparent" Width="520" Height="40" FontFamily="Viner Hand ITC" FontSize="12" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" Foreground="White"/>
             </StackPanel>
 
-            <StackPanel Orientation="Horizontal" Grid.Row="10" Grid.Column="0" VerticalAlignment="Center">
+            <StackPanel Orientation="Horizontal" Grid.Row="6" Grid.Column="0" VerticalAlignment="Center">
                 <TextBlock Text="{Binding Source={x:Static resx:Resources.IsInspired}}" Height="20" FontFamily="Viner Hand ITC" Margin="0,0,25,0" Foreground="White"/>
-                <CheckBox x:Name="Inspired"/>
+                <CheckBox x:Name="Inspired" IsThreeState="False" IsChecked="{Binding Path=AddCharacterVM.IsInspired, Mode=TwoWay}"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2" VerticalAlignment="Center">
+                <TextBlock Text="{Binding Source={x:Static resx:Resources.Level}}" Height="20" FontFamily="Viner Hand ITC" Margin="0,0,10,0" Foreground="White"/>
+                <Slider x:Name="sliderLevel" Minimum="0" Maximum="20" TickFrequency="1" IsSnapToTickEnabled="True" Height="20" Width="100" Value="{Binding Path=AddCharacterVM.Level, Mode=TwoWay}"/>
+                <Label FontSize="12" Content="{Binding Path=Value, ElementName=sliderLevel}" FontFamily="Viner Hand ITC" Foreground="White"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="4" Grid.RowSpan="2" HorizontalAlignment="Center">
+                <TextBlock Text="{Binding Source={x:Static resx:Resources.Description}}" Height="20" FontFamily="Viner Hand ITC" Foreground="White"/>
+                <TextBox Text="{Binding Path=AddCharacterVM.Description, Mode=TwoWay}" Background="Transparent" Width="520" Height="40" FontFamily="Viner Hand ITC" FontSize="12" Foreground="White"
+                         TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible"/>
+                
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="4" Grid.RowSpan="2" HorizontalAlignment="Center">
+                <TextBlock Text="{Binding Source={x:Static resx:Resources.Story}}" Height="20" FontFamily="Viner Hand ITC" Foreground="White"/>
+                <TextBox Text="{Binding Path=AddCharacterVM.Story, Mode=TwoWay}" Background="Transparent" Width="520" Height="40" FontFamily="Viner Hand ITC" Foreground="White"
+                         FontSize="12" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible"/>
             </StackPanel>
         </Grid>
         
         <!-- Przyciski -->
         <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" >
-            <Button x:Name="Save" Click="Button_Click" Content="{Binding Source={x:Static resx:Resources.Save}}" Width="100" Height="40" FontFamily="Viner Hand ITC" Margin="0,0,120,0"/>
+            <Button x:Name="Save" Command="{Binding AddCharacterVM.Add}" Content="{Binding Source={x:Static resx:Resources.Save}}" Width="100" Height="40" FontFamily="Viner Hand ITC" Margin="0,0,120,0"/>
             <Button x:Name="Back" Click="Button_Click" Content="{Binding Source={x:Static resx:Resources.Back}}" Width="100" Height="40" FontFamily="Viner Hand ITC"  Margin="120,0,0,0"/>
         </StackPanel>
         

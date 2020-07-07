@@ -28,12 +28,12 @@ namespace Start.View
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Button b = (Button)sender;
-            if (b == All) this.NavigationService.Navigate(new ListOfCharacters());
-            else if (b == Add) this.NavigationService.Navigate(new AddCharacter());
+            if (b == All) this.NavigationService.Navigate(new Uri("View/ListOfCharacters.xaml", UriKind.Relative));
+            else if (b == Add) this.NavigationService.Navigate(new Uri("View/AddCharacter.xaml", UriKind.Relative));
         }
 
         private void Exit_Click(object sender, RoutedEventArgs e)
-        {
+        {            
             
         }
     }

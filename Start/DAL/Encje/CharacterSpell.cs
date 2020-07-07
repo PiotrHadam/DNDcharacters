@@ -5,8 +5,8 @@ namespace Start.DAL.Encje
     class CharacterSpell
     {
         #region Własności
-        public byte? LinkID { get; set; }
-        public byte CharacterID { get; set; }
+        public ushort? LinkID { get; set; }
+        public ushort CharacterID { get; set; }
         public byte SpellID { get; set; }
 
         #endregion
@@ -16,12 +16,12 @@ namespace Start.DAL.Encje
 
         public CharacterSpell(MySqlDataReader reader)
         {
-            LinkID = byte.Parse(reader["link_id"].ToString());
-            CharacterID = byte.Parse(reader["character_id"].ToString());
+            LinkID = ushort.Parse(reader["link_id"].ToString());
+            CharacterID = ushort.Parse(reader["character_id"].ToString());
             SpellID = byte.Parse(reader["spell_id"].ToString());
         }
 
-        public CharacterSpell(byte characterid, byte spellid)
+        public CharacterSpell(ushort characterid, byte spellid)
         {
             LinkID = null;
             CharacterID = characterid;

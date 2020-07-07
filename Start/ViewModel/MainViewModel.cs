@@ -7,7 +7,10 @@ using System.Threading.Tasks;
 namespace Start.ViewModel
 {
     using Model;
-    class MainViewModel
+    using BaseClasses;
+    using System.Windows.Input;
+
+    class MainViewModel : ViewModelBase
     {
         private Model model = new Model();
 

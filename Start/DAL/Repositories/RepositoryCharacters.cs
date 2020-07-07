@@ -37,18 +37,18 @@ namespace Start.DAL.Repositories
                 connection.Open();
                 var id = command.ExecuteNonQuery();
                 stan = true;
-                character.CharacterID = (byte)command.LastInsertedId;
+                character.CharacterID = (ushort)command.LastInsertedId;
                 connection.Close();
             }
             return stan;
         }
 
-        public static bool EditCharacter(Character character, byte characterID)
+        public static bool EditCharacter(Character character, ushort characterID)
         {
             bool stan = false;
             using (var connection = DBConnection.Instance.Connection)
             {
-                string EDIT_CHARACTER = $"UPDATE characters SET character_name='{character.Name}', character_race={character._raceID}, character_class={character.Class.ClassID}, character_image_path='{character.Image}', character_money={character.Money}, hit_points={character.HitPoints}, charisma={character.Charisma}, constitution={character.Constitution}, dexterity={character.Dexterity}, inteligence={character.Intelligence}, strength={character.Strength}, wisdom={character.Wisdom}, " +
+                string EDIT_CHARACTER = $"UPDATE characters SET character_name='{character.Name}', character_race={character.Race.RaceID}, character_class={character.Class.ClassID}, character_image_path='{character.Image}', character_money={character.Money}, hit_points={character.HitPoints}, charisma={character.Charisma}, constitution={character.Constitution}, dexterity={character.Dexterity}, inteligence={character.Intelligence}, strength={character.Strength}, wisdom={character.Wisdom}, " +
                     $"ability_acrobatics={character.Abilities["acrobatics"]}, ability_animal_handing={character.Abilities["animalhanding"]}, ability_arcana={character.Abilities["arcana"]}, ability_athletics={character.Abilities["athletics"]}, ability_deception={character.Abilities["deception"]}, ability_history={character.Abilities["history"]}, ability_insight={character.Abilities["insight"]}, ability_intimidation={character.Abilities["intimidation"]}, ability_investigation={character.Abilities["investigation"]}, ability_medicine={character.Abilities["medicine"]}, ability_nature={character.Abilities["nature"]}, ability_perception={character.Abilities["perception"]}, " +
                     $"ability_performance={character.Abilities["performance"]}, ability_persuasion={character.Abilities["persuasion"]}, ability_religion={character.Abilities["religion"]}, ability_sleight_of_hand={character.Abilities["sleightOfHand"]}, ability_stealh={character.Abilities["stealth"]}, ability_survival={character.Abilities["survival"]}, known_spells_0={character.PossibleSpellsPerDay[1]}, known_spells_1={character.PossibleSpellsPerDay[2]}, known_spells_2={character.PossibleSpellsPerDay[3]}, known_spells_3={character.PossibleSpellsPerDay[4]}, known_spells_4={character.PossibleSpellsPerDay[5]}, known_spells_5={character.PossibleSpellsPerDay[6]}, known_spells_6={character.PossibleSpellsPerDay[7]}, known_spells_7={character.PossibleSpellsPerDay[8]}, known_spells_8={character.PossibleSpellsPerDay[9]}, known_spells_9={character.PossibleSpellsPerDay[10]}, is_inspired={character.IsInspired}, character_description={character.Description}, character_story={character.Story}, character_lvl={character.Level} WHERE character_id={characterID}";
 

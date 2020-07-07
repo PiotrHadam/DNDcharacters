@@ -167,13 +167,19 @@
     <value>Inteligencja</value>
   </data>
   <data name="IsInspired" xml:space="preserve">
-    <value>Postać inspirowana</value>
+    <value>Inspiracja</value>
+  </data>
+  <data name="Level" xml:space="preserve">
+    <value>Poziom</value>
   </data>
   <data name="Money" xml:space="preserve">
     <value>Pieniądze</value>
   </data>
   <data name="Name" xml:space="preserve">
     <value>Imię</value>
+  </data>
+  <data name="Number" xml:space="preserve">
+    <value>ID</value>
   </data>
   <data name="Race" xml:space="preserve">
     <value>Rasa</value>

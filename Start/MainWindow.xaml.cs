@@ -24,7 +24,7 @@ namespace Start
         public MainWindow()
         {
             InitializeComponent();
-            MainFrame.NavigationService.Navigate(new MainPage());
+            MainFrame.NavigationService.Navigate(new Uri("View/MainPage.xaml", UriKind.Relative));
         }
     }
 }

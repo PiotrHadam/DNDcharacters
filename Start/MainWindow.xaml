@@ -10,7 +10,7 @@
     <Window.Background>
         <ImageBrush ImageSource="{Binding Source={x:Static resx:Resources.Background}}"/>
     </Window.Background>
-    <Grid>
+    <DockPanel>
         <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"/>
-    </Grid>
+    </DockPanel>
 </Window>

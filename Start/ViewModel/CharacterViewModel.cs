@@ -28,6 +28,12 @@ namespace Start.ViewModel
         {
             this.model = model;
         }
+
+        public CharacterViewModel(Model model, Character character)
+        {
+            this.model = model;
+            this.character = character;
+        }
         #endregion
 
         #region Właściwości

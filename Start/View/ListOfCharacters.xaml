@@ -4,12 +4,18 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:resx="clr-namespace:Start.Properties"
+      xmlns:vm="clr-namespace:Start.ViewModel"
+      xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
       xmlns:local="clr-namespace:Start.View"
       mc:Ignorable="d" 
       d:DesignHeight="600" d:DesignWidth="700"
       Title="ListOfCharacters">
 
-    <Grid>
+    <Page.Resources>
+        <vm:MainViewModel x:Key="mainvm"/>
+    </Page.Resources>
+
+    <Grid DataContext="{StaticResource mainvm}">
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition Height="18*"/>
@@ -20,10 +26,91 @@
             <ColumnDefinition Width="18*"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <ListView Grid.Row="1" Grid.Column="1" Background="Transparent"/>
+        <ListView x:Name="characterslist" Grid.Row="1" Grid.Column="1" Background="Transparent" 
+                  ItemsSource="{Binding ListOfCharactersVM.Characters}" 
+                  SelectedIndex="{Binding Path=ListOfCharactersVM.IndexOfSelectedCharacter}" 
+                  SelectedItem="{Binding Path=ListOfCharactersVM.SelectedCharacter}">
+
+            <ListView.View>
+                <GridView>
+                    <GridView.Columns>
+                        <GridViewColumn Width="60">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding CharacterID}"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                            <GridViewColumn.Header>
+                                <TextBlock Text="{Binding Source={x:Static resx:Resources.Number}}" >
+                                </TextBlock>
+                            </GridViewColumn.Header>
+                        </GridViewColumn>
+                        
+                        <GridViewColumn Width="160" >
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Name}"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                            <GridViewColumn.Header>
+                                <TextBlock Text="{Binding Source={x:Static resx:Resources.Name}}" >
+                                </TextBlock>
+                            </GridViewColumn.Header>
+                        </GridViewColumn>
+
+                        <GridViewColumn Width="110">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Class}" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                            <GridViewColumn.Header>
+                                <TextBlock Text="{Binding Source={x:Static resx:Resources.Clas}}"></TextBlock>
+                            </GridViewColumn.Header>
+                        </GridViewColumn>
+
+                        <GridViewColumn Width="110">
+                            <GridViewColumn.CellTemplate >
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Race}"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                            <GridViewColumn.Header>
+                                <TextBlock Text="{Binding Source={x:Static resx:Resources.Race}}"></TextBlock>
+                            </GridViewColumn.Header>
+                        </GridViewColumn>
+
+                        <GridViewColumn Width="70">
+                            <GridViewColumn.CellTemplate >
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Level}"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                            <GridViewColumn.Header>
+                                <TextBlock Text="{Binding Source={x:Static resx:Resources.Level}}"></TextBlock>
+                            </GridViewColumn.Header>
+                        </GridViewColumn>
+
+                        <GridViewColumn Width="110">
+                            <GridViewColumn.CellTemplate >
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Money}"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                            <GridViewColumn.Header>
+                                <TextBlock Text="{Binding Source={x:Static resx:Resources.Money}}"></TextBlock>
+                            </GridViewColumn.Header>
+                        </GridViewColumn>
+                    </GridView.Columns>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
         <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" >
-            <Button x:Name="Choose" Click="Button_Click" Content="{Binding Source={x:Static resx:Resources.Choose}}" Width="100" Height="40" FontFamily="Viner Hand ITC" Margin="0,0,120,0"/>
-            <Button x:Name="Back" Click="Button_Click" Content="{Binding Source={x:Static resx:Resources.Back}}" Width="100" Height="40" FontFamily="Viner Hand ITC"  Margin="120,0,0,0"/>
+            <Button x:Name="Choose" Command="{Binding Path=ListOfCharactersVM.ChooseCharacter, Mode=OneWay}" Click="Button_Click" Content="{Binding Source={x:Static resx:Resources.Choose}}" 
+                    Width="100" Height="40" FontFamily="Viner Hand ITC" Margin="0,0,120,0"/>
+            <Button x:Name="Back" Click="Button_Click" Content="{Binding Source={x:Static resx:Resources.Back}}" 
+                    Width="100" Height="40" FontFamily="Viner Hand ITC"  Margin="120,0,0,0"/>
         </StackPanel>
     </Grid>
 </Page>
