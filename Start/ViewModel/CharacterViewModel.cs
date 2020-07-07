@@ -9,6 +9,8 @@ namespace Start.ViewModel
     using DAL.Encje;
     using BaseClasses;
     using Model;
+    using System.Windows.Input;
+
     class CharacterViewModel : ViewModelBase
     {
         #region Składowe prywatne
@@ -37,6 +39,16 @@ namespace Start.ViewModel
         #endregion
 
         #region Właściwości
+
+        public Character Character
+        {
+            get { return character; }
+            set
+            {
+                character = value;
+                onPropertyChanged(nameof(Character));
+            }
+        }
 
         public string Name
         {
@@ -204,6 +216,24 @@ namespace Start.ViewModel
             {
                 editingAbility = value;
                 onPropertyChanged(nameof(EditingAbility));
+            }
+        }
+        #endregion
+
+        #region Polecenia
+        private ICommand edit = null;
+        public ICommand Edit
+        {
+            get
+            {
+                if (edit == null)
+                    edit = new RelayCommand(
+                        arg =>
+                        {
+                            AddCharacterViewModel editing = new AddCharacterViewModel(model);
+                        },
+                        arg => true);
+                return edit;
             }
         }
         #endregion

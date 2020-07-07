@@ -43,7 +43,7 @@ namespace Start.DAL.Repositories
             return stan;
         }
 
-        public static bool EditCharacter(Character character, ushort characterID)
+        public static bool EditCharacter(Character character, ushort? characterID)
         {
             bool stan = false;
             using (var connection = DBConnection.Instance.Connection)

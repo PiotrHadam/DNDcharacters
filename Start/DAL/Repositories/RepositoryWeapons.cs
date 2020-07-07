@@ -43,7 +43,7 @@ namespace Start.DAL.Repositories
             return stan;
         }
 
-        public static bool EditWeapon(Weapon weapon, ushort armorID)
+        public static bool EditWeapon(Weapon weapon, ushort? armorID)
         {
             bool stan = false;
             using (var connection = DBConnection.Instance.Connection)

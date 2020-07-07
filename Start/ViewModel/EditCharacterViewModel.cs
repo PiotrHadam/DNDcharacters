@@ -11,31 +11,27 @@ namespace Start.ViewModel
     using BaseClasses;
     using Model;
     using DAL.Encje;
-    class AddCharacterViewModel : ViewModelBase
+    class EditCharacterViewModel : ViewModelBase
     {
         #region Składowe prywatne
         private Model model = null;
-        private Character character = null;
+        private Character character = new Character();
 
-        private string name = "", image, description = "", story = "";
-        private int money = 20000, hitpoints = 20;
-        private byte strength = 0, dexterity = 0, constitution = 0, intelligence = 0, wisdom = 0, charisma = 0, level = 0;
+        private string name, image, description, story;
+        private int money, hitpoints;
+        private byte strength, dexterity, constitution, intelligence, wisdom, charisma, level;
         private bool isInspired = false;
         private Dictionary<string, byte> abilities;
         private Dictionary<byte, byte> possiblespellsperday;
         #endregion
 
         #region Konstruktory
-        public AddCharacterViewModel(Model model)
+
+        public EditCharacterViewModel(Model model, Character characterr)
         {
             this.model = model;
             Characters = model.Characters;
-        }
-
-        public AddCharacterViewModel(Model model, Character character)
-        {
-            this.model = model;
-            this.character = character;
+            character = characterr;
             name = character.Name;
             image = character.Image;
             description = character.Description;
@@ -219,7 +215,6 @@ namespace Start.ViewModel
                 onPropertyChanged(nameof(PossibleSpellsPerDay));
             }
         }
-
         #endregion
 
 
@@ -245,28 +240,28 @@ namespace Start.ViewModel
 
         #region Polecenia
 
-        private ICommand add = null;
-        public ICommand Add
+        private ICommand edit = null;
+        public ICommand Edit
         {
 
             get
             {
-                if (add == null)
-                    add = new RelayCommand(
+                if (edit == null)
+                    edit = new RelayCommand(
                         arg =>
                         {
                             var character = new Character();
 
-                            if (model.AddCharacterToDatabase(character))
+                            if (model.EditCharacterInDatabase(character, character.CharacterID))
                             {
                                 ClearSheet();
-                                System.Windows.MessageBox.Show("Postać została dodana do bazy!");
+                                System.Windows.MessageBox.Show("Postać została zedytowana!");
                             }
                         }
                         ,
                         arg => (Name != "") && (Story != "") && (Description != "")
                         );
-                return add;
+                return edit;
             }
         }
         #endregion

@@ -43,7 +43,7 @@ namespace Start.DAL.Repositories
             return stan;
         }
 
-        public static bool EditItem(Item item, ushort itemID)
+        public static bool EditItem(Item item, ushort? itemID)
         {
             bool stan = false;
             using (var connection = DBConnection.Instance.Connection)

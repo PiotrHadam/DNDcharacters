@@ -61,11 +61,47 @@ namespace Start.Properties {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Akrobatyka.
+        /// </summary>
+        public static string Acrobatics {
+            get {
+                return ResourceManager.GetString("Acrobatics", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu DODAJ POSTAĆ.
         /// </summary>
         public static string AddCharacter {
             get {
                 return ResourceManager.GetString("AddCharacter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Zwierzęta.
+        /// </summary>
+        public static string AnimalHandling {
+            get {
+                return ResourceManager.GetString("AnimalHandling", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Arkana.
+        /// </summary>
+        public static string Arcana {
+            get {
+                return ResourceManager.GetString("Arcana", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Atletyka.
+        /// </summary>
+        public static string Athletics {
+            get {
+                return ResourceManager.GetString("Athletics", resourceCulture);
             }
         }
         
@@ -143,6 +179,15 @@ namespace Start.Properties {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Podstęp.
+        /// </summary>
+        public static string Deception {
+            get {
+                return ResourceManager.GetString("Deception", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu USUŃ.
         /// </summary>
         public static string Delete {
@@ -188,6 +233,15 @@ namespace Start.Properties {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Historia.
+        /// </summary>
+        public static string History {
+            get {
+                return ResourceManager.GetString("History", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu Uderzenie.
         /// </summary>
         public static string HitPoints {
@@ -197,11 +251,38 @@ namespace Start.Properties {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Intuicja.
+        /// </summary>
+        public static string Insight {
+            get {
+                return ResourceManager.GetString("Insight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu Inteligencja.
         /// </summary>
         public static string Intelligence {
             get {
                 return ResourceManager.GetString("Intelligence", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Zastraszanie.
+        /// </summary>
+        public static string Intimidation {
+            get {
+                return ResourceManager.GetString("Intimidation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Detektywistyka.
+        /// </summary>
+        public static string Investigation {
+            get {
+                return ResourceManager.GetString("Investigation", resourceCulture);
             }
         }
         
@@ -224,6 +305,15 @@ namespace Start.Properties {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Leczenie.
+        /// </summary>
+        public static string Medicine {
+            get {
+                return ResourceManager.GetString("Medicine", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu Pieniądze.
         /// </summary>
         public static string Money {
@@ -242,11 +332,47 @@ namespace Start.Properties {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Natura.
+        /// </summary>
+        public static string Nature {
+            get {
+                return ResourceManager.GetString("Nature", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu ID.
         /// </summary>
         public static string Number {
             get {
                 return ResourceManager.GetString("Number", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Percepcja.
+        /// </summary>
+        public static string Perception {
+            get {
+                return ResourceManager.GetString("Perception", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Wydajność.
+        /// </summary>
+        public static string Performance {
+            get {
+                return ResourceManager.GetString("Performance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Perswazja.
+        /// </summary>
+        public static string Persuasion {
+            get {
+                return ResourceManager.GetString("Persuasion", resourceCulture);
             }
         }
         
@@ -260,11 +386,38 @@ namespace Start.Properties {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Religia.
+        /// </summary>
+        public static string Religion {
+            get {
+                return ResourceManager.GetString("Religion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu ZAPISZ.
         /// </summary>
         public static string Save {
             get {
                 return ResourceManager.GetString("Save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Zręczność Ręki.
+        /// </summary>
+        public static string SleightOfHand {
+            get {
+                return ResourceManager.GetString("SleightOfHand", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Ostrożność.
+        /// </summary>
+        public static string Stealth {
+            get {
+                return ResourceManager.GetString("Stealth", resourceCulture);
             }
         }
         
@@ -283,6 +436,15 @@ namespace Start.Properties {
         public static string Strength {
             get {
                 return ResourceManager.GetString("Strength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Przetrwanie.
+        /// </summary>
+        public static string Survival {
+            get {
+                return ResourceManager.GetString("Survival", resourceCulture);
             }
         }
         

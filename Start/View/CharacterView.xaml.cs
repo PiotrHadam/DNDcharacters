@@ -28,7 +28,7 @@ namespace Start.View
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Button b = (Button)sender;
-            if (b == Delete)
+            if (b == Edit)
             {
                 //funkcja do edytowania postaci
                 this.NavigationService.Navigate(new Uri("View/AddCharacter.xaml", UriKind.Relative));

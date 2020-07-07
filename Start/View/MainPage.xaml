@@ -25,7 +25,7 @@
         <StackPanel Grid.Row="1">
             <Button x:Name="All" Click="Button_Click" Content="{Binding Source={x:Static resx:Resources.CharactersList}}" Height="40" Width="200" Margin="20,100,20,20" FontFamily="Viner Hand ITC" FontSize="16"/>
             <Button x:Name="Add" Click="Button_Click" Content="{Binding Source={x:Static resx:Resources.AddCharacter}}" Height="40" Width="200" Margin="20" FontFamily="Viner Hand ITC" FontSize="16"/>
-            <Button Click="Exit_Click" IsCancel="True" Content="{Binding Source={x:Static resx:Resources.Exit}}" Height="40" Width="200" Margin="20" FontFamily="Viner Hand ITC" FontSize="16"/>
+            <Button Command="{Binding XD, Mode=OneWay}" Click="Exit_Click" IsCancel="True" Content="{Binding Source={x:Static resx:Resources.Exit}}" Height="40" Width="200" Margin="20" FontFamily="Viner Hand ITC" FontSize="16"/>
         </StackPanel>
     </Grid>
 </Page>

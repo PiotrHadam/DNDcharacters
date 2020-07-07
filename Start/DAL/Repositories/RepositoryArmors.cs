@@ -43,7 +43,7 @@ namespace Start.DAL.Repositories
             return stan;
         }
 
-        public static bool EditArmor(Armor armor, ushort armorID)
+        public static bool EditArmor(Armor armor, ushort? armorID)
         {
             bool stan = false;
             using (var connection = DBConnection.Instance.Connection)

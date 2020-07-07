@@ -117,8 +117,20 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Acrobatics" xml:space="preserve">
+    <value>Akrobatyka</value>
+  </data>
   <data name="AddCharacter" xml:space="preserve">
     <value>DODAJ POSTAĆ</value>
+  </data>
+  <data name="AnimalHandling" xml:space="preserve">
+    <value>Zwierzęta</value>
+  </data>
+  <data name="Arcana" xml:space="preserve">
+    <value>Arkana</value>
+  </data>
+  <data name="Athletics" xml:space="preserve">
+    <value>Atletyka</value>
   </data>
   <data name="Back" xml:space="preserve">
     <value>WRÓĆ</value>
@@ -145,6 +157,9 @@
   <data name="Constitution" xml:space="preserve">
     <value>Kondycja</value>
   </data>
+  <data name="Deception" xml:space="preserve">
+    <value>Podstęp</value>
+  </data>
   <data name="Delete" xml:space="preserve">
     <value>USUŃ</value>
   </data>
@@ -160,11 +175,23 @@
   <data name="Exit" xml:space="preserve">
     <value>WYJŚCIE</value>
   </data>
+  <data name="History" xml:space="preserve">
+    <value>Historia</value>
+  </data>
   <data name="HitPoints" xml:space="preserve">
     <value>Uderzenie</value>
   </data>
+  <data name="Insight" xml:space="preserve">
+    <value>Intuicja</value>
+  </data>
   <data name="Intelligence" xml:space="preserve">
     <value>Inteligencja</value>
+  </data>
+  <data name="Intimidation" xml:space="preserve">
+    <value>Zastraszanie</value>
+  </data>
+  <data name="Investigation" xml:space="preserve">
+    <value>Detektywistyka</value>
   </data>
   <data name="IsInspired" xml:space="preserve">
     <value>Inspiracja</value>
@@ -172,26 +199,53 @@
   <data name="Level" xml:space="preserve">
     <value>Poziom</value>
   </data>
+  <data name="Medicine" xml:space="preserve">
+    <value>Leczenie</value>
+  </data>
   <data name="Money" xml:space="preserve">
     <value>Pieniądze</value>
   </data>
   <data name="Name" xml:space="preserve">
     <value>Imię</value>
   </data>
+  <data name="Nature" xml:space="preserve">
+    <value>Natura</value>
+  </data>
   <data name="Number" xml:space="preserve">
     <value>ID</value>
+  </data>
+  <data name="Perception" xml:space="preserve">
+    <value>Percepcja</value>
+  </data>
+  <data name="Performance" xml:space="preserve">
+    <value>Wydajność</value>
+  </data>
+  <data name="Persuasion" xml:space="preserve">
+    <value>Perswazja</value>
   </data>
   <data name="Race" xml:space="preserve">
     <value>Rasa</value>
   </data>
+  <data name="Religion" xml:space="preserve">
+    <value>Religia</value>
+  </data>
   <data name="Save" xml:space="preserve">
     <value>ZAPISZ</value>
+  </data>
+  <data name="SleightOfHand" xml:space="preserve">
+    <value>Zręczność Ręki</value>
+  </data>
+  <data name="Stealth" xml:space="preserve">
+    <value>Ostrożność</value>
   </data>
   <data name="Story" xml:space="preserve">
     <value>Historia</value>
   </data>
   <data name="Strength" xml:space="preserve">
     <value>Siła</value>
+  </data>
+  <data name="Survival" xml:space="preserve">
+    <value>Przetrwanie</value>
   </data>
   <data name="Title" xml:space="preserve">
     <value>C:\Users\Piotr Hadam\source\repos\Start\Start\Images\title.png</value>

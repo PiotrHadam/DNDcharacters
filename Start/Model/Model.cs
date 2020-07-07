@@ -220,7 +220,7 @@ namespace Start.Model
             return false;
         }
 
-        public bool EditCharacterInDatabase(Character character, ushort characterID)
+        public bool EditCharacterInDatabase(Character character, ushort? characterID)
         {
             if (RepositoryCharacters.EditCharacter(character, characterID))
             {
@@ -301,7 +301,7 @@ namespace Start.Model
             return false;
         }
 
-        public bool EditItemInDatabase(Item item, ushort itemID)
+        public bool EditItemInDatabase(Item item, ushort? itemID)
         {
             if (RepositoryItems.EditItem(item, itemID))
             {
@@ -351,7 +351,7 @@ namespace Start.Model
             return false;
         }
 
-        public bool EditArmorInDatabase(Armor armor, ushort armorID)
+        public bool EditArmorInDatabase(Armor armor, ushort? armorID)
         {
             if (RepositoryArmors.EditArmor(armor, armorID))
             {
@@ -401,7 +401,7 @@ namespace Start.Model
             return false;
         }
 
-        public bool EditWeaponInDatabase(Weapon weapon, ushort weaponID)
+        public bool EditWeaponInDatabase(Weapon weapon, ushort? weaponID)
         {
             if (RepositoryWeapons.EditWeapon(weapon, weaponID))
             {
@@ -451,7 +451,7 @@ namespace Start.Model
             return false;
         }
 
-        public bool EditLinkInDatabase(CharacterSpell link, ushort linkID)
+        public bool EditLinkInDatabase(CharacterSpell link, ushort? linkID)
         {
             if (RepositoryCharacterSpells.EditLink(link, linkID))
             {

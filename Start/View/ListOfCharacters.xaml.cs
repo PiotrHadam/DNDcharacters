@@ -29,6 +29,7 @@ namespace Start.View
         {
             Button b = (Button)sender;
             if (b == Back) this.NavigationService.Navigate(new Uri("View/MainPage.xaml", UriKind.Relative));
+            else if (b == Choose) this.NavigationService.Navigate(new Uri("Viev/CharacterView.xaml"), UriKind.Relative);
         }
     }
 }

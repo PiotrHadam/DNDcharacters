@@ -50,3 +50,5 @@ C:\Users\Piotr Hadam\source\repos\Start\Start\obj\Debug\Start.csproj.CoreCompile
 C:\Users\Piotr Hadam\source\repos\Start\Start\obj\Debug\Start.csproj.CopyComplete
 C:\Users\Piotr Hadam\source\repos\Start\Start\obj\Debug\Start.exe
 C:\Users\Piotr Hadam\source\repos\Start\Start\obj\Debug\Start.pdb
+C:\Users\Piotr Hadam\source\repos\Start\Start\obj\Debug\View\EditCharacter.g.cs
+C:\Users\Piotr Hadam\source\repos\Start\Start\obj\Debug\View\EditCharacter.baml
