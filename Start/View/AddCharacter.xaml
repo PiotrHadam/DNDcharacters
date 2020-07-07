@@ -12,7 +12,7 @@
       Title="AddCharacter">
 
     <Page.Resources>
-        <vm:MainViewModel x:Key="mainvm"/>
+        <vm:ViewModelBase.View x:Key="mainvm"/>
     </Page.Resources>
 
     <Grid x:Name="GridRoot" DataContext="{StaticResource mainvm}">

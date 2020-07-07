@@ -8,7 +8,7 @@
         Title="Dungeons &amp; Dragons" Height="600" Width="700" ResizeMode="CanMinimize" >
 
     <Window.Background>
-        <ImageBrush ImageSource="{Binding Source={x:Static resx:Resources.Background}}"/>
+        <ImageBrush ImageSource="{Binding Source={x:Static resx:Resources.}}"/>
     </Window.Background>
     <Grid>
         <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"/>

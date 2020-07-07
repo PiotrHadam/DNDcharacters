@@ -7,10 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-<<<<<<< HEAD
-using Start.DAL.Helpers;
-=======
->>>>>>> 7ad30acbfe13fdee9bb628817a19ba8c99877478
+
+
 
 namespace Start.DAL.Encje
 {
