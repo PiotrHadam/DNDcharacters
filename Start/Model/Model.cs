@@ -10,6 +10,7 @@ namespace Start.Model
     using DAL.Encje;
     using DAL.Repositories;
 
+
     class Model
     {
         #region Listy
