@@ -7,7 +7,7 @@ namespace Start.DAL.Repositories
     class RepositoryClases
     {
         #region Zapytania
-        private const string ALL_CLASSES = "SELECT * FROM classes";
+        private const string ALL_CLASSES = "SELECT * FROM `classes`";
         #endregion
 
         #region Metody

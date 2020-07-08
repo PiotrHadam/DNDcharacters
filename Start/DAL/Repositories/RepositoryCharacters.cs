@@ -7,8 +7,8 @@ namespace Start.DAL.Repositories
     class RepositoryCharacters
     {
         #region ZAPYTANIA
-        private const string ALL_CHARACTERS = "SELECT * FROM characters";
-        private const string ADD_CHARACTER = "INSERT INTO characters (character_name, character_race, character_class, character_image_path, character_money, hit_points, charisma, constitution, dexterity, inteligence, stregth, wisdom, ability_acrobatics, ability_animal_handing, ability_arcana, ability_deception, ability_history, ability_insight, ability_intimidation, ability_investigation, ability_medicine, ability_nature, ability_perception, ability_performance, ability_persuasion, ability_religion, ability_sleight_of_hand, ability_stealh, ability_survival, known_spells_0, known_spells_1, known_spells_2, known_spells_3, known_spells_4, known_spells_5, known_spells_6, known_spells_7, known_spells_8, known_spells_9, known_spells_10, is_inspired, character_description, character_story, character_lvl) VALUES ";
+        private const string ALL_CHARACTERS = "SELECT * FROM `characters`";
+        private const string ADD_CHARACTER = "INSERT INTO `characters` (character_name, character_race, character_class, character_image_path, character_money, hit_points, charisma, constitution, dexterity, inteligence, stregth, wisdom, ability_acrobatics, ability_animal_handing, ability_arcana, ability_deception, ability_history, ability_insight, ability_intimidation, ability_investigation, ability_medicine, ability_nature, ability_perception, ability_performance, ability_persuasion, ability_religion, ability_sleight_of_hand, ability_stealh, ability_survival, known_spells_0, known_spells_1, known_spells_2, known_spells_3, known_spells_4, known_spells_5, known_spells_6, known_spells_7, known_spells_8, known_spells_9, is_inspired, character_description, character_story, character_lvl) VALUES ";
         private const string DELETE_CHARACTER = "DELETE FROM characters WHERE character_id = ";
         #endregion
 
@@ -30,22 +30,22 @@ namespace Start.DAL.Repositories
 
         public static bool AddToDatabase(Character character)
         {
-            bool stan = false;
+            bool state = false;
             using (var connection = DBConnection.Instance.Connection)
             {
                 MySqlCommand command = new MySqlCommand($"{ADD_CHARACTER} {character.ToInsert()}", connection);
                 connection.Open();
                 var id = command.ExecuteNonQuery();
-                stan = true;
+                state = true;
                 character.CharacterID = (ushort)command.LastInsertedId;
                 connection.Close();
             }
-            return stan;
+            return state;
         }
 
         public static bool EditCharacter(Character character, ushort? characterID)
         {
-            bool stan = false;
+            bool state = false;
             using (var connection = DBConnection.Instance.Connection)
             {
                 string EDIT_CHARACTER = $"UPDATE characters SET character_name='{character.Name}', character_race={character.Race.RaceID}, character_class={character.Class.ClassID}, character_image_path='{character.Image}', character_money={character.Money}, hit_points={character.HitPoints}, charisma={character.Charisma}, constitution={character.Constitution}, dexterity={character.Dexterity}, inteligence={character.Intelligence}, strength={character.Strength}, wisdom={character.Wisdom}, " +
@@ -55,24 +55,24 @@ namespace Start.DAL.Repositories
                 MySqlCommand command = new MySqlCommand(EDIT_CHARACTER, connection);
                 connection.Open();
                 var n = command.ExecuteNonQuery();
-                if (n == 1) stan = true;
+                if (n == 1) state = true;
 
                 connection.Close();
             }
-            return stan;
+            return state;
         }
 
         public static bool DeleteFromDatabase(Character character)
         {
-            bool stan = false;
+            bool state = false;
             using (var connection = DBConnection.Instance.Connection)
             {
                 MySqlCommand command = new MySqlCommand($"{DELETE_CHARACTER} {character.ToDelete()}", connection);
                 connection.Open();
-                stan = true;
+                state = true;
                 connection.Close();
             }
-            return stan;
+            return state;
         }
 
         #endregion

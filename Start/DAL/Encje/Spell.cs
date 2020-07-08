@@ -32,7 +32,7 @@ namespace Start.DAL.Encje
             SpellName = reader["spell_name"].ToString();
             RequiredLvl = byte.Parse(reader["required_lvl"].ToString());
             Domain = reader["domain"].ToString();
-            CastingTime = reader["castingTime"].ToString();
+            CastingTime = reader["casting_time"].ToString();
             SpellRange = reader["spell_range"].ToString();
             Duration = reader["duration"].ToString();
             Damage = reader["damage"].ToString();

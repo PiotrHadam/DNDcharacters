@@ -7,7 +7,7 @@ namespace Start.DAL.Repositories
     class RepositorySpells
     {
         #region Zapytania
-        private const string ALL_SPELLS = "SELECT * FROM spells";
+        private const string ALL_SPELLS = "SELECT * FROM `spells`";
         #endregion
 
         #region Metody

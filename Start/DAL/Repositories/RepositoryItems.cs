@@ -7,9 +7,9 @@ namespace Start.DAL.Repositories
     class RepositoryItems
     {
         #region Zapytania
-        private const string ALL_ITEMS = "SELECT * FROM items";
-        private const string ADD_ITEM = "INSERT INTO items (character_id, item_name, item_description) VALUES ";
-        private const string DELETE_ITEM = "DELETE FROM items WHERE item_id = ";
+        private const string ALL_ITEMS = "SELECT * FROM `items`";
+        private const string ADD_ITEM = "INSERT INTO `items` (character_id, item_name, item_description) VALUES ";
+        private const string DELETE_ITEM = "DELETE FROM `items` WHERE item_id = ";
         #endregion
 
         #region Metody
@@ -30,22 +30,22 @@ namespace Start.DAL.Repositories
 
         public static bool AddToDatabase(Item item)
         {
-            bool stan = false;
+            bool state = false;
             using (var connection = DBConnection.Instance.Connection)
             {
                 MySqlCommand command = new MySqlCommand($"{ADD_ITEM} {item.ToInsert()}", connection);
                 connection.Open();
                 var id = command.ExecuteNonQuery();
-                stan = true;
+                state = true;
                 item.ItemID = (ushort)command.LastInsertedId;
                 connection.Close();
             }
-            return stan;
+            return state;
         }
 
         public static bool EditItem(Item item, ushort? itemID)
         {
-            bool stan = false;
+            bool state = false;
             using (var connection = DBConnection.Instance.Connection)
             {
                 string EDIT_ITEM = $"UPDATE items SET item_name='{item.ItemName}', item_description={item.ItemDescription} WHERE item_id={itemID}";
@@ -53,24 +53,24 @@ namespace Start.DAL.Repositories
                 MySqlCommand command = new MySqlCommand(EDIT_ITEM, connection);
                 connection.Open();
                 var n = command.ExecuteNonQuery();
-                if (n == 1) stan = true;
+                if (n == 1) state = true;
 
                 connection.Close();
             }
-            return stan;
+            return state;
         }
 
         public static bool DeleteFromDatabase(Item item)
         {
-            bool stan = false;
+            bool state = false;
             using (var connection = DBConnection.Instance.Connection)
             {
                 MySqlCommand command = new MySqlCommand($"{DELETE_ITEM} {item.ToDelete()}", connection);
                 connection.Open();
-                stan = true;
+                state = true;
                 connection.Close();
             }
-            return stan;
+            return state;
         }
         #endregion
     }

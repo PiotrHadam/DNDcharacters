@@ -31,7 +31,7 @@ namespace Start.DAL.Encje
             WeaponID = ushort.Parse(reader["weapon_id"].ToString());
             CharacterID = ushort.Parse(reader["character_id"].ToString());
             WeaponName = reader["weapon_name"].ToString();
-            DMG = new Dice(byte.Parse(reader["dmq_dice"].ToString()), byte.Parse(reader["dmg_dice_size"].ToString()));
+            DMG = new Dice(byte.Parse(reader["dmg_dice"].ToString()), byte.Parse(reader["dmg_dice_size"].ToString()));
             AttackRange = reader["attack_range"].ToString();
             DamageType = reader["damage_type"].ToString();
             ItemDescription = reader["item_description"].ToString();

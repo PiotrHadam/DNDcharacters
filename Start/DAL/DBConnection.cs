@@ -9,29 +9,54 @@ namespace Start.DAL
 {
     class DBConnection
     {
-        private MySqlConnectionStringBuilder stringBuilder = new MySqlConnectionStringBuilder();
+        #region Właściwości
+        private static MySqlConnectionStringBuilder stringBuilder;
 
-        private static DBConnection instance = null;
+        public static string Nickname { get; private set; }
+        private static string Password { get; set; }
+        public static string Server { get; set; }
+        private static string Database { get; set; }
+        private static uint Port { get; set; }
+
         public static DBConnection Instance
         {
-            get
-            {
-                if (instance == null)
-                    instance = new DBConnection();
-                return instance;
-            }
+            get => new DBConnection();
         }
 
         public MySqlConnection Connection => new MySqlConnection(stringBuilder.ToString());
-
+        #endregion
 
         private DBConnection()
         {
-            stringBuilder.UserID = Properties.Settings.Default.userID;
-            stringBuilder.Server = Properties.Settings.Default.server;
-            stringBuilder.Database = Properties.Settings.Default.database;
-            stringBuilder.Port = Properties.Settings.Default.port;
-            stringBuilder.Password = Properties.Settings.Default.paswd;
+            stringBuilder = new MySqlConnectionStringBuilder
+            {
+                UserID = Nickname,
+                Password = Password,
+                Server = Server,
+                Database = Database,
+                Port = Port,
+                CharacterSet = "utf8"
+            };
+        }
+
+        public static void Login(string user, string password)
+        {
+            Nickname = user;
+            Password = password;
+        }
+
+        public static bool LoginAsRoot()
+        {
+            try
+            {
+                Nickname = "root";
+                Password = "";
+                Server = "localhost";
+                Database = "dnd_characters";
+                Port = 3306;
+                return true;
+            }
+            catch { return false; }
         }
     }
 }

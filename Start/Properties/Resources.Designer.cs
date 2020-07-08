@@ -134,6 +134,25 @@ namespace Start.Properties {
         }
         
         /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap character_sheet {
+            get {
+                object obj = ResourceManager.GetObject("character_sheet", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu C:\Users\Piotr Hadam\source\repos\Start\Start\Images\character_sheet2.png.
+        /// </summary>
+        public static string CharacterSheet {
+            get {
+                return ResourceManager.GetString("CharacterSheet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu LISTA POSTACI.
         /// </summary>
         public static string CharactersList {
@@ -305,6 +324,33 @@ namespace Start.Properties {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu ZALOGUJ SIĘ.
+        /// </summary>
+        public static string Logging {
+            get {
+                return ResourceManager.GetString("Logging", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Login:.
+        /// </summary>
+        public static string Login {
+            get {
+                return ResourceManager.GetString("Login", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu C:\Users\Piotr Hadam\source\repos\Start\Start\Images\back2.jpg.
+        /// </summary>
+        public static string LoginBackground {
+            get {
+                return ResourceManager.GetString("LoginBackground", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu Leczenie.
         /// </summary>
         public static string Medicine {
@@ -341,11 +387,29 @@ namespace Start.Properties {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Nie masz jeszcze konta?.
+        /// </summary>
+        public static string NewUser {
+            get {
+                return ResourceManager.GetString("NewUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu ID.
         /// </summary>
         public static string Number {
             get {
                 return ResourceManager.GetString("Number", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Hasło:.
+        /// </summary>
+        public static string Password {
+            get {
+                return ResourceManager.GetString("Password", resourceCulture);
             }
         }
         
@@ -382,6 +446,24 @@ namespace Start.Properties {
         public static string Race {
             get {
                 return ResourceManager.GetString("Race", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu ZAREJESTRUJ SIĘ.
+        /// </summary>
+        public static string Register {
+            get {
+                return ResourceManager.GetString("Register", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Tworzenie konta.
+        /// </summary>
+        public static string Registering {
+            get {
+                return ResourceManager.GetString("Registering", resourceCulture);
             }
         }
         
@@ -463,6 +545,16 @@ namespace Start.Properties {
         public static System.Drawing.Bitmap title1 {
             get {
                 object obj = ResourceManager.GetObject("title1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap title2 {
+            get {
+                object obj = ResourceManager.GetObject("title2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

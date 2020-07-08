@@ -13,6 +13,8 @@ namespace Start.Model
     class Model
     {
         #region Listy
+        public static List<User> Users { get => RepositoryUsers.GetAllUsers(); }
+
         public ObservableCollection<Armor> Armors { get; set; } = new ObservableCollection<Armor>();
         public ObservableCollection<Character> Characters { get; set; } = new ObservableCollection<Character>();
         public ObservableCollection<CharacterSpell> Links { get; set; } = new ObservableCollection<CharacterSpell>();

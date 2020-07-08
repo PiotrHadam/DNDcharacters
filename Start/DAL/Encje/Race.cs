@@ -7,7 +7,7 @@ namespace Start.DAL.Encje
         #region Własności
         public byte RaceID { get; set; }
         public string Name { get; set; }
-        public byte CharismaBonus { get; set; }
+        public byte CharsimaThrowBonus { get; set; }
         public byte ConstitutionThrowBonus { get; set; }
         public byte DexterityBonus { get; set; }
         public byte IntelligenceThrowBonus { get; set; }
@@ -23,6 +23,7 @@ namespace Start.DAL.Encje
             RaceID = byte.Parse(reader["race_id"].ToString());
             Name = reader["race_name"].ToString();
             ConstitutionThrowBonus = byte.Parse(reader["constitution_throw_bonus"].ToString());
+            CharsimaThrowBonus = byte.Parse(reader["charisa_throw_bonus"].ToString());
             DexterityBonus = byte.Parse(reader["dexterity_bonus"].ToString());
             IntelligenceThrowBonus = byte.Parse(reader["inteligence_throw_bonus"].ToString());
             StrengthThrowBonus = byte.Parse(reader["stregth_throw_bonus"].ToString());
