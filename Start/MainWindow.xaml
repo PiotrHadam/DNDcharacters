@@ -5,10 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:resx="clr-namespace:Start.Properties"
         mc:Ignorable="d"
+        xmlns:properties="clr-namespace:Start.Properties"
         Title="Dungeons &amp; Dragons" Height="600" Width="700" ResizeMode="CanMinimize" >
 
     <Window.Background>
-        <ImageBrush ImageSource="{Binding Source={x:Static resx:Resources.Background}}"/>
+        <ImageBrush ImageSource="{Binding Source={x:Static properties:Resources.Background}}"/>
     </Window.Background>
     <DockPanel>
         <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"/>
