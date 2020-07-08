@@ -9,6 +9,7 @@ namespace Start.Model
 {
     using DAL.Encje;
     using DAL.Repositories;
+    using Microsoft.VisualBasic.ApplicationServices;
 
     class Model
     {

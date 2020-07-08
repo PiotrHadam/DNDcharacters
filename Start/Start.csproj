@@ -143,8 +143,8 @@
     <Compile Include="DAL\Encje\Item.cs" />
     <Compile Include="DAL\Encje\Race.cs" />
     <Compile Include="DAL\Encje\Spell.cs" />
-    <Compile Include="DAL\Encje\User.cs" />
     <Compile Include="DAL\Encje\Weapon.cs" />
+    <Compile Include="DAL\Helpers\Money.cs" />
     <Compile Include="DAL\Helpers\Rules.cs" />
     <Compile Include="DAL\Helpers\Dice.cs" />
     <Compile Include="DAL\Helpers\ICharacterSheer.cs" />
@@ -155,7 +155,6 @@
     <Compile Include="DAL\Repositories\RepositoryItems.cs" />
     <Compile Include="DAL\Repositories\RepositoryRaces.cs" />
     <Compile Include="DAL\Repositories\RepositorySpells.cs" />
-    <Compile Include="DAL\Repositories\RepositoryUsers.cs" />
     <Compile Include="DAL\Repositories\RepositoryWeapons.cs" />
     <Compile Include="Model\Model.cs" />
     <Compile Include="ViewModel\AddCharacterViewModel.cs" />
@@ -180,14 +179,8 @@
     <Compile Include="View\ListOfCharacters.xaml.cs">
       <DependentUpon>ListOfCharacters.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\LoginWindow.xaml.cs">
-      <DependentUpon>LoginWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\RegisterWindow.xaml.cs">
-      <DependentUpon>RegisterWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -221,15 +214,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\LoginWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="View\MainPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\RegisterWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
