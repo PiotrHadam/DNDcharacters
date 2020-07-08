@@ -4,11 +4,19 @@ using Start.DAL.Repositories;
 using System;
 using System.Collections.Generic;
 using System.IO.Packaging;
-
+using System.Windows.Media.Animation;
 
 namespace Start.DAL.Encje
 {
     class Character {
+        //DO IMPLEMENTACJI WŁASNOŚCI NIE WYMAGAJĄCE INICJALIZACJI W KONSTRUKTORZE!!!
+        public byte Perception { get; private set; }
+        public Money CHMoney { get; set; }
+        public byte Speed { get; set; }
+        public byte Proficiency { get; set; }
+        public byte ArmorClass { get; set; }
+
+
         #region Własności
         // własności niewczytywane
         public Class Class { get; set; }

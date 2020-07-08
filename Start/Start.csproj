@@ -145,6 +145,7 @@
     <Compile Include="DAL\Encje\Spell.cs" />
     <Compile Include="DAL\Encje\User.cs" />
     <Compile Include="DAL\Encje\Weapon.cs" />
+    <Compile Include="DAL\Helpers\Money.cs" />
     <Compile Include="DAL\Helpers\Rules.cs" />
     <Compile Include="DAL\Helpers\Dice.cs" />
     <Compile Include="DAL\Helpers\ICharacterSheer.cs" />
@@ -222,16 +223,16 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\LoginWindow.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="View\MainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\RegisterWindow.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
