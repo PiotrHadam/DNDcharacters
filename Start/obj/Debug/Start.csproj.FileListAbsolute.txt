@@ -31,7 +31,6 @@ C:\Users\Piotr Hadam\source\repos\Start\Start\bin\Debug\System.Windows.Interacti
 C:\Users\Piotr Hadam\source\repos\Start\Start\obj\Debug\Start.csprojAssemblyReference.cache
 C:\Users\Piotr Hadam\source\repos\Start\Start\obj\Debug\MainWindow.g.cs
 C:\Users\Piotr Hadam\source\repos\Start\Start\obj\Debug\View\AddCharacter.g.cs
-C:\Users\Piotr Hadam\source\repos\Start\Start\obj\Debug\View\CharacterView.g.cs
 C:\Users\Piotr Hadam\source\repos\Start\Start\obj\Debug\View\ListOfCharacters.g.cs
 C:\Users\Piotr Hadam\source\repos\Start\Start\obj\Debug\View\MainPage.g.cs
 C:\Users\Piotr Hadam\source\repos\Start\Start\obj\Debug\App.g.cs
@@ -40,7 +39,6 @@ C:\Users\Piotr Hadam\source\repos\Start\Start\obj\Debug\Start_MarkupCompile.cach
 C:\Users\Piotr Hadam\source\repos\Start\Start\obj\Debug\Start_MarkupCompile.lref
 C:\Users\Piotr Hadam\source\repos\Start\Start\obj\Debug\MainWindow.baml
 C:\Users\Piotr Hadam\source\repos\Start\Start\obj\Debug\View\AddCharacter.baml
-C:\Users\Piotr Hadam\source\repos\Start\Start\obj\Debug\View\CharacterView.baml
 C:\Users\Piotr Hadam\source\repos\Start\Start\obj\Debug\View\ListOfCharacters.baml
 C:\Users\Piotr Hadam\source\repos\Start\Start\obj\Debug\View\MainPage.baml
 C:\Users\Piotr Hadam\source\repos\Start\Start\obj\Debug\Start.g.resources

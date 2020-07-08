@@ -19,8 +19,10 @@ namespace Start.Model
         public ObservableCollection<Character> Characters { get; set; } = new ObservableCollection<Character>();
         public ObservableCollection<CharacterSpell> Links { get; set; } = new ObservableCollection<CharacterSpell>();
         public ObservableCollection<Class> Classes { get; set; } = new ObservableCollection<Class>();
+        public ObservableCollection<string> ClassNames { get; set; } = new ObservableCollection<string>();
         public ObservableCollection<Item> Items { get; set; } = new ObservableCollection<Item>();
         public ObservableCollection<Race> Races { get; set; } = new ObservableCollection<Race>();
+        public ObservableCollection<string> RaceNames { get; set; } = new ObservableCollection<string>();
         public ObservableCollection<Spell> Spells { get; set; } = new ObservableCollection<Spell>();
         public ObservableCollection<Weapon> Weapons { get; set; } = new ObservableCollection<Weapon>();
         #endregion
@@ -39,13 +41,19 @@ namespace Start.Model
                 Links.Add(l);
             var classes = RepositoryClases.ReadAllClases();
             foreach (var c in classes)
+            {
                 Classes.Add(c);
+                ClassNames.Add(c.Name);
+            }
             var items = RepositoryItems.ReadAllItems();
             foreach (var i in items)
                 Items.Add(i);
             var races = RepositoryRaces.ReadAllRaces();
             foreach (var r in races)
+            { 
                 Races.Add(r);
+                RaceNames.Add(r.Name);
+            }
             var spells = RepositorySpells.ReadAllSpells();
             foreach (var s in spells)
                 Spells.Add(s);

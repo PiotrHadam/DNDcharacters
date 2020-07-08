@@ -60,12 +60,12 @@
             
             <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2">
                 <TextBlock Text="{Binding Source={x:Static resx:Resources.Clas}}" Height="20" FontFamily="Viner Hand ITC" Margin="0,0,10,0"/>
-                <ComboBox x:Name="Classes" Width="100" Height="20" FontFamily="Viner Hand ITC" Margin="0,0,10,0"/>
+                <ComboBox x:Name="Classes" ItemsSource="{Binding Path=AddCharacterVM.ClassNames}" Width="100" Height="20" FontFamily="Viner Hand ITC" Margin="0,0,10,0"/>
             </StackPanel>
             
             <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="3">
                 <TextBlock Text="{Binding Source={x:Static resx:Resources.Race}}" Height="20" FontFamily="Viner Hand ITC" Margin="0,0,10,0"/>
-                <ComboBox x:Name="Races" Width="100" Height="20" FontFamily="Viner Hand ITC" Margin="0,0,10,0"/>
+                <ComboBox x:Name="Races" ItemsSource="{Binding Path=AddCharacterVM.RaceNames}" Width="100" Height="20" FontFamily="Viner Hand ITC" Margin="0,0,10,0"/>
             </StackPanel>
             
             <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">

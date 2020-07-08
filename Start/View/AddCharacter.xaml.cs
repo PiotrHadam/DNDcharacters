@@ -24,25 +24,9 @@ namespace Start.View
     /// </summary>
     public partial class AddCharacter : Page
     {
-        public ObservableCollection<string> AllowedClasses = new ObservableCollection<string>()
-        {
-            "Druid",
-            "Kapłan",
-            "Czarodziej"
-        };
-
-        public ObservableCollection<string> AllowedRaces = new ObservableCollection<string>()
-        {
-            "Człowiek",
-            "Elf",
-            "Krasnolud"
-        };
-
         public AddCharacter()
         {
             InitializeComponent();
-            Classes.ItemsSource = AllowedClasses;
-            Races.ItemsSource = AllowedRaces;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

@@ -30,9 +30,11 @@ namespace Start.ViewModel
         {
             this.model = model;
             Characters = model.Characters;
+            ClassNames = model.ClassNames;
+            RaceNames = model.RaceNames;
         }
 
-        public AddCharacterViewModel(Model model, Character character)
+        /*public AddCharacterViewModel(Model model, Character character)
         {
             this.model = model;
             this.character = character;
@@ -52,12 +54,14 @@ namespace Start.ViewModel
             IsInspired = character.IsInspired;
             abilities = character.Abilities;
             possiblespellsperday = character.PossibleSpellsPerDay;
-        }
+        }*/
         #endregion
 
         #region Właściwości
 
         public ObservableCollection<Character> Characters { get; set; }
+        public ObservableCollection<string> RaceNames { get; set; }
+        public ObservableCollection<string> ClassNames { get; set; }
 
         public Character CurrentCharacter { get; set; }
 
