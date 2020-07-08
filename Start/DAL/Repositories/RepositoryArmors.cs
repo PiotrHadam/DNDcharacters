@@ -16,60 +16,77 @@ namespace Start.DAL.Repositories
         public static List<Armor> ReadAllArmors()
         {
             List<Armor> armors = new List<Armor>();
-            using (var connection = DBConnection.Instance.Connection)
+            try
             {
-                MySqlCommand command = new MySqlCommand(ALL_ARMORS, connection);
-                connection.Open();
-                var reader = command.ExecuteReader();
-                while (reader.Read())
-                    armors.Add(new Armor(reader));
-                connection.Close();
+                using (var connection = DBConnection.Instance.Connection)
+                {
+                    MySqlCommand command = new MySqlCommand(ALL_ARMORS, connection);
+                    connection.Open();
+                    var reader = command.ExecuteReader();
+                    while (reader.Read())
+                        armors.Add(new Armor(reader));
+                    connection.Close();
+                }
             }
+            catch { }
             return armors;
         }
 
         public static bool AddToDatabase(Armor armor)
         {
             bool state = false;
-            using (var connection = DBConnection.Instance.Connection)
+            try
             {
-                MySqlCommand command = new MySqlCommand($"{ADD_ARMOR} {armor.ToInsert()}", connection);
-                connection.Open();
-                var id = command.ExecuteNonQuery();
-                state = true;
-                armor.ArmorID = (ushort)command.LastInsertedId;
-                connection.Close();
+                using (var connection = DBConnection.Instance.Connection)
+                {
+                    MySqlCommand command = new MySqlCommand($"{ADD_ARMOR} {armor.ToInsert()}", connection);
+                    connection.Open();
+                    var id = command.ExecuteNonQuery();
+                    state = true;
+                    armor.ArmorID = (ushort)command.LastInsertedId;
+                    connection.Close();
+                }
             }
+            catch { }
             return state;
         }
 
         public static bool EditArmor(Armor armor, ushort? armorID)
         {
             bool state = false;
-            using (var connection = DBConnection.Instance.Connection)
+            try
             {
-                string EDIT_ARMOR = $"UPDATE armors SET armor_name='{armor.ArmorName}', class_bonus={armor.ClassBonus}, item_description={armor.ItemDescription} WHERE armor_id={armorID}";
+                using (var connection = DBConnection.Instance.Connection)
+                {
+                    string EDIT_ARMOR = $"UPDATE armors SET armor_name='{armor.ArmorName}', class_bonus={armor.ClassBonus}, item_description={armor.ItemDescription} WHERE armor_id={armorID}";
 
-                MySqlCommand command = new MySqlCommand(EDIT_ARMOR, connection);
-                connection.Open();
-                var n = command.ExecuteNonQuery();
-                if (n == 1) state = true;
+                    MySqlCommand command = new MySqlCommand(EDIT_ARMOR, connection);
+                    connection.Open();
+                    var n = command.ExecuteNonQuery();
+                    if (n == 1) state = true;
 
-                connection.Close();
+                    connection.Close();
+                }
             }
+            catch { }
             return state;
         }
 
         public static bool DeleteFromDatabase(Armor armor)
         {
             bool state = false;
-            using (var connection = DBConnection.Instance.Connection)
+            try
             {
-                MySqlCommand command = new MySqlCommand($"{DELETE_ARMOR} {armor.ToDelete()}", connection);
-                connection.Open();
-                state = true;
-                connection.Close();
+                using (var connection = DBConnection.Instance.Connection)
+                {
+                    MySqlCommand command = new MySqlCommand($"{DELETE_ARMOR} {armor.ToDelete()}", connection);
+                    connection.Open();
+                    _ = command.ExecuteNonQuery();
+                    state = true;
+                    connection.Close();
+                }
             }
+            catch { }
             return state;
         }
         #endregion

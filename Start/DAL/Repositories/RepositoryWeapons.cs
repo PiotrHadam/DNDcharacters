@@ -16,60 +16,77 @@ namespace Start.DAL.Repositories
         public static List<Weapon> ReadAllWeapons()
         {
             List<Weapon> weapons = new List<Weapon>();
-            using (var connection = DBConnection.Instance.Connection)
+            try
             {
-                MySqlCommand command = new MySqlCommand(ALL_WEAPONS, connection);
-                connection.Open();
-                var reader = command.ExecuteReader();
-                while (reader.Read())
-                    weapons.Add(new Weapon(reader));
-                connection.Close();
+                using (var connection = DBConnection.Instance.Connection)
+                {
+                    MySqlCommand command = new MySqlCommand(ALL_WEAPONS, connection);
+                    connection.Open();
+                    var reader = command.ExecuteReader();
+                    while (reader.Read())
+                        weapons.Add(new Weapon(reader));
+                    connection.Close();
+                }
             }
+            catch { }
             return weapons;
         }
 
         public static bool AddToDatabase(Weapon weapon)
         {
             bool state = false;
-            using (var connection = DBConnection.Instance.Connection)
+            try
             {
-                MySqlCommand command = new MySqlCommand($"{ADD_WEAPON} {weapon.ToInsert()}", connection);
-                connection.Open();
-                var id = command.ExecuteNonQuery();
-                state = true;
-                weapon.WeaponID = (ushort)command.LastInsertedId;
-                connection.Close();
+                using (var connection = DBConnection.Instance.Connection)
+                {
+                    MySqlCommand command = new MySqlCommand($"{ADD_WEAPON} {weapon.ToInsert()}", connection);
+                    connection.Open();
+                    var id = command.ExecuteNonQuery();
+                    state = true;
+                    weapon.WeaponID = (ushort)command.LastInsertedId;
+                    connection.Close();
+                }
             }
+            catch { }
             return state;
         }
 
         public static bool EditWeapon(Weapon weapon, ushort? armorID)
         {
             bool state = false;
-            using (var connection = DBConnection.Instance.Connection)
+            try
             {
-                string EDIT_WEAPON = $"UPDATE wepons SET weapon_name='{weapon.WeaponName}', dmg_dice={weapon.DMG.Amount}, dmg_dice_size={weapon.DMG.Size}, attack_range='{weapon.AttackRange}', damage_type='{weapon.DamageType}', item_description={weapon.ItemDescription} WHERE weapon_id={armorID}";
+                using (var connection = DBConnection.Instance.Connection)
+                {
+                    string EDIT_WEAPON = $"UPDATE wepons SET weapon_name='{weapon.WeaponName}', dmg_dice={weapon.DMG.Amount}, dmg_dice_size={weapon.DMG.Size}, attack_range='{weapon.AttackRange}', damage_type='{weapon.DamageType}', item_description={weapon.ItemDescription} WHERE weapon_id={armorID}";
 
-                MySqlCommand command = new MySqlCommand(EDIT_WEAPON, connection);
-                connection.Open();
-                var n = command.ExecuteNonQuery();
-                if (n == 1) state = true;
+                    MySqlCommand command = new MySqlCommand(EDIT_WEAPON, connection);
+                    connection.Open();
+                    var n = command.ExecuteNonQuery();
+                    if (n == 1) state = true;
 
-                connection.Close();
+                    connection.Close();
+                }
             }
+            catch { }
             return state;
         }
 
         public static bool DeleteFromDatabase(Weapon weapon)
         {
             bool state = false;
-            using (var connection = DBConnection.Instance.Connection)
+            try
             {
-                MySqlCommand command = new MySqlCommand($"{DELETE_WEAPON} {weapon.ToDelete()}", connection);
-                connection.Open();
-                state = true;
-                connection.Close();
+                using (var connection = DBConnection.Instance.Connection)
+                {
+                    MySqlCommand command = new MySqlCommand($"{DELETE_WEAPON} {weapon.ToDelete()}", connection);
+                    connection.Open();
+                    _ = command.ExecuteNonQuery();
+                    state = true;
+                    connection.Close();
+                }
             }
+            catch { }
             return state;
         }
         #endregion
