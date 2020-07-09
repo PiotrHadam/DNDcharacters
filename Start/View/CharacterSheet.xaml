@@ -28,7 +28,6 @@
         <ImageBrush ImageSource="/Start;component/Images/character_sheet2.png"/>
     </Window.Background>
 
-    <!--<Grid Margin="558,696,-0.4,0.4" DataContext="{StaticResource mainvm}">-->
     <Grid DataContext="{StaticResource mainvm}">
         <TextBox x:Name="Name" Margin="-509,-622,447,870" FontFamily="Segoe Script" FontSize="20" Text="{Binding Name, Mode=TwoWay}"/>
         <TextBox x:Name="Strength" Margin="-525,-507,610,747" FontSize="26" Text="{Binding Strength, Mode=TwoWay}" />

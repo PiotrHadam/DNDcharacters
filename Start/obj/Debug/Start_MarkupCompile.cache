@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Piotr Hadam\source\repos\DnD\DNDcharacters\Start\App.xaml
-81361454588
+11-158562935
 
-43-947015242
+47458187491
 141-274152703
-MainWindow.xaml;View\AddCharacter.xaml;View\CharacterSheet.xaml;View\EditCharacter.xaml;View\ListOfCharacters.xaml;View\LoginWindow.xaml;View\MainPage.xaml;View\RegisterWindow.xaml;
+MainWindow.xaml;View\AddArmor.xaml;View\AddCharacter.xaml;View\AddItems.xaml;View\AddWeapons.xaml;View\CharacterSheet.xaml;View\EditCharacter.xaml;View\ListOfCharacters.xaml;View\LoginWindow.xaml;View\MainPage.xaml;View\RegisterWindow.xaml;
 
 False
 

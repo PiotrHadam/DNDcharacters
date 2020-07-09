@@ -1,0 +1,88 @@
+﻿<Page x:Class="Start.View.AddItems"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Start.View"
+      xmlns:vm="clr-namespace:Start.ViewModel"
+      xmlns:resx="clr-namespace:Start.Properties"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="700"
+      Title="AddItems">
+
+    <Page.Resources>
+        <vm:MainViewModel x:Key="mainvm"/>
+        <Style x:Key="TextStyle" TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Segoe Script" />
+            <Setter Property="Height" Value="20"/>
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
+        <Style x:Key="TextBoxStyle" TargetType="TextBox">
+            <Setter Property="FontFamily" Value="Segoe Script" />
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="Transparent"/>
+        </Style>
+        <Style x:Key="LabelStyle" TargetType="Label">
+            <Setter Property="FontFamily" Value="Segoe Script" />
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
+    </Page.Resources>
+    <Grid DataContext="{StaticResource mainvm}">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="18*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="18*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="0.5*"/>
+                <ColumnDefinition Width="0.5*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="DODAJ PRZEDMIOT" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="4" HorizontalAlignment="Center"
+                       FontFamily="Viner Hand ITC" FontSize="26" Foreground="White"/>
+
+            <StackPanel Orientation="Horizontal" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2">
+                <TextBlock Text="{Binding Source={x:Static resx:Resources.ItemsName}}" Style="{StaticResource TextStyle}" Margin="0,0,10,0"/>
+                <TextBox Text="{Binding AddItemsVM.ItemName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="120" Height="20" Style="{StaticResource TextBoxStyle}" Margin="0,0,10,0"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="4" Grid.RowSpan="2">
+                <TextBlock Text="{Binding Source={x:Static resx:Resources.ItemsDescription}}" Style="{StaticResource TextStyle}" Margin="0,0,10,0"/>
+                <TextBox Text="{Binding AddItemsVM.ItemDescription, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="320" Height="60" Style="{StaticResource TextBoxStyle}" 
+                         Margin="0,0,10,0" TextWrapping="Wrap" AcceptsReturn="True"/>
+            </StackPanel>
+        </Grid>
+        <Button x:Name="Save" Command="{Binding AddItemsVM.AddItem, Mode=OneWay}" Content="{Binding Source={x:Static resx:Resources.Save}}" 
+                Width="100" Height="40" FontFamily="Viner Hand ITC" Margin="0,0,150,0"
+                Grid.Row="3" Grid.Column="1"/>
+        <Button x:Name="Next" Click="Next_Click" Command="{Binding AddItemsVM.AddItemNext, Mode=OneWay}" Content="{Binding Source={x:Static resx:Resources.Next}}" 
+                Width="100" Height="40" FontFamily="Viner Hand ITC" Margin="150,0,0,0"
+                Grid.Row="3" Grid.Column="1"/>
+    </Grid>
+</Page>

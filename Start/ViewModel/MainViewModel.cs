@@ -10,21 +10,23 @@ namespace Start.ViewModel
     using BaseClasses;
     using System.Windows.Input;
     using Start.DAL.Encje;
+    using Start.View;
 
     class MainViewModel : ViewModelBase
     {
         private Model model = new Model();
 
         public AddCharacterViewModel AddCharacterVM { get; set; }
-        public CharacterSheetViewModel CharacterVM { get; set; }
         public ListOfCharactersViewModel ListOfCharactersVM { get; set; }
-        public EditCharacterViewModel EditCharacterVM { get; set; }
+        public AddItemsViewModel AddItemsVM { get; set; }
+        //public EditCharacterViewModel EditCharacterVM { get; set; }
 
         public MainViewModel()
         {
             AddCharacterVM = new AddCharacterViewModel(model);
             ListOfCharactersVM = new ListOfCharactersViewModel(model);
-            EditCharacterVM = new EditCharacterViewModel(model);
+            AddItemsVM = new AddItemsViewModel(model);
+            //EditCharacterVM = new EditCharacterViewModel(model);
         }
 
 

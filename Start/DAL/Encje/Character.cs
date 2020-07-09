@@ -331,7 +331,7 @@ namespace Start.DAL.Encje
             _raceID = character._raceID;
             _classID = character._classID;
             Image = character.Image;
-            Money = character.Money;
+            CHMoney = character.CHMoney;
             HitPoints = character.HitPoints;
             Strength = character.Strength;
             Dexterity = character.Dexterity;
@@ -410,6 +410,7 @@ namespace Start.DAL.Encje
             _classID = builder._classID;
             this.Class = builder._class;
             HitPoints = builder._hitPoints;
+            CHMoney = builder._money;
             Race = builder._race;
             this._raceID = builder._raceID;
             IsInspired = builder._isInspired;
@@ -452,6 +453,7 @@ namespace Start.DAL.Encje
             internal Race _race;
             internal byte _raceID;
             internal byte _hitPoints;
+            internal Money _money;
             internal bool _isInspired;
             internal byte _strenght;
             internal byte _dexterity;
@@ -477,6 +479,11 @@ namespace Start.DAL.Encje
             public Builder WithHitPoints(byte currentHitPoints)
             {
                 _hitPoints = currentHitPoints;
+                return this;
+            }
+            public Builder WithMoney(uint money)
+            {
+                _money = new Money(money);
                 return this;
             }
             public Builder WithLvl(byte lvl)
@@ -597,7 +604,8 @@ namespace Start.DAL.Encje
                 _abilities = abilities;
                 return this;
             }
-            public Builder WithPossibleSpellsPerDay(Dictionary<byte, byte> possibleSpells) {
+            public Builder WithPossibleSpellsPerDay(Dictionary<byte, byte> possibleSpells)
+            {
                 _possibleSpellsPerDay = possibleSpells;
                 return this;
             }
@@ -618,23 +626,29 @@ namespace Start.DAL.Encje
         #region Metody
 
 
-        public string ToInsert() {
+        public string ToInsert()
+        {
             string possibleSpellsPerDay = string.Empty;
             string abilities = string.Empty;
 
-            try {
-                for(byte i = 0; i < PossibleSpellsPerDay.Count; i++) {
+            try
+            {
+                for (byte i = 0; i < PossibleSpellsPerDay.Count; i++)
+                {
                     possibleSpellsPerDay += PossibleSpellsPerDay[i].ToString() + ", ";
                 };
             }
-            catch {
-                for(byte i = 0; i < 10; i++) {
+            catch
+            {
+                for (byte i = 0; i < 10; i++)
+                {
                     possibleSpellsPerDay += 0.ToString() + ", ";
                 };
             }
 
 
-            foreach(KeyValuePair<string, byte> ability in Abilities) {
+            foreach (KeyValuePair<string, byte> ability in Abilities)
+            {
                 abilities += ability.Value.ToString() + ", ";
             }
 
@@ -652,7 +666,7 @@ namespace Start.DAL.Encje
                 $"`known_spells_0`, `known_spells_1`, `known_spells_2`, `known_spells_3`, `known_spells_4`, `known_spells_5`, " +
                 $"`known_spells_6`, `known_spells_7`, `known_spells_8`, `known_spells_9`, `is_inpired`, `character_description`, " +
                 $"`character_story`, `character_lvl`) " +
-                $"VALUES (NULL, '{Name}', '{Race.RaceID}', '{Class.ClassID}', NULL, '{Money}', '{HitPoints}', '{Charisma}', '{Constitution}', '{Dexterity}', '{Intelligence}', " +
+                $"VALUES (NULL, '{Name}', '{Race.RaceID}', '{Class.ClassID}', NULL, '{CHMoney.Copper}', '{HitPoints}', '{Charisma}', '{Constitution}', '{Dexterity}', '{Intelligence}', " +
                 $"'{Strength}', '{Wisdom}', '{Abilities["acrobatics"]}', '{Abilities["animal_handing"]}', '{Abilities["arcana"]}', '{Abilities["athletics"]}', " +
                 $"'{Abilities["deception"]}', '{Abilities["history"]}', '{Abilities["insight"]}', " +
                 $"'{Abilities["intimidation"]}', '{Abilities["investigation"]}', '{Abilities["medicine"]}', " +

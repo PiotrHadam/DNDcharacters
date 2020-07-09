@@ -68,7 +68,7 @@ namespace Start.DAL.Encje
 
         public string ToDelete()
         {
-            return $"{WeaponID} {DMG}";
+            return $"{WeaponID}";
         }
 
         public override bool Equals(object obj)

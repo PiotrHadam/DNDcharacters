@@ -18,7 +18,8 @@ namespace Start.ViewModel
         private Character character = null;
 
         private string name = "", image, description = "", story = "";
-        private int money = 20000, hitpoints = 20;
+        private uint money = 20000; 
+        private int hitpoints = 20;
         private byte strength = 0, dexterity = 0, constitution = 0, intelligence = 0, wisdom = 0, charisma = 0, level = 0;
         private bool isInspired = false;
         private Dictionary<string, byte> abilities;
@@ -112,7 +113,7 @@ namespace Start.ViewModel
             }
         }
 
-        public int Money
+        public uint Money
         {
             get { return money; }
             set
@@ -316,6 +317,7 @@ namespace Start.ViewModel
                                                                     .WithRaceID(Convert.ToByte(FindRaceIDbyName(Race)))
                                                                     .WithAbilities(Abilities)
                                                                     .WithCharacterStory(Story)
+                                                                    .WithMoney(Money)
                                                                     .WithCharisma(Charisma)
                                                                     .WithClassID(Convert.ToByte(FindClassIDbyName(Class)))
                                                                     .WithConstitution(Constitution)
@@ -336,7 +338,6 @@ namespace Start.ViewModel
                             //model.Characters.Add(character);
                             
                             ClearSheet();
-                            System.Windows.MessageBox.Show("Postać została dodana do bazy!");
                         }
                         ,
                         arg => (Name != "") && (Description != "") && (Story != "") && (Class != "") && (Race != "")

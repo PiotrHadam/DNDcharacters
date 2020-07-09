@@ -97,6 +97,15 @@ namespace Start.Properties {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Nazwa pancerza.
+        /// </summary>
+        public static string ArmorsName {
+            get {
+                return ResourceManager.GetString("ArmorsName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu Atletyka.
         /// </summary>
         public static string Athletics {
@@ -189,6 +198,15 @@ namespace Start.Properties {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Bonus dla klasy.
+        /// </summary>
+        public static string ClassBonus {
+            get {
+                return ResourceManager.GetString("ClassBonus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu Kondycja.
         /// </summary>
         public static string Constitution {
@@ -234,7 +252,25 @@ namespace Start.Properties {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Edytuj.
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Liczba rzutów.
+        /// </summary>
+        public static string DMGDice {
+            get {
+                return ResourceManager.GetString("DMGDice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Rozmiar kostki.
+        /// </summary>
+        public static string DMGDiceSize {
+            get {
+                return ResourceManager.GetString("DMGDiceSize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu EDYTUJ.
         /// </summary>
         public static string Edit {
             get {
@@ -311,6 +347,24 @@ namespace Start.Properties {
         public static string IsInspired {
             get {
                 return ResourceManager.GetString("IsInspired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Opis.
+        /// </summary>
+        public static string ItemsDescription {
+            get {
+                return ResourceManager.GetString("ItemsDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Nazwa przedmiotu.
+        /// </summary>
+        public static string ItemsName {
+            get {
+                return ResourceManager.GetString("ItemsName", resourceCulture);
             }
         }
         
@@ -392,6 +446,15 @@ namespace Start.Properties {
         public static string NewUser {
             get {
                 return ResourceManager.GetString("NewUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu DALEJ.
+        /// </summary>
+        public static string Next {
+            get {
+                return ResourceManager.GetString("Next", resourceCulture);
             }
         }
         
@@ -556,6 +619,33 @@ namespace Start.Properties {
             get {
                 object obj = ResourceManager.GetObject("title2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Typ.
+        /// </summary>
+        public static string Type {
+            get {
+                return ResourceManager.GetString("Type", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Zasięg.
+        /// </summary>
+        public static string WeaponRange {
+            get {
+                return ResourceManager.GetString("WeaponRange", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Nazwa broni.
+        /// </summary>
+        public static string WeaponsName {
+            get {
+                return ResourceManager.GetString("WeaponsName", resourceCulture);
             }
         }
         

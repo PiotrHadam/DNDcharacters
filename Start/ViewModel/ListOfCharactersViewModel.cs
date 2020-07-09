@@ -75,24 +75,6 @@ namespace Start.ViewModel
 
         #region Polecenia
 
-        /*private ICommand loadAllCharacters = null;
-        public ICommand LoadAllCharacters
-        {
-            get
-            {
-                if (loadAllCharacters == null)
-                    loadAllCharacters = new RelayCommand(
-                        arg =>
-                        {
-                            Characters = model.Characters;
-                        },
-                        arg => true
-                        );
-
-                return loadAllCharacters;
-            }
-        }*/
-
         private ICommand chooseCharacter = null;
         public ICommand ChooseCharacter
         {
@@ -125,6 +107,22 @@ namespace Start.ViewModel
                         arg => IndexOfSelectedCharacter >= 0
                         );
                 return deleteCharacter;
+            }
+        }
+
+        private ICommand editCharacter = null;
+        public ICommand EditCharacter
+        {
+            get
+            {
+                if (editCharacter == null)
+                    editCharacter = new RelayCommand(
+                        arg =>
+                        {
+                            EditCharacterViewModel editvm = new EditCharacterViewModel(model, SelectedCharacter);
+                        },
+                        arg => IndexOfSelectedCharacter >= 0);
+                return editCharacter;
             }
         }
 

@@ -172,3 +172,9 @@ C:\Users\Piotr Hadam\source\repos\DnD\DNDcharacters\Start\obj\Debug\Start.Proper
 C:\Users\Piotr Hadam\source\repos\DnD\DNDcharacters\Start\obj\Debug\Start.csproj.GenerateResource.cache
 C:\Users\Piotr Hadam\source\repos\DnD\DNDcharacters\Start\obj\Debug\Start.csproj.CoreCompileInputs.cache
 C:\Users\Piotr Hadam\source\repos\DnD\DNDcharacters\Start\obj\Debug\Start.csproj.CopyComplete
+C:\Users\Piotr Hadam\source\repos\DnD\DNDcharacters\Start\obj\Debug\View\AddArmor.g.cs
+C:\Users\Piotr Hadam\source\repos\DnD\DNDcharacters\Start\obj\Debug\View\AddItems.g.cs
+C:\Users\Piotr Hadam\source\repos\DnD\DNDcharacters\Start\obj\Debug\View\AddWeapons.g.cs
+C:\Users\Piotr Hadam\source\repos\DnD\DNDcharacters\Start\obj\Debug\View\AddItems.baml
+C:\Users\Piotr Hadam\source\repos\DnD\DNDcharacters\Start\obj\Debug\View\AddWeapons.baml
+C:\Users\Piotr Hadam\source\repos\DnD\DNDcharacters\Start\obj\Debug\View\AddArmor.baml

@@ -31,10 +31,6 @@ namespace Start.View
         }
 
         #region Metody zdarzeń
-        private void PowerButton_Click(object sender, RoutedEventArgs e)
-        {
-            Application.Current.Shutdown();
-        }
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {

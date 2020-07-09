@@ -16,24 +16,18 @@ using System.Windows.Shapes;
 namespace Start.View
 {
     /// <summary>
-    /// Logika interakcji dla klasy ListOfCharacters.xaml
+    /// Logika interakcji dla klasy AddItems.xaml
     /// </summary>
-    public partial class ListOfCharacters : Page
+    public partial class AddItems : Page
     {
-        public ListOfCharacters()
+        public AddItems()
         {
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Next_Click(object sender, RoutedEventArgs e)
         {
-            Button b = (Button)sender;
-            if (b == Back) this.NavigationService.Navigate(new Uri("View/MainPage.xaml", UriKind.Relative));
-            else if (b == Choose)
-            {
-                CharacterSheet charsh = new CharacterSheet();
-                charsh.Show();
-            }
+            this.NavigationService.Navigate(new Uri("View/AddArmor.xaml", UriKind.Relative));
         }
     }
 }
