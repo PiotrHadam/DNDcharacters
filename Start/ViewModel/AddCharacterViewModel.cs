@@ -32,9 +32,6 @@ namespace Start.ViewModel
             ClassNames = model.ClassNames;
             RaceNames = model.RaceNames;
         }
-        public AddCharacterViewModel() {
-
-        }
 
         /*public AddCharacterViewModel(Model model, Character character)
         {
@@ -226,6 +223,8 @@ namespace Start.ViewModel
             }
         }
 
+        /*public List<string> PossibleRaces {
+
         public List<string> PossibleRaces {
             get {
                 List<string> getter = new List<string>();
@@ -245,7 +244,8 @@ namespace Start.ViewModel
                 return getter;
             }
             set { { PossibleClasses = value; } }
-        }
+        }*/
+
         #endregion
         public string Race { get; set; }
         public string Class { get; set; }
@@ -272,17 +272,21 @@ namespace Start.ViewModel
         }
 
         #region Polecenia
-        private int FindRaceIDbyName(string name) {
-            foreach(Race r in RepositoryRaces.ReadAllRaces()) {
-                if(r.Name == name)
+        private int FindRaceIDbyName(string name)
+        {
+            foreach (Race r in RepositoryRaces.ReadAllRaces())
+            {
+                if (r.Name == name)
                     return r.RaceID;
             }
             return 1;
         }
-        private int FindClassIDbyName(string name) {
-            foreach(Race r in RepositoryRaces.ReadAllRaces()) {
-                if(r.Name == name)
-                    return r.RaceID;
+        private int FindClassIDbyName(string name)
+        {
+            foreach (Class c in RepositoryClases.ReadAllClases())
+            {
+                if (c.Name == name)
+                    return c.ClassID;
             }
             return 1;
         }
@@ -296,7 +300,6 @@ namespace Start.ViewModel
                 if (add == null)
                     add = new RelayCommand(
                         arg => {
-
                             var character = new Character.Builder().WithName(Name)
                                                                     .WithRaceID(Convert.ToByte(FindRaceIDbyName(Race)))
                                                                     .WithAbilities(Abilities)
@@ -314,13 +317,12 @@ namespace Start.ViewModel
                                                                     .WithWisdom(Wisdom)
                                                                     .Build();
 
-                            model.Characters.Add(character);
                             model.AddCharacterToDatabase(character);
                             ClearSheet();
                             System.Windows.MessageBox.Show("Postać została dodana do bazy!");
                         }
                         ,
-                        arg => true
+                        arg => (Name != "") && (Description != "") && (Story != "") && (Class != "") && (Race != "")
                         );
                 return add;
             }

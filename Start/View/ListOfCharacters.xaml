@@ -26,10 +26,10 @@
             <ColumnDefinition Width="18*"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <ListView x:Name="characterslist" Grid.Row="1" Grid.Column="1" Background="Transparent" 
+        <ListView x:Name="characterslist" Grid.Row="1" Grid.Column="1" Background="Transparent"  Foreground="White"
                   ItemsSource="{Binding ListOfCharactersVM.Characters}" 
-                  SelectedIndex="{Binding Path=ListOfCharactersVM.IndexOfSelectedCharacter}" 
-                  SelectedItem="{Binding Path=ListOfCharactersVM.SelectedCharacter}">
+                  SelectedIndex="{Binding ListOfCharactersVM.IndexOfSelectedCharacter}" 
+                  SelectedItem="{Binding ListOfCharactersVM.SelectedCharacter}" >
 
             <ListView.View>
                 <GridView>
@@ -45,7 +45,7 @@
                                 </TextBlock>
                             </GridViewColumn.Header>
                         </GridViewColumn>
-                        
+
                         <GridViewColumn Width="160" >
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
@@ -107,10 +107,12 @@
         </ListView>
 
         <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" >
-            <Button x:Name="Choose" Command="{Binding Path=ListOfCharactersVM.ChooseCharacter, Mode=OneWay}" Click="Button_Click" Content="{Binding Source={x:Static resx:Resources.Choose}}" 
-                    Width="100" Height="40" FontFamily="Viner Hand ITC" Margin="0,0,120,0"/>
+            <Button x:Name="Choose" Command="{Binding ListOfCharactersVM.ChooseCharacter, Mode=OneWay}" Click="Button_Click" Content="{Binding Source={x:Static resx:Resources.Choose}}" 
+                    Width="100" Height="40" FontFamily="Viner Hand ITC" Margin="0,0,90,0"/>
+            <Button x:Name="Delete" Command="{Binding ListOfCharactersVM.DeleteCharacter, Mode=OneWay}" Content="{Binding Source={x:Static resx:Resources.Delete}}"
+                    Width="100" Height="40" FontFamily="Viner Hand ITC"/>
             <Button x:Name="Back" Click="Button_Click" Content="{Binding Source={x:Static resx:Resources.Back}}" 
-                    Width="100" Height="40" FontFamily="Viner Hand ITC"  Margin="120,0,0,0"/>
+                    Width="100" Height="40" FontFamily="Viner Hand ITC"  Margin="90,0,0,0"/>
         </StackPanel>
     </Grid>
 </Page>

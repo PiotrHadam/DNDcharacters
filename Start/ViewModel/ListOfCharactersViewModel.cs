@@ -75,7 +75,7 @@ namespace Start.ViewModel
 
         #region Polecenia
 
-        private ICommand loadAllCharacters = null;
+        /*private ICommand loadAllCharacters = null;
         public ICommand LoadAllCharacters
         {
             get
@@ -91,7 +91,7 @@ namespace Start.ViewModel
 
                 return loadAllCharacters;
             }
-        }
+        }*/
 
         private ICommand chooseCharacter = null;
         public ICommand ChooseCharacter
@@ -102,10 +102,29 @@ namespace Start.ViewModel
                     chooseCharacter = new RelayCommand(
                         arg =>
                         {
-                            CharacterViewModel charvm = new CharacterViewModel(model, SelectedCharacter);
+                            CharacterSheetViewModel charvm = new CharacterSheetViewModel(SelectedCharacter);
                         },
                         arg => IndexOfSelectedCharacter >= 0);
                 return chooseCharacter;
+            }
+        }
+
+        private ICommand deleteCharacter = null;
+        public ICommand DeleteCharacter
+        {
+            get
+            {
+                if (deleteCharacter == null)
+                    deleteCharacter = new RelayCommand(
+                        arg =>
+                        {
+                            if (model.DeleteCharacterFromDatabase(SelectedCharacter))
+                                System.Windows.MessageBox.Show("Postać usunięta!");
+                            RefreshCharacters();
+                        },
+                        arg => IndexOfSelectedCharacter >= 0
+                        );
+                return deleteCharacter;
             }
         }
 
