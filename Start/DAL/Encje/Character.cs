@@ -201,7 +201,7 @@ namespace Start.DAL.Encje
             KnownSpells9 = byte.Parse(reader["known_spells_9"].ToString());*/
             try
             {
-                IsInspired = bool.Parse(reader["is_inspired"].ToString());
+                IsInspired = bool.Parse(reader["is_inpired"].ToString());
             }
             catch { }
             Description = reader["character_description"].ToString();

@@ -261,7 +261,7 @@ namespace Start.Properties {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Uderzenie.
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Życie.
         /// </summary>
         public static string HitPoints {
             get {

@@ -317,9 +317,12 @@ namespace Start.ViewModel
                                                                     .WithWisdom(Wisdom)
                                                                     .Build();
 
-                            model.AddCharacterToDatabase(character);
-                            ClearSheet();
-                            System.Windows.MessageBox.Show("Postać została dodana do bazy!");
+                            if (model.AddCharacterToDatabase(character))
+                            {
+                                ClearSheet();
+                                System.Windows.MessageBox.Show("Postać została dodana do bazy!");
+                            }
+
                         }
                         ,
                         arg => (Name != "") && (Description != "") && (Story != "") && (Class != "") && (Race != "")

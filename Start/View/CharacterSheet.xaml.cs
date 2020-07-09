@@ -18,10 +18,13 @@ namespace Start.View {
     /// <summary>
     /// Interaction logic for CharacterSheet.xaml
     /// </summary>
+
+    using ViewModel;
     public partial class CharacterSheet : Window {
         public CharacterSheet() 
         {
             InitializeComponent();
+            DataContext = new CharacterSheetViewModel();
         }
 
     }

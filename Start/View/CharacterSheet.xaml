@@ -9,7 +9,7 @@
         mc:Ignorable="d"
         
         xmlns:properties="clr-namespace:Start.Properties"
-        Title="Dungeons &amp; Dragons" Height="1000" Width="700" ResizeMode="CanMinimize">
+        Title="Dungeons &amp; Dragons" Height="800" Width="700" ResizeMode="CanMinimize">
     <Window.Resources>
         <vm:CharacterSheetViewModel x:Key="mainvm"/>
         <Style TargetType="TextBox">
@@ -29,7 +29,7 @@
     </Window.Background>
 
     <Grid Margin="558,696,-0.4,0.4" DataContext="{StaticResource mainvm}">
-        <TextBox x:Name="Name" Margin="-509,-622,447,870" FontFamily="Segoe Script" FontSize="20" Text="{Binding Name, Mode=TwoWay}"/>
+        <TextBox x:Name="Name" Margin="-509,-622,447,870" FontFamily="Segoe Script" FontSize="20" Text="{Binding Path=Name, Mode=TwoWay}"/>
             <TextBox x:Name="Strength" Margin="-525,-507,610,747" FontSize="26" Text="{Binding Strength, Mode=TwoWay}" />
             <TextBox x:Name="Dexterity" Margin="-526,-420,608,659" FontSize="26" Text="{Binding Dexterity, Mode=TwoWay}" />
             <TextBox x:Name="Constitution" Margin="-526,-333,608,571" FontSize="26" Text="{Binding Constitution, Mode=TwoWay}"/>

@@ -11,13 +11,11 @@ namespace Start.ViewModel
     using DAL.Encje;
     using BaseClasses;
     using Model;
-    using System.Windows.Input;
-    using System.Runtime.InteropServices;
     using Start.DAL.Helpers;
 
     class CharacterSheetViewModel : ViewModelBase
     {
-        private Model model = null;
+        //private Model model = null;
         private Character _character = new Character();
 
         /*public CharacterSheetViewModel(Character character)
@@ -27,8 +25,8 @@ namespace Start.ViewModel
 
         public CharacterSheetViewModel()
         {
-            model = new Model();
-            _character = new Character(ListOfCharactersViewModel.SelectedCharacter);
+            //model = new Model();
+            _character = ListOfCharactersViewModel.SelectedCharacter;
         }
 
         #region Właściwości
