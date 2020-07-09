@@ -11,7 +11,6 @@ namespace Start.ViewModel
     using BaseClasses;
     using Model;
     using DAL.Encje;
-    using System.Windows.Navigation;
 
     class ListOfCharactersViewModel : ViewModelBase
     {
@@ -56,7 +55,8 @@ namespace Start.ViewModel
             }
         }
 
-        public Character SelectedCharacter { get; set; }
+
+        public static Character SelectedCharacter { get; set; }
 
         public ObservableCollection<Character> Characters
         {
@@ -102,7 +102,7 @@ namespace Start.ViewModel
                     chooseCharacter = new RelayCommand(
                         arg =>
                         {
-                            CharacterSheetViewModel charvm = new CharacterSheetViewModel(SelectedCharacter);
+                            CharacterSheetViewModel charvm = new CharacterSheetViewModel();
                         },
                         arg => IndexOfSelectedCharacter >= 0);
                 return chooseCharacter;
