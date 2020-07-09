@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Start.View"
         xmlns:resx="clr-namespace:Start.Properties"
+        xmlns:vm="clr-namespace:Start.ViewModel"
         mc:Ignorable="d"
         
         xmlns:properties="clr-namespace:Start.Properties"
@@ -26,61 +27,59 @@
     </Window.Background>
 
     <Grid Margin="558,696,-0.4,0.4">
-        <TextBox x:Name="Name" Margin="-509,-622,447,870" FontFamily="Segoe Script" FontSize="20" Text="Guddi"/>
-        <TextBox x:Name="Strength" Margin="-525,-507,610,747" Text="10" FontSize="26"/>
-        <TextBox x:Name="Dexterity" Margin="-526,-420,608,659" Text="13" FontSize="26"/>
-        <TextBox x:Name="Constitution" Margin="-526,-333,608,571" Text="20" FontSize="26"/>
-        <TextBox x:Name="Intelligence" Margin="-527,-246,608,483" Text="20" FontSize="26" />
-        <TextBox x:Name="Wisdom" Margin="-526,-157,608,395" Text="20" FontSize="26" />
-        <TextBox x:Name="Charisma" Margin="-527,-71,609,306" Text="20" FontSize="26"/>
-        <TextBlock x:Name="CharismaBonus" Margin="-505,-31,629,286" HorizontalAlignment="Right" FontFamily="Segoe Script" Foreground="DimGray" Text="5" Width="12" />
-        <TextBlock x:Name="WisdomBonus" Margin="-504,-118,628,375" FontFamily="Segoe Script" Foreground="DimGray" Text="5"/>
-        <TextBlock x:Name="InteligenceBonus" Margin="-504,-205,628,461" FontFamily="Segoe Script" Foreground="DimGray" Text="5" RenderTransformOrigin="0.493,0.325"/>
-        <TextBlock x:Name="ConstitutionBonus" Margin="-504,-293,629,551" FontFamily="Segoe Script" Foreground="DimGray" Text="5" RenderTransformOrigin="1.109,0.506" />
-        <TextBlock x:Name="DexterityBonus" Margin="-505,-381,629,638" FontFamily="Segoe Script" Foreground="DimGray" Text="5" RenderTransformOrigin="0.6,0.529" />
-        <TextBlock x:Name="StrengthBonus"  Margin="-504,-468,629,723" FontFamily="Segoe Script" Foreground="DimGray" Text="5" RenderTransformOrigin="1,0.446" />
-        <TextBox x:Name="HitPoints" Margin="-448,-516,521,746" Text="20" FontSize="26" />
-        <TextBox x:Name="ArmorClass" Margin="-380,-527,462,759" Text="20" FontSize="25" />
-        <TextBox x:Name="ProficiencyBonus" Margin="-319,-523,403,762" Text="10" FontSize="26"/>
-        <TextBox x:Name="CurrentHitPoints" Margin="-449,-457,402,674" Text="10" FontSize="26"/>
-        <TextBox x:Name="DexteritySavingThrow" Margin="-239,-517,339,778" Text="10" />
-        <TextBox x:Name="StrengthSavingThrow" Margin="-239,-535,339,795" />
-        <TextBox x:Name="ConstitutionaSavingThrow" Margin="-239,-502,339,762" />
-        <TextBox x:Name="IntelligenceSavingThrow" Margin="-239,-485,339,744" />
-
-        <TextBox x:Name="WisdomSavingThrow" Margin="-239,-469,339,729" />
-        <TextBox x:Name="CharismaSavingThrow" Margin="-239,-453,339,713" />
-        <TextBox x:Name="PassivePerception" Margin="-245,-407,349,649" />
-        <TextBox x:Name="Armor" Margin="-137,-353,256,610" />
-        <TextBox x:Name="Shield" Margin="-142,-322,251,572"  />
-        <TextBox x:Name="Weapon1" Margin="-202,-274,285,516" Text="xD" TextAlignment="Center" FontSize="16"  FontWeight="ExtraBold"/>
-        <TextBox x:Name="Weapon2" Margin="-203,-216,286,458"  Text="1d8" TextAlignment="Center" FontSize="16" FontWeight="ExtraBold"/>
-        <TextBox x:Name="Weapon3" Margin="-201,-156,285,400" Text="1d10" TextAlignment="Center" FontSize="16" FontWeight="ExtraBold"/>
-        <TextBox x:Name="Acrobatics" Margin="-453,-292,557,555" Text="12" FontSize="10"/>
-        <TextBox x:Name="AnimalHandling" Margin="-453,-277,557,539" Text="8" FontSize="10"/>
-        <TextBox x:Name="Arcana" Margin="-453,-260,557,522" FontSize="10" />
-        <TextBox x:Name="Athletics" Margin="-453,-244,557,506" FontSize="10" />
-        <TextBox x:Name="Deception" Margin="-453,-227,557,489" FontSize="10"/>
-        <TextBox x:Name="History" Margin="-453,-210,557,472" FontSize="10"/>
-        <TextBox x:Name="Insight" Margin="-453,-194,557,456" FontSize="10"/>
-        <TextBox x:Name="Intimidation" Margin="-453,-177,557,439" FontSize="10"/>
-        <TextBox x:Name="Investigation" Margin="-453,-160,557,422" FontSize="10" />
-        <TextBox x:Name="Medicine" Margin="-453,-144,557,406" FontSize="10" />
-        <TextBox x:Name="Nature" Margin="-453,-127,557,389" FontSize="10" />
-        <TextBox x:Name="Perception" Margin="-453,-111,557,373" FontSize="10" />
-        <TextBox x:Name="Performance" Margin="-453,-95,557,356" FontSize="10" />
-        <TextBox x:Name="Persuasion" Margin="-453,-79,557,340" FontSize="10" />
-        <TextBox x:Name="Religion" Margin="-453,-61,557,323" FontSize="10" />
-        <TextBox x:Name="SleightOfHand" Margin="-453,-45,557,306" FontSize="10" />
-        <TextBox x:Name="Stealth" Margin="-453,-29,557,290" FontSize="10" />
-        <TextBox x:Name="Survival" Margin="-453,-13,557,274" FontSize="10" />
-
-        <TextBox x:Name="Class" Margin="-255,-637,303,895" Text="Dwarf" />
-        <TextBlock x:Name="lvltxt" Margin="-163,-637,266,894" Text="lvl." FontFamily="Segoe Script" Foreground="DimGray" />
-        <TextBox x:Name="Class_Copy" Margin="-138,-639,248,893" Text="5" RenderTransformOrigin="0.308,0.81" />
-        <TextBox x:Name="Weapon1_Copy" Margin="-320,-269,338,520" Text="Miecz" TextAlignment="Center" FontSize="16"  FontWeight="ExtraBold"/>
-        <TextBox x:Name="Weapon1_Copy1" Margin="-321,-211,339,461" Text="Topór" TextAlignment="Center" FontSize="16"  FontWeight="ExtraBold"/>
-        <TextBox x:Name="Weapon1_Copy2" Margin="-321,-154,339,404" Text="Łuk" TextAlignment="Center" FontSize="16"  FontWeight="ExtraBold"/>
+        <TextBox x:Name="Name" Margin="-509,-622,447,870" FontFamily="Segoe Script" FontSize="20" Text="{Binding Name, Mode=TwoWay}"/>
+        <TextBox x:Name="Strength" Margin="-525,-507,610,747" FontSize="26" Text="{Binding Strength, Mode=TwoWay}" />
+        <TextBox x:Name="Dexterity" Margin="-526,-420,608,659" FontSize="26" Text="{Binding Dexterity, Mode=TwoWay}" />
+        <TextBox x:Name="Constitution" Margin="-526,-333,608,571" FontSize="26" Text="{Binding Constitution, Mode=TwoWay}"/>
+        <TextBox x:Name="Intelligence" Margin="-527,-246,608,483" FontSize="26" Text="{Binding Intelligence, Mode=TwoWay}" />
+        <TextBox x:Name="Wisdom" Margin="-526,-157,608,395" FontSize="26" Text="{Binding Wisdom, Mode=TwoWay}" />
+        <TextBox x:Name="Charisma" Margin="-527,-71,609,306" FontSize="26" Text="{Binding Charisma, Mode=TwoWay}"/>
+        <TextBlock x:Name="CharismaBonus" Margin="-505,-31,629,286" FontFamily="Segoe Script" Foreground="DimGray" Width="12" Text="{Binding CharismaBonus, Mode=TwoWay}"/>
+        <TextBlock x:Name="WisdomBonus" Margin="-504,-118,628,375" FontFamily="Segoe Script" Foreground="DimGray" Text="{Binding WisdomBonus, Mode=TwoWay}"/>
+        <TextBlock x:Name="InteligenceBonus" Margin="-504,-205,628,461" FontFamily="Segoe Script" Foreground="DimGray" Text="{Binding IntelligenceBonus, Mode=TwoWay}"/>
+        <TextBlock x:Name="ConstitutionBonus" Margin="-504,-293,629,551" FontFamily="Segoe Script" Foreground="DimGray" Text="{Binding ConstitutionBonus, Mode=TwoWay}"/>
+        <TextBlock x:Name="DexterityBonus" Margin="-505,-381,629,638" FontFamily="Segoe Script" Foreground="DimGray" Text="{Binding DexterityBonus, Mode=TwoWay}"/>
+        <TextBlock x:Name="StrengthBonus"  Margin="-504,-468,629,723" FontFamily="Segoe Script" Foreground="DimGray" Text="{Binding StrengthBonus, Mode=TwoWay}"/>
+        <TextBox x:Name="HitPoints" Margin="-448,-516,521,746" FontSize="26" Text="{Binding MaxHitPoints, Mode=TwoWay}"/>
+        <TextBox x:Name="ArmorClass" Margin="-380,-527,462,759" FontSize="25" Text="{Binding ArmorClass, Mode=TwoWay}" />
+        <TextBox x:Name="ProficiencyBonus" Margin="-319,-523,403,762" FontSize="26" Text="{Binding Proficiency, Mode=TwoWay}"/>
+        <TextBox x:Name="CurrentHitPoints" Margin="-449,-457,402,674" FontSize="26" Text="{Binding HitPoints, Mode=TwoWay}"/>
+        <TextBox x:Name="DexteritySavingThrow" Margin="-239,-517,339,778" Text="{Binding DexterityBonus, Mode=TwoWay}" />
+        <TextBox x:Name="StrengthSavingThrow" Margin="-239,-535,339,795" Text="{Binding StrengthBonus, Mode=TwoWay}" />
+        <TextBox x:Name="ConstitutionaSavingThrow" Margin="-239,-502,339,762" Text="{Binding ConstitutionBonus, Mode=TwoWay}" />
+        <TextBox x:Name="IntelligenceSavingThrow" Margin="-239,-485,339,744" Text="{Binding IntelligenceBonus, Mode=TwoWay}" />
+        <TextBox x:Name="WisdomSavingThrow" Margin="-239,-469,339,729" Text="{Binding WisdomBonus, Mode=TwoWay}" />
+        <TextBox x:Name="CharismaSavingThrow" Margin="-239,-453,339,713" Text="{Binding CharismaBonus, Mode=TwoWay}" />
+        <TextBox x:Name="PassivePerception" Margin="-245,-407,349,649" Text="{Binding Perception, Mode=TwoWay}" />
+        <TextBox x:Name="Armor" Margin="-137,-353,256,610" Text="{Binding Armor, Mode=TwoWay}" />
+        <TextBox x:Name="Shield" Margin="-142,-322,251,572" Text=""  />
+        <TextBox x:Name="Weapon1" Margin="-202,-274,285,516" TextAlignment="Center" FontSize="16" Text="{Binding Weapons1, Mode=TwoWay}"  FontWeight="ExtraBold"/>
+        <TextBox x:Name="Weapon2" Margin="-203,-216,286,458"  TextAlignment="Center" FontSize="16" Text="{Binding Weapons2, Mode=TwoWay}" FontWeight="ExtraBold"/>
+        <TextBox x:Name="Weapon3" Margin="-201,-156,285,400" TextAlignment="Center" FontSize="16" Text="{Binding Weapons3, Mode=TwoWay}" FontWeight="ExtraBold"/>
+        <TextBox x:Name="Acrobatics" Margin="-453,-292,557,555" FontSize="10" Text="{Binding Acrobatics, Mode=TwoWay}" FontWeight="ExtraBold"/>
+        <TextBox x:Name="AnimalHandling" Margin="-453,-277,557,539" FontSize="10" Text="{Binding AnimalHandling, Mode=TwoWay}"/>
+        <TextBox x:Name="Arcana" Margin="-453,-260,557,522" FontSize="10"  Text="{Binding Arcana, Mode=TwoWay}"/>
+        <TextBox x:Name="Athletics" Margin="-453,-244,557,506" FontSize="10" Text="{Binding Athletics, Mode=TwoWay}"/>
+        <TextBox x:Name="Deception" Margin="-453,-227,557,489" FontSize="10" Text="{Binding Deception, Mode=TwoWay}"/>
+        <TextBox x:Name="History" Margin="-453,-210,557,472" FontSize="10" Text="{Binding History, Mode=TwoWay}"/>
+        <TextBox x:Name="Insight" Margin="-453,-194,557,456" FontSize="10" Text="{Binding Insight, Mode=TwoWay}"/>
+        <TextBox x:Name="Intimidation" Margin="-453,-177,557,439" FontSize="10" Text="{Binding Intimidation, Mode=TwoWay}"/>
+        <TextBox x:Name="Investigation" Margin="-453,-160,557,422" FontSize="10" Text="{Binding Investigation, Mode=TwoWay}"/>
+        <TextBox x:Name="Medicine" Margin="-453,-144,557,406" FontSize="10" Text="{Binding Medicine, Mode=TwoWay}"/>
+        <TextBox x:Name="Nature" Margin="-453,-127,557,389" FontSize="10" Text="{Binding Nature, Mode=TwoWay}"/>
+        <TextBox x:Name="Perception" Margin="-453,-111,557,373" FontSize="10" Text="{Binding Perception, Mode=TwoWay}"/>
+        <TextBox x:Name="Performance" Margin="-453,-95,557,356" FontSize="10" Text="{Binding Performance, Mode=TwoWay}"/>
+        <TextBox x:Name="Persuasion" Margin="-453,-79,557,340" FontSize="10" Text="{Binding Persuasion, Mode=TwoWay}" />
+        <TextBox x:Name="Religion" Margin="-453,-61,557,323" FontSize="10" Text="{Binding Religion, Mode=TwoWay}" />
+        <TextBox x:Name="SleightOfHand" Margin="-453,-45,557,306" FontSize="10" Text="{Binding SleightOfHand, Mode=TwoWay}"/>
+        <TextBox x:Name="Stealth" Margin="-453,-29,557,290" FontSize="10" Text="{Binding Stealth, Mode=TwoWay}"/>
+        <TextBox x:Name="Survival" Margin="-453,-13,557,274" FontSize="10" Text="{Binding Survival, Mode=TwoWay}" />
+        <TextBox x:Name="Class" Margin="-255,-637,303,895" Text="{Binding Class, Mode=TwoWay}" />
+        <TextBlock x:Name="lvltxt" Margin="-163,-637,266,894"  FontFamily="Segoe Script" Foreground="DimGray" Text="lvl."/>
+        <TextBox x:Name="LVL" Margin="-138,-639,248,893"  RenderTransformOrigin="0.308,0.81" Text="{Binding Level, Mode=TwoWay}" />
+        <TextBox x:Name="Weapon1Dice" Margin="-320,-269,338,520" TextAlignment="Center" FontSize="16"  FontWeight="ExtraBold" Text="{Binding Weapon1Dice, Mode=TwoWay}"/>
+        <TextBox x:Name="Weapon1_Copy1" Margin="-321,-211,339,461"  TextAlignment="Center" FontSize="16"  FontWeight="ExtraBold" Text="{Binding Survival, Mode=TwoWay}"/>
+        <TextBox x:Name="Weapon1_Copy2" Margin="-321,-154,339,404"  TextAlignment="Center" FontSize="16"  FontWeight="ExtraBold" Text="{Binding Survival, Mode=TwoWay}"/>
 
     </Grid>
 </Window>

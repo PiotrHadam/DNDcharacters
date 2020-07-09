@@ -9,14 +9,13 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using Start.ViewModel;
 
 namespace Start.View
 {
     using DAL.Encje;
+    using Start.DAL.Repositories;
+    using Start.ViewModel;
     using System.Text.RegularExpressions;
 
     /// <summary>
@@ -24,25 +23,35 @@ namespace Start.View
     /// </summary>
     public partial class AddCharacter : Page
     {
+        /*
         public ObservableCollection<string> AllowedClasses = new ObservableCollection<string>()
         {
             "Druid",
             "Kapłan",
             "Czarodziej"
         };
+        */
+        /*
+        public ObservableCollection<string> AllowedRaces = RepositoryRaces.ReadAllRaces().ForEach(x =>{
+            AllowedRaces
+            )*/
 
+        /*private List<string> _allowed_races = new */
+        /*
         public ObservableCollection<string> AllowedRaces = new ObservableCollection<string>()
         {
             "Człowiek",
             "Elf",
             "Krasnolud"
         };
-
+        */
+        AddCharacterViewModel DataCotext;
         public AddCharacter()
         {
             InitializeComponent();
-            Classes.ItemsSource = AllowedClasses;
-            Races.ItemsSource = AllowedRaces;
+            DataContext = new AddCharacterViewModel();
+            //Classes.ItemsSource = AllowedClasses;
+            //Races.ItemsSource = AllowedRaces;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -61,5 +70,6 @@ namespace Start.View
         {
             e.Handled = !IsTextAllowed(e.Text);
         }
+
     }
 }

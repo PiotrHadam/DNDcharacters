@@ -8,13 +8,36 @@ using System.Windows.Media.Animation;
 
 namespace Start.DAL.Encje
 {
-    class Character {
+    public class Character {
         //DO IMPLEMENTACJI WŁASNOŚCI NIE WYMAGAJĄCE INICJALIZACJI W KONSTRUKTORZE!!!
-        public byte Perception { get; private set; }
+        public byte Perception { get { return Convert.ToByte(10 + WisdomBonus); } set {Perception = value; } }
         public Money CHMoney { get; set; }
-        public byte Speed { get; set; }
-        public byte Proficiency { get; set; }
-        public byte ArmorClass { get; set; }
+        public byte Speed { get { return 10; } set { Speed = value; } }
+        public byte Proficiency { get { return Convert.ToByte(2 + (Level / 4)); } set { Proficiency = value; } }
+        public byte ArmorClass { get {
+                return Convert.ToByte(Armor.ClassBonus + ConstitutionBonus + 10);
+            } 
+            set { ArmorClass = value; }
+        }
+        public byte MaxHitPoints { get {
+                return Convert.ToByte(Level * 10);
+            }
+            set { MaxHitPoints = value; }
+        }
+
+        public byte StrengthBonus { get; set; }
+        public byte DexterityBonus { get; set; }
+        public byte ConstitutionBonus { get; set; }
+        public byte IntelligenceBonus { get; set; }
+        public byte WisdomBonus { get; set; }
+        public byte CharismaBonus { get; set; }
+        /*public byte StrengthThrow { get { return StrengthBonus + Class.}; set; }
+        public byte DexterityThrow { get; set; }
+        public byte ConstitutionThrow { get; set; }
+        public byte IntelligenceThrow { get; set; }
+        public byte WisdomThrow { get; set; }
+        public byte CharismaThrow { get; set; }*/
+
 
 
         #region Własności
@@ -101,6 +124,7 @@ namespace Start.DAL.Encje
             Intelligence = byte.Parse(reader["inteligence"].ToString());
             Wisdom = byte.Parse(reader["wisdom"].ToString());
             Charisma = byte.Parse(reader["charisma"].ToString());
+            Dictionary<string, byte> Abilities = new Dictionary<string, byte>(); 
             Abilities.Add(Rules.Abilities[0], byte.Parse(reader["ability_acrobatics"].ToString()));
             Abilities.Add(Rules.Abilities[1], byte.Parse(reader["ability_animal_handing"].ToString()));
             Abilities.Add(Rules.Abilities[2], byte.Parse(reader["ability_arcana"].ToString()));
@@ -137,8 +161,16 @@ namespace Start.DAL.Encje
             A_SleightOfHand = byte.Parse(reader["ability_sleight_of_hand"].ToString());
             A_Stealth = byte.Parse(reader["ability_stealh"].ToString());
             A_Survival = byte.Parse(reader["ability_survival"].ToString());*/
-            PossibleSpellsPerDay.Add(1, byte.Parse(reader["known_spells_0"].ToString()));
-            PossibleSpellsPerDay.Add(2, byte.Parse(reader["known_spells_1"].ToString()));
+            PossibleSpellsPerDay = new Dictionary<byte, byte>();
+
+            for(byte i = 0; i < 10; i++) {
+                try {
+                    if(reader[$"known_spells_{i}"] != null)
+                        PossibleSpellsPerDay.Add(Convert.ToByte(i + 1), byte.Parse(reader[$"known_spells_{i}"].ToString()));
+                }
+                catch { }
+            }
+            /*PossibleSpellsPerDay.Add(2, byte.Parse(reader["known_spells_1"].ToString()));
             PossibleSpellsPerDay.Add(3, byte.Parse(reader["known_spells_2"].ToString()));
             PossibleSpellsPerDay.Add(4, byte.Parse(reader["known_spells_3"].ToString()));
             PossibleSpellsPerDay.Add(5, byte.Parse(reader["known_spells_4"].ToString()));
@@ -146,7 +178,7 @@ namespace Start.DAL.Encje
             PossibleSpellsPerDay.Add(7, byte.Parse(reader["known_spells_6"].ToString()));
             PossibleSpellsPerDay.Add(8, byte.Parse(reader["known_spells_7"].ToString()));
             PossibleSpellsPerDay.Add(9, byte.Parse(reader["known_spells_8"].ToString()));
-            PossibleSpellsPerDay.Add(10, byte.Parse(reader["known_spells_9"].ToString()));
+            PossibleSpellsPerDay.Add(10, byte.Parse(reader["known_spells_9"].ToString()));*/
             /*KnownSpells0 = byte.Parse(reader["known_spells_0"].ToString());
             KnownSpells1 = byte.Parse(reader["known_spells_1"].ToString());
             KnownSpells2 = byte.Parse(reader["known_spells_2"].ToString());
@@ -157,7 +189,10 @@ namespace Start.DAL.Encje
             KnownSpells7 = byte.Parse(reader["known_spells_7"].ToString());
             KnownSpells8 = byte.Parse(reader["known_spells_8"].ToString());
             KnownSpells9 = byte.Parse(reader["known_spells_9"].ToString());*/
-            IsInspired = bool.Parse(reader["is_inspired"].ToString());
+            try {
+                IsInspired = bool.Parse(reader["is_inspired"].ToString());
+            }
+            catch { }
             Description = reader["character_description"].ToString();
             Story = reader["character_story"].ToString();
             Level = byte.Parse(reader["character_lvl"].ToString());
@@ -286,6 +321,7 @@ namespace Start.DAL.Encje
             Description = character.Description;
             Story = character.Story;
             Level = character.Level;
+            
 
             // Znajdywanie klasy po numerze ID klasy odczytanym z bazy
             foreach(Class x in RepositoryClases.ReadAllClases()) {
@@ -499,6 +535,10 @@ namespace Start.DAL.Encje
                 catch {
                     throw new Exception("Invalid format or number of abilities!");
                 }
+                return this;
+            }
+            public Builder WithAbilities(Dictionary<string,byte> abilities) {
+                _abilities = abilities;
                 return this;
             }
             public Builder WithSpells(List<Spell> spells) {

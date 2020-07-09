@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Start.DAL.Encje;
+using Start.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,7 +19,8 @@ namespace Start.View {
     /// Interaction logic for CharacterSheet.xaml
     /// </summary>
     public partial class CharacterSheet : Window {
-        public CharacterSheet() {
+        public CharacterSheet(Character character) {
+            DataContext = new CharacterSheetViewModel(character);
             InitializeComponent();
         }
 

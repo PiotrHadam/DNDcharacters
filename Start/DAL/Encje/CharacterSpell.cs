@@ -2,7 +2,7 @@
 
 namespace Start.DAL.Encje
 {
-    class CharacterSpell
+    public class CharacterSpell
     {
         #region Własności
         public ushort? LinkID { get; set; }

@@ -14,8 +14,9 @@
     <Page.Resources>
         <vm:MainViewModel x:Key="mainvm"/>
     </Page.Resources>
-
-    <Grid DataContext="{StaticResource mainvm}">
+  
+    
+    <Grid >
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition Height="18*"/>
@@ -60,18 +61,18 @@
             
             <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2">
                 <TextBlock Text="{Binding Source={x:Static resx:Resources.Clas}}" Height="20" FontFamily="Viner Hand ITC" Margin="0,0,10,0"/>
-                <ComboBox x:Name="Classes" Width="100" Height="20" FontFamily="Viner Hand ITC" Margin="0,0,10,0"/>
+                <ComboBox x:Name="Classes" Width="100" Height="20" FontFamily="Viner Hand ITC" Margin="0,0,10,0" SelectedValue="{Binding Class, Mode=TwoWay}" ItemsSource="{Binding PossibleClasses, Mode=TwoWay}"/>
             </StackPanel>
             
             <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="3">
                 <TextBlock Text="{Binding Source={x:Static resx:Resources.Race}}" Height="20" FontFamily="Viner Hand ITC" Margin="0,0,10,0"/>
-                <ComboBox x:Name="Races" Width="100" Height="20" FontFamily="Viner Hand ITC" Margin="0,0,10,0"/>
+                <ComboBox x:Name="Races" Width="100" Height="20" FontFamily="Viner Hand ITC" Margin="0,0,10,0" SelectedValue="{Binding Race,Mode=TwoWay}" ItemsSource="{Binding PossibleRaces, Mode=TwoWay}"/>
             </StackPanel>
             
             <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
                 <TextBlock Text="{Binding Source={x:Static resx:Resources.Money}}" Height="20" FontFamily="Viner Hand ITC" Margin="0,0,10,0"/>
                 <Slider x:Name="sliderMoney" Minimum="0" Maximum="100000" TickFrequency="500" IsSnapToTickEnabled="True" Height="20" Width="200" Value="{Binding Path=AddCharacterVM.Money, Mode=TwoWay}"/>
-                <Label VerticalAlignment="Center" FontSize="12" Content="{Binding Path=Value, ElementName=sliderMoney}" FontFamily="Viner Hand ITC"/>
+                <Label VerticalAlignment="Center" FontSize="12" Content="{Binding Path=Value, ElementName=sliderMoney}" FontFamily="Viner Hand ITC" />
             </StackPanel>
             
             <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2">
@@ -239,7 +240,7 @@
         
         <!-- Przyciski -->
         <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" >
-            <Button x:Name="Save" Command="{Binding AddCharacterVM.Add}" Content="{Binding Source={x:Static resx:Resources.Save}}" Width="100" Height="40" FontFamily="Viner Hand ITC" Margin="0,0,120,0"/>
+            <Button x:Name="Save" Command="{Binding Path=DataContext.Add, RelativeSource={RelativeSource AncestorType=Window}}" Content="Save" Width="100" Height="40" FontFamily="Viner Hand ITC" Margin="0,0,120,0"/>            
             <Button x:Name="Back" Click="Button_Click" Content="{Binding Source={x:Static resx:Resources.Back}}" Width="100" Height="40" FontFamily="Viner Hand ITC"  Margin="120,0,0,0"/>
         </StackPanel>
         

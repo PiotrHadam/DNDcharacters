@@ -2,7 +2,7 @@
 
 namespace Start.DAL.Encje
 {
-    class Item
+    public class Item
     {
         #region Własności
         public ushort? ItemID { get; set; }

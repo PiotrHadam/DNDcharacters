@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace Start.DAL.Encje
 {
-    class Weapon
+    public class Weapon
     {
         #region Własności
         public ushort? WeaponID { get; set; }

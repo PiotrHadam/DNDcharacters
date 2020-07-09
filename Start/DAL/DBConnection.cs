@@ -12,11 +12,13 @@ namespace Start.DAL
         #region Właściwości
         private static MySqlConnectionStringBuilder stringBuilder;
 
-        public static string Nickname { get; private set; }
-        private static string Password { get; set; }
-        public static string Server { get; set; }
-        private static string Database { get; set; }
-        private static uint Port { get; set; }
+        public static string Nickname { get { return "root"; } private set {; } }
+        private static string Password { get{ return ""; } set {; } }
+        public static string Server { get {
+                { return "localhost"; }
+            } set {; } }
+        private static string Database { get { return "dnd_characters2"; } set {; } }
+        private static uint Port { get { return 3306; } set {; } }
 
         public static DBConnection Instance
         {

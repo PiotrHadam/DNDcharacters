@@ -5,7 +5,7 @@ namespace Start.ViewModel.BaseClasses
     class ViewModelBase : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-        protected void onPropertyChanged(params string[] namesOfProperties)
+        /*protected void onPropertyChanged(params string[] namesOfProperties)
         {
             if (PropertyChanged != null)
             {
@@ -14,6 +14,9 @@ namespace Start.ViewModel.BaseClasses
                     PropertyChanged(this, new PropertyChangedEventArgs(prop));
                 }
             }
+        }*/
+        protected void onPropertyChanged(string propertyName) {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

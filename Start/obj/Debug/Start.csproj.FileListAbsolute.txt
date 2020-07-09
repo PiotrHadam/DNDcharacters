@@ -114,3 +114,7 @@ C:\Users\Piotr Hadam\source\repos\Start\Start\obj\Debug\View\LoginWindow.g.cs
 C:\Users\Piotr Hadam\source\repos\Start\Start\obj\Debug\View\LoginWindow.baml
 C:\Users\Piotr Hadam\source\repos\Start\Start\obj\Debug\View\RegisterWindow.g.cs
 C:\Users\Piotr Hadam\source\repos\Start\Start\obj\Debug\View\RegisterWindow.baml
+D:\repos2\NewAttempt\DNDcharacters\Start\obj\Debug\View\LoginWindow.g.cs
+D:\repos2\NewAttempt\DNDcharacters\Start\obj\Debug\View\RegisterWindow.g.cs
+D:\repos2\NewAttempt\DNDcharacters\Start\obj\Debug\View\LoginWindow.baml
+D:\repos2\NewAttempt\DNDcharacters\Start\obj\Debug\View\RegisterWindow.baml

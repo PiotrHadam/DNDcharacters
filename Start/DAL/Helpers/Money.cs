@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Windows;
 
 namespace Start.DAL.Helpers {
-    class Money {
+    public class Money {
         private uint _copper;
         private uint _silver;
         private uint _electrum;

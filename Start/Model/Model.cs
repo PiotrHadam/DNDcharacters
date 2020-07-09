@@ -207,6 +207,8 @@ namespace Start.Model
         }
         #endregion
         */
+        
+
         #region Metody dla postaci
         public bool IsCharacterInRepository(Character character) => Characters.Contains(character);
 

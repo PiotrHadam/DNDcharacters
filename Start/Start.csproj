@@ -135,6 +135,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ViewModel\CharacterSheetViewModel.cs" />
     <Compile Include="DAL\DBConnection.cs" />
     <Compile Include="DAL\Encje\Armor.cs" />
     <Compile Include="DAL\Encje\Character.cs" />

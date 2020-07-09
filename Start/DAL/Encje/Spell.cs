@@ -3,7 +3,7 @@ using System;
 
 namespace Start.DAL.Encje
 {
-    class Spell : IComparable<Spell>
+    public class Spell : IComparable<Spell>
     {
         #region Własności
         public byte? SpellID { get; set; }

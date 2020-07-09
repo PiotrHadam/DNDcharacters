@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Start.DAL.Helpers {
-    class Dice {
+    public class Dice {
         private byte[] _dice;
 
         /// <summary>
@@ -25,6 +25,17 @@ namespace Start.DAL.Helpers {
             _dice = new byte[2];
             _dice[0] = 1;
             _dice[1] = dice_size;
+        }
+        public Dice(string example) {
+            try {
+                string[] exam = example.Trim().Split('d');
+                _dice[0] = Convert.ToByte(exam[0]);
+                _dice[1] = Convert.ToByte(exam[1]);
+            }
+            catch {
+                _dice[0] = 1;
+                _dice[1] = 4;
+            }
         }
         public void EditDiceSize(byte newSize) {
             _dice[1] = newSize;

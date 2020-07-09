@@ -2,7 +2,7 @@
 
 namespace Start.DAL.Encje
 {
-    class Class
+    public class Class
     {
         #region Własności
         public byte ClassID { get; set; }
