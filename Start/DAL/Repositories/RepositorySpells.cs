@@ -14,15 +14,19 @@ namespace Start.DAL.Repositories
         public static List<Spell> ReadAllSpells()
         {
             List<Spell> spells = new List<Spell>();
-            using (var connection = DBConnection.Instance.Connection)
+            try
             {
-                MySqlCommand command = new MySqlCommand(ALL_SPELLS, connection);
-                connection.Open();
-                var reader = command.ExecuteReader();
-                while (reader.Read())
-                    spells.Add(new Spell(reader));
-                connection.Close();
+                using (var connection = DBConnection.Instance.Connection)
+                {
+                    MySqlCommand command = new MySqlCommand(ALL_SPELLS, connection);
+                    connection.Open();
+                    var reader = command.ExecuteReader();
+                    while (reader.Read())
+                        spells.Add(new Spell(reader));
+                    connection.Close();
+                }
             }
+            catch { }
             return spells;
         }
         #endregion

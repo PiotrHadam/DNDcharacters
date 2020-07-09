@@ -34,7 +34,6 @@ namespace Start.DAL.Repositories
             return users;
         }
 
-        // Tworzy nowego użytkownika i nadaje mu odpowiednie uprawnienia:
         public static bool AddUser(string UserID, string Password)
         {
             bool state = false;

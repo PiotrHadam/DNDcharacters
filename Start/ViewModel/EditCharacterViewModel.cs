@@ -30,6 +30,8 @@ namespace Start.ViewModel
         public EditCharacterViewModel(Model model, Character characterr)
         {
             this.model = model;
+            ClassNames = model.ClassNames;
+            RaceNames = model.RaceNames;
             Characters = model.Characters;
             character = characterr;
             name = character.Name;
@@ -54,6 +56,8 @@ namespace Start.ViewModel
         #region Właściwości
 
         public ObservableCollection<Character> Characters { get; set; }
+        public ObservableCollection<string> RaceNames { get; set; }
+        public ObservableCollection<string> ClassNames { get; set; }
 
         public Character CurrentCharacter { get; set; }
 

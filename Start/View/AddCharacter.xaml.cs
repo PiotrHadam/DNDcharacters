@@ -23,6 +23,7 @@ namespace Start.View
     /// </summary>
     public partial class AddCharacter : Page
     {
+
         /*
         public ObservableCollection<string> AllowedClasses = new ObservableCollection<string>()
         {
@@ -45,19 +46,16 @@ namespace Start.View
             "Krasnolud"
         };
         */
-        AddCharacterViewModel DataCotext;
-        public AddCharacter()
-        {
+        public AddCharacter() {
             InitializeComponent();
             DataContext = new AddCharacterViewModel();
-            //Classes.ItemsSource = AllowedClasses;
-            //Races.ItemsSource = AllowedRaces;
         }
+
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Button b = (Button)sender;
-            if (b == Back) this.NavigationService.Navigate(new MainPage());
+            //if (b == Back) this.NavigationService.Navigate(new MainPage());
         }
 
         private static readonly Regex _regex = new Regex("[^0-9]+"); //regex that matches disallowed text

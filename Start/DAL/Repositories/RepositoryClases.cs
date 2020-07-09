@@ -14,15 +14,19 @@ namespace Start.DAL.Repositories
         public static List<Class> ReadAllClases()
         {
             List<Class> classes = new List<Class>();
-            using (var connection = DBConnection.Instance.Connection)
+            try
             {
-                MySqlCommand command = new MySqlCommand(ALL_CLASSES, connection);
-                connection.Open();
-                var reader = command.ExecuteReader();
-                while (reader.Read())
-                    classes.Add(new Class(reader));
-                connection.Close();
+                using (var connection = DBConnection.Instance.Connection)
+                {
+                    MySqlCommand command = new MySqlCommand(ALL_CLASSES, connection);
+                    connection.Open();
+                    var reader = command.ExecuteReader();
+                    while (reader.Read())
+                        classes.Add(new Class(reader));
+                    connection.Close();
+                }
             }
+            catch { }
             return classes;
         }
         #endregion

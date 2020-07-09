@@ -22,25 +22,9 @@ namespace Start.View
     /// </summary>
     public partial class EditCharacter : Page
     {
-
-        public ObservableCollection<string> AllowedClasses = new ObservableCollection<string>()
-        {
-            "Druid",
-            "Kapłan",
-            "Czarodziej"
-        };
-
-        public ObservableCollection<string> AllowedRaces = new ObservableCollection<string>()
-        {
-            "Człowiek",
-            "Elf",
-            "Krasnolud"
-        };
         public EditCharacter()
         {
             InitializeComponent();
-            Classes.ItemsSource = AllowedClasses;
-            Races.ItemsSource = AllowedRaces;
         }
 
         
