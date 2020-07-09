@@ -15,7 +15,6 @@ using System.Windows.Shapes;
 
 namespace Start.View
 {
-    using ViewModel;
     /// <summary>
     /// Logika interakcji dla klasy ListOfCharacters.xaml
     /// </summary>

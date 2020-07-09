@@ -27,9 +27,15 @@ namespace Start.ViewModel
         private Dictionary<byte, byte> possiblespellsperday;
         private bool editingAbility = true;
 
-        public CharacterSheetViewModel(Character character)
+        /*public CharacterSheetViewModel(Character character)
         {
             _character = character;
+        }*/
+
+        public CharacterSheetViewModel()
+        {
+            model = new Model();
+            _character = new Character(ListOfCharactersViewModel.SelectedCharacter);
         }
 
         #region Właściwości

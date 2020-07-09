@@ -29,7 +29,7 @@
         <ListView x:Name="characterslist" Grid.Row="1" Grid.Column="1" Background="Transparent"  Foreground="White"
                   ItemsSource="{Binding ListOfCharactersVM.Characters}" 
                   SelectedIndex="{Binding ListOfCharactersVM.IndexOfSelectedCharacter}" 
-                  SelectedItem="{Binding ListOfCharactersVM.SelectedCharacter}" >
+                  SelectedItem="{Binding ListOfCharactersVM.SelectedCharacter}">
 
             <ListView.View>
                 <GridView>

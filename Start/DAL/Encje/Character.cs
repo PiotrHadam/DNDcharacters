@@ -343,6 +343,8 @@ namespace Start.DAL.Encje
             Description = character.Description;
             Story = character.Story;
             Level = character.Level;
+            Abilities = character.Abilities;
+            PossibleSpellsPerDay = character.PossibleSpellsPerDay;
 
 
             // Znajdywanie klasy po numerze ID klasy odczytanym z bazy
@@ -353,8 +355,7 @@ namespace Start.DAL.Encje
                     Class = x;
                     break;
                 }
-                else
-                    throw new Exception("Invalid class ID");
+
             }
 
             // Znajdywanie klasy po numerze ID odczytanym z bazy
@@ -365,8 +366,6 @@ namespace Start.DAL.Encje
                     Race = x;
                     break;
                 }
-                else
-                    throw new Exception("Invalid class ID");
             }
 
             // Znajdywanie broni postaci w repozytorium wszystkich broni
@@ -378,8 +377,6 @@ namespace Start.DAL.Encje
                 {
                     Weapons.Add(weapon);
                 }
-                else
-                    throw new Exception("Invalid weapon ID");
             }
 
             Armor = null;
@@ -402,8 +399,6 @@ namespace Start.DAL.Encje
                 {
                     Equipment.Add(item);
                 }
-                else
-                    throw new Exception("Invalid class ID");
             }
         }
 
