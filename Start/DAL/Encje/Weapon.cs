@@ -22,6 +22,7 @@ namespace Start.DAL.Encje
         public string AttackRange { get; set; }
         public string DamageType { get; set; }
         public string ItemDescription { get; set; }
+        public string DMGStr { get { return DMG.ToString(); } }
         #endregion
 
         

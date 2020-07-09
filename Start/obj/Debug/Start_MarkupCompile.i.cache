@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\repos2\NewAttempt\DNDcharacters\Start\obj\Debug\
+D:\repos2\DNDcharacters\Start\obj\Debug\
 Start
 none
 false
 DEBUG;TRACE
-D:\repos2\NewAttempt\DNDcharacters\Start\App.xaml
-81361454588
+D:\repos2\DNDcharacters\Start\App.xaml
+8-527337580
 
-441116386356
-1411917395382
-MainWindow.xaml;View\AddCharacter.xaml;View\CharacterSheet.xaml;View\EditCharacter.xaml;View\ListOfCharacters.xaml;View\LoginWindow.xaml;View\MainPage.xaml;View\RegisterWindow.xaml;
+441805773644
+141209210146
+MainWindow.xaml;View\CharacterView1.xaml;View\AddCharacter.xaml;View\EditCharacter.xaml;View\ListOfCharacters.xaml;View\LoginWindow.xaml;View\MainPage.xaml;View\RegisterWindow.xaml;
 
-True
+False
 

@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using Start.DAL.Helpers;
 using Start.DAL.Repositories;
+using Start.Model;
 using System;
 using System.Collections.Generic;
 using System.IO.Packaging;
@@ -51,10 +52,29 @@ namespace Start.DAL.Encje
         // własności niewczytywane
         public Class Class { get; set; }
         public Race Race { get; set; }
-        public List<Weapon> Weapons { get; set; }
+        public List<Weapon> Weapons { get {
+                var weapons = new List<Weapon>();
+                foreach(Weapon weapon in RepositoryWeapons.ReadAllWeapons()) {
+
+                    if(weapon.CharacterID == CharacterID) {
+                        Weapons.Add(weapon);
+                    }
+                    
+                        }
+                return weapons;
+            } }
         public Armor Armor { get; set; }
-        public List<Item> Equipment { get; set; }
+        public List<Item> Equipment { get {
+                var equipment = new List<Item>();
+                foreach(Item item in RepositoryItems.ReadAllItems()) {
+                    if(item.CharacterID == CharacterID) {
+                        Equipment.Add(item);
+                    }
+                }
+                return equipment;
+            } }
         public List<Spell> Spells { get; set; }
+            
 
         // własności wczytywane
         private byte _classID { get; set; }
@@ -232,19 +252,6 @@ namespace Start.DAL.Encje
             if (Race == null)
                 throw new Exception("Invalid Race ID");
 
-            // Znajdywanie broni postaci w repozytorium wszystkich broni
-            Weapons = new List<Weapon>();
-            foreach (Weapon weapon in RepositoryWeapons.ReadAllWeapons())
-            {
-
-                if (weapon.CharacterID == CharacterID)
-                {
-                    Weapons.Add(weapon);
-                }
-            }
-            if (Class == null)
-                throw new Exception("Invalid weapon ID");
-
             Armor = null;
             // Znajdowanie zbroi w repozytroium zbro
             foreach (Armor armor in RepositoryArmors.ReadAllArmors())
@@ -257,15 +264,6 @@ namespace Start.DAL.Encje
                 }
             }
 
-            // Dodawanie ekwipunku
-            Equipment = new List<Item>();
-            foreach (Item item in RepositoryItems.ReadAllItems())
-            {
-                if (item.CharacterID == CharacterID)
-                {
-                    Equipment.Add(item);
-                }
-            }
 
         }
         /*
@@ -368,38 +366,6 @@ namespace Start.DAL.Encje
                 }
             }
 
-            // Znajdywanie broni postaci w repozytorium wszystkich broni
-            Weapons = new List<Weapon>();
-            foreach (Weapon weapon in RepositoryWeapons.ReadAllWeapons())
-            {
-
-                if (weapon.CharacterID == CharacterID)
-                {
-                    Weapons.Add(weapon);
-                }
-            }
-
-            Armor = null;
-            // Znajdowanie zbroi w repozytroium zbro
-            foreach (Armor armor in RepositoryArmors.ReadAllArmors())
-            {
-
-                if (armor.CharacterID == CharacterID)
-                {
-                    Armor = armor;
-                    break;
-                }
-            }
-
-            // Dodawanie 
-            Equipment = new List<Item>();
-            foreach (Item item in RepositoryItems.ReadAllItems())
-            {
-                if (item.CharacterID == CharacterID)
-                {
-                    Equipment.Add(item);
-                }
-            }
         }
 
         #endregion
@@ -421,8 +387,8 @@ namespace Start.DAL.Encje
             Charisma = builder._charisma;
             Abilities = builder._abilities;
             Armor = builder._armor;
-            Weapons = builder._weapons;
-            Equipment = builder._otherEquipment;
+            //Weapons = builder._weapons;
+            //Equipment = builder._otherEquipment;
             Description = builder._description;
             Story = builder._characterStory;
             Spells = builder._spells;

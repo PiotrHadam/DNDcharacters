@@ -75,19 +75,19 @@
                 <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2">
 
                     <TextBlock Text="{Binding Source={x:Static resx:Resources.Clas}}" Style="{StaticResource TextStyle}" Margin="0,0,10,0"/>
-                    <ComboBox x:Name="Classes" Width="100" Height="20" FontFamily="Viner Hand ITC" Margin="0,0,10,0" SelectedValue="{Binding AddCharacterVM.Class, Mode=TwoWay}" ItemsSource="{Binding AddCharacterVM.ClassNames, Mode=TwoWay}"/>
+                    <ComboBox x:Name="Classes" Width="100" Height="20" FontFamily="Viner Hand ITC" Margin="0,0,10,0" SelectedValue="{Binding Class, Mode=TwoWay}" ItemsSource="{Binding ClassNames, Mode=TwoWay}"/>
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="3">
 
                     <TextBlock Text="{Binding Source={x:Static resx:Resources.Race}}" Style="{StaticResource TextStyle}" Margin="0,0,10,0"/>
-                    <ComboBox x:Name="Races" Width="100" Height="20" FontFamily="Viner Hand ITC" Margin="0,0,10,0" SelectedValue="{Binding AddCharacterVM.Race, Mode=TwoWay}" ItemsSource="{Binding AddCharacterVM.RaceNames, Mode=TwoWay}"/>
+                    <ComboBox x:Name="Races" Width="100" Height="20" FontFamily="Viner Hand ITC" Margin="0,0,10,0" SelectedValue="{Binding Race, Mode=TwoWay}" ItemsSource="{Binding RaceNames, Mode=TwoWay}"/>
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
 
                     <TextBlock Text="{Binding Source={x:Static resx:Resources.Money}}" Style="{StaticResource TextStyle}" Margin="0,0,10,0"/>
-                    <Slider x:Name="sliderMoney" Minimum="0" Maximum="100000" TickFrequency="500" IsSnapToTickEnabled="True" Height="20" Width="170" Value="{Binding AddCharacterVM.Money, Mode=TwoWay}"/>
+                    <Slider x:Name="sliderMoney" Minimum="0" Maximum="100000" TickFrequency="500" IsSnapToTickEnabled="True" Height="20" Width="170" Value="{Binding Money, Mode=TwoWay}"/>
                     <Label VerticalAlignment="Center" FontSize="12" Content="{Binding Path=Value, ElementName=sliderMoney}" Style="{StaticResource LabelStyle}" />
 
                 </StackPanel>
@@ -226,14 +226,14 @@
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="{Binding Source={x:Static resx:Resources.Survival}}" Style="{StaticResource TextStyle}" Margin="0,0,28,0"/>
-                    <TextBox Text="{Binding AddCharacterVM.Abilities[survival], Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PreviewTextInput="TextBox_PreviewTextInput" MaxLength="2"
+                    <TextBox Text="{Binding Abilities[survival], Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PreviewTextInput="TextBox_PreviewTextInput" MaxLength="2"
                              Width="60" Height="20" Style="{StaticResource TextBoxStyle}" Margin="0,0,10,0" />
                     </StackPanel>
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal" Grid.Row="8" Grid.Column="0" VerticalAlignment="Center">
                     <TextBlock Text="{Binding Source={x:Static resx:Resources.IsInspired}}" Style="{StaticResource TextStyle}" Margin="0,0,25,0"/>
-                    <CheckBox x:Name="Inspired" IsThreeState="False" IsChecked="{Binding AddCharacterVM.IsInspired, Mode=TwoWay}"/>
+                    <CheckBox x:Name="Inspired" IsThreeState="False" IsChecked="{Binding IsInspired, Mode=TwoWay}"/>
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal" Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="2" VerticalAlignment="Center">

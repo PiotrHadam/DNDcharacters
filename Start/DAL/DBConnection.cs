@@ -33,7 +33,7 @@ namespace Start.DAL
                 UserID = Nickname,
                 Password = Password,
                 Server = "localhost",
-                Database = "dnd_characters",
+                Database = "dnd_characters2",
                 Port = Port,
                 CharacterSet = "utf8"
             };

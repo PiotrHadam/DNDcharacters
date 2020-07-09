@@ -18,6 +18,8 @@ namespace Start.ViewModel
     {
         //private Model model = null;
         private Character _character = new Character();
+        private Model _model = new Model();
+        private List<Spell> _spells = new List<Spell>();
 
 
         public CharacterSheetViewModel()
@@ -193,6 +195,19 @@ namespace Start.ViewModel
             }
         }
 
+        public List<Weapon> Weapons {
+            get { return _character.Weapons; }
+            set {                
+                onPropertyChanged(nameof(Weapons));
+            }
+        }
+        public List<Item> Equipment {
+            get { return _character.Equipment; }
+            set {
+                onPropertyChanged(nameof(Equipment));
+            }
+        }
+
         public byte Dexterity
         {
             get { return _character.Dexterity; }
@@ -330,10 +345,12 @@ namespace Start.ViewModel
 
         public List<Spell> Spells
         {
-            get { return _character.Spells; }
+            get { _spells = _model.ReadSpellsOfCharacterToList(_character);
+                return _spells;
+            }
             set
             {
-                _character.Spells = value;
+                _spells = value;
                 onPropertyChanged(nameof(Spells));
             }
         }
@@ -509,31 +526,7 @@ namespace Start.ViewModel
             }
         }
 
-        public string Weapon1
-        {
-            get
-            {
-                return _character.Weapons[0].WeaponName;
-            }
-            set
-            {
-                _character.Weapons[0].WeaponName = value;
-                onPropertyChanged(nameof(Weapon1));
-            }
-        }
 
-        public string Weapon1Dice
-        {
-            get
-            {
-                return _character.Weapons[0].ToString();
-            }
-            set
-            {
-                _character.Weapons[0].DMG = new Dice(value);
-                onPropertyChanged(nameof(Weapon1Dice));
-            }
-        }
 
 
 

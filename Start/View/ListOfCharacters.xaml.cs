@@ -33,8 +33,8 @@ namespace Start.View
             //else if (b == Choose) this.NavigationService.Navigate(new Uri("View/CharacterSheet.xaml"), UriKind.Relative);
             else if (b == Choose)
             {
-                CharacterSheet charsh = new CharacterSheet();
-                charsh.Show();
+                /*CharacterSheet charsh = new CharacterSheet();
+                charsh.Show();*/
             }
         }
     }

@@ -88,6 +88,17 @@ namespace Start.Model
 
             return spells;
         }
+
+        public List<Spell> ReadSpellsOfCharacterToList(Character character) {
+            var spells = new List<Spell>();
+            foreach(var link in Links) {
+                if(link.CharacterID == character.CharacterID) {
+                    spells.Add(FindSpellByID(link.SpellID));
+                }
+            }
+
+            return spells;
+        }
         #endregion
         /*
         #region Złączenie postaci z klasą
@@ -215,7 +226,7 @@ namespace Start.Model
         }
         #endregion
         */
-        
+
 
         #region Metody dla postaci
         public bool IsCharacterInRepository(Character character) => Characters.Contains(character);
