@@ -9,6 +9,7 @@ namespace Start.ViewModel
     using Model;
     using DAL.Encje;
     using Start.DAL.Repositories;
+    using Start.DAL.Helpers;
 
     class AddCharacterViewModel : ViewModelBase
     {
@@ -31,6 +32,14 @@ namespace Start.ViewModel
             Characters = model.Characters;
             ClassNames = model.ClassNames;
             RaceNames = model.RaceNames;
+            abilities = new Dictionary<string, byte>();
+            possiblespellsperday = new Dictionary<byte, byte>();
+            for(int i =0; i <18; i++) {
+                abilities.Add(Rules.Abilities[i], 0);
+            }
+            for(byte i = 0; i <10; i++) {
+                possiblespellsperday.Add(i, 0);
+            }
         }
 
         /*public AddCharacterViewModel(Model model, Character character)
@@ -66,7 +75,7 @@ namespace Start.ViewModel
 
         public string Name
         {
-            get { return name; }
+            get { return this.name; }
             set
             {
                 name = value;
@@ -267,8 +276,11 @@ namespace Start.ViewModel
             description = "";
             story = "";
             level = 0;
+           
             abilities.Clear();
             possiblespellsperday.Clear();
+            
+           
         }
 
         #region Polecenia
@@ -314,15 +326,17 @@ namespace Start.ViewModel
                                                                     .WithLvl(Level)
                                                                     .WithName(Name)
                                                                     .WithStrenght(Strength)
-                                                                    .WithWisdom(Wisdom)
+                                                                    .WithWisdom(Wisdom)       
+                                                                    .WithPossibleSpellsPerDay(PossibleSpellsPerDay)
                                                                     .Build();
 
-                            if (model.AddCharacterToDatabase(character))
-                            {
-                                ClearSheet();
-                                System.Windows.MessageBox.Show("Postać została dodana do bazy!");
-                            }
 
+                            var final_string = character.ToInsert();
+                            model.AddCharacterToDatabase(character);
+                            //model.Characters.Add(character);
+                            
+                            ClearSheet();
+                            System.Windows.MessageBox.Show("Postać została dodana do bazy!");
                         }
                         ,
                         arg => (Name != "") && (Description != "") && (Story != "") && (Class != "") && (Race != "")

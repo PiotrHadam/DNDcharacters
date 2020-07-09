@@ -137,96 +137,96 @@
                 <StackPanel Orientation="Vertical" Grid.Row="2" Grid.Column="1" Grid.RowSpan="6" Grid.ColumnSpan="2">
                     <StackPanel Orientation="Horizontal" >
                         <TextBlock Text="{Binding Source={x:Static resx:Resources.Acrobatics}}" Style="{StaticResource TextStyle}" Margin="0,0,34.5,0"/>
-                        <TextBox Text="{Binding AddCharacterVM.Abilities[0], Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PreviewTextInput="TextBox_PreviewTextInput" MaxLength="2"
+                    <TextBox Text="{Binding AddCharacterVM.Abilities[acrobatics], Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PreviewTextInput="TextBox_PreviewTextInput" MaxLength="2"
                              Width="60" Height="20" Style="{StaticResource TextBoxStyle}">
                         </TextBox>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="{Binding Source={x:Static resx:Resources.AnimalHandling}}" Style="{StaticResource TextStyle}" Margin="0,0,43.5,0"/>
-                        <TextBox Text="{Binding AddCharacterVM.Abilities[1], Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PreviewTextInput="TextBox_PreviewTextInput" MaxLength="2"
+                    <TextBox Text="{Binding AddCharacterVM.Abilities[animal_handing], Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PreviewTextInput="TextBox_PreviewTextInput" MaxLength="2"
                              Width="60" Height="20" Style="{StaticResource TextBoxStyle}" Margin="0,0,10,0" />
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="{Binding Source={x:Static resx:Resources.Arcana}}" Style="{StaticResource TextStyle}" Margin="0,0,60,0"/>
-                        <TextBox Text="{Binding AddCharacterVM.Abilities[2], Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PreviewTextInput="TextBox_PreviewTextInput" MaxLength="2"
+                    <TextBox Text="{Binding AddCharacterVM.Abilities[arcana], Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PreviewTextInput="TextBox_PreviewTextInput" MaxLength="2"
                              Width="60" Height="20" Style="{StaticResource TextBoxStyle}" Margin="0,0,10,0" />
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="{Binding Source={x:Static resx:Resources.Athletics}}" Style="{StaticResource TextStyle}" Margin="0,0,54,0"/>
-                        <TextBox Text="{Binding AddCharacterVM.Abilities[3], Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PreviewTextInput="TextBox_PreviewTextInput" MaxLength="2"
+                    <TextBox Text="{Binding AddCharacterVM.Abilities[athletics], Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PreviewTextInput="TextBox_PreviewTextInput" MaxLength="2"
                              Width="60" Height="20" Style="{StaticResource TextBoxStyle}" Margin="0,0,10,0" />
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="{Binding Source={x:Static resx:Resources.Deception}}" Style="{StaticResource TextStyle}" Margin="0,0,60,0"/>
-                        <TextBox Text="{Binding AddCharacterVM.Abilities[4], Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PreviewTextInput="TextBox_PreviewTextInput" MaxLength="2"
+                    <TextBox Text="{Binding AddCharacterVM.Abilities[deception], Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PreviewTextInput="TextBox_PreviewTextInput" MaxLength="2"
                              Width="60" Height="20" Style="{StaticResource TextBoxStyle}" Margin="0,0,10,0" />
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="{Binding Source={x:Static resx:Resources.History}}" Style="{StaticResource TextStyle}" Margin="0,0,57,0"/>
-                        <TextBox Text="{Binding AddCharacterVM.Abilities[5], Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PreviewTextInput="TextBox_PreviewTextInput" MaxLength="2"
+                    <TextBox Text="{Binding AddCharacterVM.Abilities[history], Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PreviewTextInput="TextBox_PreviewTextInput" MaxLength="2"
                              Width="60" Height="20" Style="{StaticResource TextBoxStyle}" Margin="0,0,10,0" />
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="{Binding Source={x:Static resx:Resources.Insight}}" Style="{StaticResource TextStyle}" Margin="0,0,58,0"/>
-                        <TextBox Text="{Binding AddCharacterVM.Abilities[6], Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PreviewTextInput="TextBox_PreviewTextInput" MaxLength="2"
+                    <TextBox Text="{Binding AddCharacterVM.Abilities[insight], Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PreviewTextInput="TextBox_PreviewTextInput" MaxLength="2"
                              Width="60" Height="20" Style="{StaticResource TextBoxStyle}" Margin="0,0,10,0" />
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="{Binding Source={x:Static resx:Resources.Intimidation}}" Style="{StaticResource TextStyle}" Margin="0,0,25.5,0"/>
-                        <TextBox Text="{Binding AddCharacterVM.Abilities[7], Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PreviewTextInput="TextBox_PreviewTextInput" MaxLength="2"
+                    <TextBox Text="{Binding AddCharacterVM.Abilities[intimidation], Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PreviewTextInput="TextBox_PreviewTextInput" MaxLength="2"
                              Width="60" Height="20" Style="{StaticResource TextBoxStyle}" Margin="0,0,10,0" />
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="{Binding Source={x:Static resx:Resources.Investigation}}" Style="{StaticResource TextStyle}" Margin="0,0,10,0"/>
-                        <TextBox Text="{Binding AddCharacterVM.Abilities[8], Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PreviewTextInput="TextBox_PreviewTextInput" MaxLength="2"
+                    <TextBox Text="{Binding AddCharacterVM.Abilities[investigation], Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PreviewTextInput="TextBox_PreviewTextInput" MaxLength="2"
                              Width="60" Height="20" Style="{StaticResource TextBoxStyle}" Margin="0,0,10,0" />
                     </StackPanel>
                 </StackPanel>
                 <StackPanel Orientation="Vertical" Grid.Row="2" Grid.Column="3" Grid.RowSpan="6">
                     <StackPanel Orientation="Horizontal" >
                         <TextBlock Text="{Binding Source={x:Static resx:Resources.Medicine}}" Style="{StaticResource TextStyle}" Margin="0,0,52.5,0"/>
-                        <TextBox Text="{Binding AddCharacterVM.Abilities[9], Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PreviewTextInput="TextBox_PreviewTextInput" MaxLength="2"
+                    <TextBox Text="{Binding AddCharacterVM.Abilities[medicine], Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PreviewTextInput="TextBox_PreviewTextInput" MaxLength="2"
                              Width="60" Height="20" Style="{StaticResource TextBoxStyle}">
                         </TextBox>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="{Binding Source={x:Static resx:Resources.Nature}}" Style="{StaticResource TextStyle}" Margin="0,0,62.5,0"/>
-                        <TextBox Text="{Binding AddCharacterVM.Abilities[10], Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PreviewTextInput="TextBox_PreviewTextInput" MaxLength="2"
+                    <TextBox Text="{Binding AddCharacterVM.Abilities[nature], Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PreviewTextInput="TextBox_PreviewTextInput" MaxLength="2"
                              Width="60" Height="20" Style="{StaticResource TextBoxStyle}" Margin="0,0,10,0" />
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="{Binding Source={x:Static resx:Resources.Perception}}" Style="{StaticResource TextStyle}" Margin="0,0,48.5,0"/>
-                        <TextBox Text="{Binding AddCharacterVM.Abilities[11], Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PreviewTextInput="TextBox_PreviewTextInput" MaxLength="2"
+                    <TextBox Text="{Binding AddCharacterVM.Abilities[perception], Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PreviewTextInput="TextBox_PreviewTextInput" MaxLength="2"
                              Width="60" Height="20" Style="{StaticResource TextBoxStyle}" Margin="0,0,10,0" />
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="{Binding Source={x:Static resx:Resources.Performance}}" Style="{StaticResource TextStyle}" Margin="0,0,42,0"/>
-                        <TextBox Text="{Binding AddCharacterVM.Abilities[12], Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PreviewTextInput="TextBox_PreviewTextInput" MaxLength="2"
+                    <TextBox Text="{Binding AddCharacterVM.Abilities[performance], Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PreviewTextInput="TextBox_PreviewTextInput" MaxLength="2"
                              Width="60" Height="20" Style="{StaticResource TextBoxStyle}" Margin="0,0,10,0" />
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="{Binding Source={x:Static resx:Resources.Persuasion}}" Style="{StaticResource TextStyle}" Margin="0,0,43.5,0"/>
-                        <TextBox Text="{Binding AddCharacterVM.Abilities[13], Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PreviewTextInput="TextBox_PreviewTextInput" MaxLength="2"
+                    <TextBox Text="{Binding AddCharacterVM.Abilities[persuasion], Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PreviewTextInput="TextBox_PreviewTextInput" MaxLength="2"
                              Width="60" Height="20" Style="{StaticResource TextBoxStyle}" Margin="0,0,10,0" />
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="{Binding Source={x:Static resx:Resources.Religion}}" Style="{StaticResource TextStyle}" Margin="0,0,62,0"/>
-                        <TextBox Text="{Binding AddCharacterVM.Abilities[14], Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PreviewTextInput="TextBox_PreviewTextInput" MaxLength="2"
+                    <TextBox Text="{Binding AddCharacterVM.Abilities[religion], Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PreviewTextInput="TextBox_PreviewTextInput" MaxLength="2"
                              Width="60" Height="20" Style="{StaticResource TextBoxStyle}" Margin="0,0,10,0" />
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="{Binding Source={x:Static resx:Resources.SleightOfHand}}" Style="{StaticResource TextStyle}" Margin="0,0,10,0"/>
-                        <TextBox Text="{Binding AddCharacterVM.Abilities[15], Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PreviewTextInput="TextBox_PreviewTextInput" MaxLength="2"
+                    <TextBox Text="{Binding AddCharacterVM.Abilities[sleight_of_hand], Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PreviewTextInput="TextBox_PreviewTextInput" MaxLength="2"
                              Width="60" Height="20" Style="{StaticResource TextBoxStyle}" Margin="0,0,10,0" />
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="{Binding Source={x:Static resx:Resources.Stealth}}" Style="{StaticResource TextStyle}" Margin="0,0,40,0"/>
-                        <TextBox Text="{Binding AddCharacterVM.Abilities[16], Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PreviewTextInput="TextBox_PreviewTextInput" MaxLength="2"
+                    <TextBox Text="{Binding AddCharacterVM.Abilities[stealh], Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PreviewTextInput="TextBox_PreviewTextInput" MaxLength="2"
                              Width="60" Height="20" Style="{StaticResource TextBoxStyle}" Margin="0,0,10,0" />
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="{Binding Source={x:Static resx:Resources.Survival}}" Style="{StaticResource TextStyle}" Margin="0,0,28,0"/>
-                        <TextBox Text="{Binding AddCharacterVM.Abilities[17], Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PreviewTextInput="TextBox_PreviewTextInput" MaxLength="2"
+                    <TextBox Text="{Binding AddCharacterVM.Abilities[survival], Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PreviewTextInput="TextBox_PreviewTextInput" MaxLength="2"
                              Width="60" Height="20" Style="{StaticResource TextBoxStyle}" Margin="0,0,10,0" />
                     </StackPanel>
                 </StackPanel>

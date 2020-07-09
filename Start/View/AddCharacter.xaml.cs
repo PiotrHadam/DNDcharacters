@@ -26,6 +26,7 @@ namespace Start.View
 
         public AddCharacter() {
             InitializeComponent();
+
         }
 
 

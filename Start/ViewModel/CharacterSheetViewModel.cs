@@ -12,16 +12,13 @@ namespace Start.ViewModel
     using BaseClasses;
     using Model;
     using Start.DAL.Helpers;
+    using System.Diagnostics;
 
     class CharacterSheetViewModel : ViewModelBase
     {
         //private Model model = null;
         private Character _character = new Character();
 
-        /*public CharacterSheetViewModel(Character character)
-        {
-            _character = character;
-        }*/
 
         public CharacterSheetViewModel()
         {
@@ -30,6 +27,7 @@ namespace Start.ViewModel
         }
 
         #region Właściwości
+
 
         public Character Character
         {
@@ -50,7 +48,15 @@ namespace Start.ViewModel
                 onPropertyChanged(nameof(Name));
             }
         }
-
+        public string Class
+        {
+            get { return _character.Class.Name; }
+            set
+            {
+                _character.Class.Name = value;
+                onPropertyChanged(nameof(Name));
+            }
+        }
         public string Description
         {
             get { return _character.Description; }
@@ -520,7 +526,7 @@ namespace Start.ViewModel
         {
             get
             {
-                return _character.Weapons[0].WeaponName;
+                return _character.Weapons[0].ToString();
             }
             set
             {

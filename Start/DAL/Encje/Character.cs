@@ -427,6 +427,7 @@ namespace Start.DAL.Encje
             Story = builder._characterStory;
             Spells = builder._spells;
             Level = builder._lvl;
+            PossibleSpellsPerDay = builder._possibleSpellsPerDay;
         }
 
         /// <summary>
@@ -466,6 +467,7 @@ namespace Start.DAL.Encje
             internal string _characterStory;
             internal List<Spell> _spells;
             internal byte _lvl;
+            internal Dictionary<byte, byte> _possibleSpellsPerDay;
 
             public Builder WithName(string name)
             {
@@ -595,6 +597,10 @@ namespace Start.DAL.Encje
                 _abilities = abilities;
                 return this;
             }
+            public Builder WithPossibleSpellsPerDay(Dictionary<byte, byte> possibleSpells) {
+                _possibleSpellsPerDay = possibleSpells;
+                return this;
+            }
             public Builder WithSpells(List<Spell> spells)
             {
                 _spells = spells;
@@ -612,22 +618,47 @@ namespace Start.DAL.Encje
         #region Metody
 
 
-        public string ToInsert()
-        {
+        public string ToInsert() {
             string possibleSpellsPerDay = string.Empty;
             string abilities = string.Empty;
-            for (byte i = 0; i < PossibleSpellsPerDay.Count; i++)
-            {
-                possibleSpellsPerDay += PossibleSpellsPerDay[i].ToString() + ", ";
-            };
-            foreach (KeyValuePair<string, byte> ability in Abilities)
-            {
+
+            try {
+                for(byte i = 0; i < PossibleSpellsPerDay.Count; i++) {
+                    possibleSpellsPerDay += PossibleSpellsPerDay[i].ToString() + ", ";
+                };
+            }
+            catch {
+                for(byte i = 0; i < 10; i++) {
+                    possibleSpellsPerDay += 0.ToString() + ", ";
+                };
+            }
+
+
+            foreach(KeyValuePair<string, byte> ability in Abilities) {
                 abilities += ability.Value.ToString() + ", ";
             }
-            return $"('{Name}', {Class.ClassID}, {Race.RaceID}, '{Image}', {Money}, {HitPoints}, {Charisma}, " +
-                $"{Constitution}, {Dexterity}, {Intelligence}, {Strength}, {Wisdom}, " +
+
+            /*return $"({Name}, {Class.ClassID}, {Race.RaceID},, {Money}, {HitPoints}, {Charisma}, " +
+                $"{Constitution}, {Dexterity}, {Intelligence}, {Strength}, {Wisdom}," +
                 $"{abilities} {possibleSpellsPerDay}" + // przecinki już są na końcu tych wyrażeń              
-                $" {IsInspired}, \"{Description}\", \"{Story}\", {Level})";
+                $"{Convert.ToInt32(IsInspired)}, \"{Description}\", \"{Story}\", {Level})";*/
+
+            return $"INSERT INTO `characters` (`character_id`, `character_name`, `character_race`, `character_class`," +
+                $" `character_image_path`, `character_money`, `hit_points`, `charisma`, `constitution`, `dexterity`," +
+                $" `inteligence`, `stregth`, `wisdom`, `ability_acrobatics`, `ability_animal_handing`, `ability_arcana`," +
+                $" `ability_athletics`, `ability_deception`, `ability_history`, `ability_insight`, `ability_intimidation`, " +
+                $"`ability_investigation`, `ability_medicine`, `ability_nature`, `ability_perception`, `ability_performance`, " +
+                $"`ability_persuasion`, `ability_religion`, `ability_sleight_of_hand`, `ability_stealh`, `ability_survival`, " +
+                $"`known_spells_0`, `known_spells_1`, `known_spells_2`, `known_spells_3`, `known_spells_4`, `known_spells_5`, " +
+                $"`known_spells_6`, `known_spells_7`, `known_spells_8`, `known_spells_9`, `is_inpired`, `character_description`, " +
+                $"`character_story`, `character_lvl`) " +
+                $"VALUES (NULL, '{Name}', '{Race.RaceID}', '{Class.ClassID}', NULL, '{Money}', '{HitPoints}', '{Charisma}', '{Constitution}', '{Dexterity}', '{Intelligence}', " +
+                $"'{Strength}', '{Wisdom}', '{Abilities["acrobatics"]}', '{Abilities["animal_handing"]}', '{Abilities["arcana"]}', '{Abilities["athletics"]}', " +
+                $"'{Abilities["deception"]}', '{Abilities["history"]}', '{Abilities["insight"]}', " +
+                $"'{Abilities["intimidation"]}', '{Abilities["investigation"]}', '{Abilities["medicine"]}', " +
+                $"'{Abilities["nature"]}', '{Abilities["perception"]}', '{Abilities["performance"]}', '{Abilities["persuasion"]}'," +
+                $" '{Abilities["religion"]}', '{Abilities["sleight_of_hand"]}', '{Abilities["stealh"]}', '{Abilities["survival"]}', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, b'{Convert.ToInt32(IsInspired)}', '{Description}', '{Story}', '{Level}');";
+
         }
 
         public string ToDelete()

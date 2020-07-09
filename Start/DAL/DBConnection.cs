@@ -32,8 +32,8 @@ namespace Start.DAL
             {
                 UserID = Nickname,
                 Password = Password,
-                Server = Server,
-                Database = Database,
+                Server = "localhost",
+                Database = "dnd_characters",
                 Port = Port,
                 CharacterSet = "utf8"
             };
