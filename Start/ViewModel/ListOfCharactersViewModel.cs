@@ -11,7 +11,6 @@ namespace Start.ViewModel
     using BaseClasses;
     using Model;
     using DAL.Encje;
-    using System.Windows.Navigation;
 
     class ListOfCharactersViewModel : ViewModelBase
     {

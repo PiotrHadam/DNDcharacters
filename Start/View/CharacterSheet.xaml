@@ -9,7 +9,7 @@
         mc:Ignorable="d"
         
         xmlns:properties="clr-namespace:Start.Properties"
-        Title="Dungeons &amp; Dragons" Height="1000" Width="700" ResizeMode="CanMinimize" >
+        Title="Dungeons &amp; Dragons" Height="1000" Width="700" ResizeMode="CanMinimize">
     <Window.Resources>
         <vm:CharacterSheetViewModel x:Key="mainvm"/>
         <Style TargetType="TextBox">
@@ -24,7 +24,8 @@
 
     </Window.Resources>
     <Window.Background>
-        <ImageBrush ImageSource="{Binding Source={x:Static properties:Resources.CharacterSheet}}"/>
+        <!--<ImageBrush ImageSource="{Binding Source={x:Static properties:Resources.CharacterSheet}}"/>-->
+        <ImageBrush ImageSource="/Start;component/Images/character_sheet2.png"/>
     </Window.Background>
 
     <Grid Margin="558,696,-0.4,0.4" DataContext="{StaticResource mainvm}">

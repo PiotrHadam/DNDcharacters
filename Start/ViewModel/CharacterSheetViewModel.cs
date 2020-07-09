@@ -18,14 +18,7 @@ namespace Start.ViewModel
     class CharacterSheetViewModel : ViewModelBase
     {
         private Model model = null;
-        private Character _character = null;
-
-        private string name, image, description, story;
-        private int money = 0, hitpoints = 0;
-        private byte strength = 0, dexterity = 0, constitution = 0, intelligence = 0, wisdom = 0, charisma = 0, isinspired = 0, level = 0;
-        private Dictionary<string, byte> abilities;
-        private Dictionary<byte, byte> possiblespellsperday;
-        private bool editingAbility = true;
+        private Character _character = new Character();
 
         /*public CharacterSheetViewModel(Character character)
         {
@@ -323,7 +316,7 @@ namespace Start.ViewModel
 
         public Dictionary<byte, byte> PossibleSpellsPerDay
         {
-            get { return possiblespellsperday; }
+            get { return _character.PossibleSpellsPerDay; }
             set
             {
                 _character.PossibleSpellsPerDay = value;

@@ -63,7 +63,7 @@ namespace Start.DAL.Encje
         public string Name { get; set; }
         public string Image { get; set; }
 
-        public Dictionary<string, byte> Abilities { get; set; }
+        public Dictionary<string, byte> Abilities { get; set; } = new Dictionary<string, byte>();
 
         /// <summary>
         /// First lvl next amount of spells on given lvl
@@ -132,7 +132,7 @@ namespace Start.DAL.Encje
             Intelligence = byte.Parse(reader["inteligence"].ToString());
             Wisdom = byte.Parse(reader["wisdom"].ToString());
             Charisma = byte.Parse(reader["charisma"].ToString());
-            Dictionary<string, byte> Abilities = new Dictionary<string, byte>();
+            //Dictionary<string, byte> Abilities = new Dictionary<string, byte>();
             Abilities.Add(Rules.Abilities[0], byte.Parse(reader["ability_acrobatics"].ToString()));
             Abilities.Add(Rules.Abilities[1], byte.Parse(reader["ability_animal_handing"].ToString()));
             Abilities.Add(Rules.Abilities[2], byte.Parse(reader["ability_arcana"].ToString()));
