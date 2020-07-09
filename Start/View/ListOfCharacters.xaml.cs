@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 
 namespace Start.View
 {
+    using ViewModel;
     /// <summary>
     /// Logika interakcji dla klasy ListOfCharacters.xaml
     /// </summary>
@@ -29,10 +30,13 @@ namespace Start.View
         {
             Button b = (Button)sender;
             if (b == Back) this.NavigationService.Navigate(new Uri("View/MainPage.xaml", UriKind.Relative));
-
-            else if (b == Choose) this.NavigationService.Navigate(new Uri("View/CharacterSheet.xaml"), UriKind.Relative);
-
-
+            //else if (b == Choose) this.NavigationService.Navigate(new CharacterSheet());
+            //else if (b == Choose) this.NavigationService.Navigate(new Uri("View/CharacterSheet.xaml"), UriKind.Relative);
+            else if (b == Choose)
+            {
+                CharacterSheet charsh = new CharacterSheet();
+                charsh.Show();
+            }
         }
     }
 }

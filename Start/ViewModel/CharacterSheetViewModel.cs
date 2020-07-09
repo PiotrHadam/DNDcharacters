@@ -5,8 +5,9 @@ using System.Collections.Generic;
 
 
 
-namespace Start.ViewModel {
-    
+namespace Start.ViewModel
+{
+
     using DAL.Encje;
     using BaseClasses;
     using Model;
@@ -14,7 +15,8 @@ namespace Start.ViewModel {
     using System.Runtime.InteropServices;
     using Start.DAL.Helpers;
 
-    class CharacterSheetViewModel:ViewModelBase {
+    class CharacterSheetViewModel : ViewModelBase
+    {
         private Model model = null;
         private Character _character = null;
 
@@ -25,69 +27,86 @@ namespace Start.ViewModel {
         private Dictionary<byte, byte> possiblespellsperday;
         private bool editingAbility = true;
 
-        public CharacterSheetViewModel(Character character) {
+        public CharacterSheetViewModel(Character character)
+        {
             _character = character;
         }
 
         #region Właściwości
 
-        public Character Character {
+        public Character Character
+        {
             get { return _character; }
-            set {
+            set
+            {
                 _character = value;
                 onPropertyChanged(nameof(Character));
             }
         }
 
-        public string Name {
+        public string Name
+        {
             get { return _character.Name; }
-            set {
+            set
+            {
                 _character.Name = value;
                 onPropertyChanged(nameof(Name));
             }
         }
 
-        public string Description {
+        public string Description
+        {
             get { return _character.Description; }
-            set {
+            set
+            {
                 _character.Description = value;
                 onPropertyChanged(nameof(Description));
             }
         }
 
-        public string Story {
+        public string Story
+        {
             get { return _character.Story; }
-            set {
+            set
+            {
                 _character.Story = value;
                 onPropertyChanged(nameof(Story));
             }
         }
 
-        public byte ArmorClass {
+        public byte ArmorClass
+        {
             get { return _character.ArmorClass; }
-            set {
+            set
+            {
                 _character.ArmorClass = value;
                 onPropertyChanged(nameof(ArmorClass));
             }
         }
 
-        public byte Speed {
+        public byte Speed
+        {
             get { return _character.Speed; }
-            set {
+            set
+            {
                 _character.Speed = value;
                 onPropertyChanged(nameof(Speed));
             }
         }
-        public byte Proficiency {
+        public byte Proficiency
+        {
             get { return _character.Proficiency; }
-            set {
+            set
+            {
                 _character.Proficiency = value;
                 onPropertyChanged(nameof(Proficiency));
             }
         }
-        public byte MaxHitPoints {
+        public byte MaxHitPoints
+        {
             get { return _character.MaxHitPoints; }
-            set {
+            set
+            {
                 _character.MaxHitPoints = value;
                 onPropertyChanged(nameof(MaxHitPoints));
             }
@@ -95,330 +114,419 @@ namespace Start.ViewModel {
 
 
 
-        public uint MoneyCopper {
+        public uint MoneyCopper
+        {
             get { return _character.CHMoney.Copper; }
-            set {
+            set
+            {
                 _character.CHMoney.Copper = value;
                 onPropertyChanged(nameof(MoneyCopper));
             }
         }
-        public uint MoneySilver {
+        public uint MoneySilver
+        {
             get { return _character.CHMoney.Silver; }
-            set {
+            set
+            {
                 _character.CHMoney.Silver = value;
                 onPropertyChanged(nameof(MoneySilver));
             }
         }
 
-        public uint MoneyGold {
+        public uint MoneyGold
+        {
             get { return _character.CHMoney.Gold; }
-            set {
+            set
+            {
                 _character.CHMoney.Gold = value;
                 onPropertyChanged(nameof(MoneyGold));
             }
         }
-        public uint MoneyElectrum {
+        public uint MoneyElectrum
+        {
             get { return _character.CHMoney.Electrum; }
-            set {
+            set
+            {
                 _character.CHMoney.Electrum = value;
                 onPropertyChanged(nameof(MoneyElectrum));
             }
         }
-        public uint MoneyPlatinium {
+        public uint MoneyPlatinium
+        {
             get { return _character.CHMoney.Platinium; }
-            set {
+            set
+            {
                 _character.CHMoney.Platinium = value;
                 onPropertyChanged(nameof(MoneyPlatinium));
             }
         }
 
-        public int HitPoints {
+        public int HitPoints
+        {
             get { return _character.HitPoints; }
-            set {
+            set
+            {
                 _character.HitPoints = value;
                 onPropertyChanged(nameof(HitPoints));
             }
         }
 
-        public byte Strength {
+        public byte Strength
+        {
             get { return _character.Strength; }
-            set {
+            set
+            {
                 _character.Strength = value;
                 onPropertyChanged(nameof(Strength));
             }
         }
-        public byte StrengthBonus {
+        public byte StrengthBonus
+        {
             get { return _character.StrengthBonus; }
-            set {
+            set
+            {
                 _character.StrengthBonus = value;
                 onPropertyChanged(nameof(StrengthBonus));
             }
         }
 
-        public byte Dexterity {
+        public byte Dexterity
+        {
             get { return _character.Dexterity; }
-            set {
+            set
+            {
                 _character.Dexterity = value;
                 onPropertyChanged(nameof(Dexterity));
             }
         }
-        public byte DexterityBonus {
+        public byte DexterityBonus
+        {
             get { return _character.DexterityBonus; }
-            set {
+            set
+            {
                 _character.DexterityBonus = value;
                 onPropertyChanged(nameof(DexterityBonus));
             }
         }
-        public byte Constitution {
+        public byte Constitution
+        {
             get { return _character.Constitution; }
-            set {
+            set
+            {
                 _character.Constitution = value;
                 onPropertyChanged(nameof(Constitution));
             }
         }
-        public byte ConstitutionBonus {
+        public byte ConstitutionBonus
+        {
             get { return _character.ConstitutionBonus; }
-            set {
+            set
+            {
                 _character.ConstitutionBonus = value;
                 onPropertyChanged(nameof(ConstitutionBonus));
             }
         }
 
-        public byte Intelligence {
+        public byte Intelligence
+        {
             get { return _character.Intelligence; }
-            set {
+            set
+            {
                 _character.Intelligence = value;
                 onPropertyChanged(nameof(Intelligence));
             }
         }
-        public byte IntelligenceBonus {
+        public byte IntelligenceBonus
+        {
             get { return _character.IntelligenceBonus; }
-            set {
+            set
+            {
                 _character.IntelligenceBonus = value;
                 onPropertyChanged(nameof(IntelligenceBonus));
             }
         }
 
-        public byte Wisdom {
+        public byte Wisdom
+        {
             get { return _character.Wisdom; }
-            set {
+            set
+            {
                 _character.Wisdom = value;
                 onPropertyChanged(nameof(Wisdom));
             }
         }
-        public byte WisdomBonus {
+        public byte WisdomBonus
+        {
             get { return _character.WisdomBonus; }
-            set {
+            set
+            {
                 _character.WisdomBonus = value;
                 onPropertyChanged(nameof(WisdomBonus));
             }
         }
 
 
-        public byte Charisma {
+        public byte Charisma
+        {
             get { return _character.Charisma; }
-            set {
+            set
+            {
                 _character.Charisma = value;
                 onPropertyChanged(nameof(Charisma));
             }
         }
-        public byte CharismaBonus {
+        public byte CharismaBonus
+        {
             get { return _character.CharismaBonus; }
-            set {
+            set
+            {
                 _character.CharismaBonus = value;
                 onPropertyChanged(nameof(CharismaBonus));
             }
         }
 
-        public bool IsInspired {
+        public bool IsInspired
+        {
             get { return _character.IsInspired; }
-            set {
+            set
+            {
                 _character.IsInspired = value;
                 onPropertyChanged(nameof(IsInspired));
             }
         }
 
-        public byte Level {
+        public byte Level
+        {
             get { return _character.Level; }
-            set {
+            set
+            {
                 _character.Level = value;
                 onPropertyChanged(nameof(Level));
             }
         }
 
-        public Dictionary<string, byte> Abilities {
+        public Dictionary<string, byte> Abilities
+        {
             get { return _character.Abilities; }
-            set {
+            set
+            {
                 _character.Abilities = value;
                 onPropertyChanged(nameof(Abilities));
             }
         }
 
-        public Dictionary<byte, byte> PossibleSpellsPerDay {
+        public Dictionary<byte, byte> PossibleSpellsPerDay
+        {
             get { return possiblespellsperday; }
-            set {
+            set
+            {
                 _character.PossibleSpellsPerDay = value;
                 onPropertyChanged(nameof(PossibleSpellsPerDay));
             }
         }
 
-        public List<Spell> Spells {
+        public List<Spell> Spells
+        {
             get { return _character.Spells; }
-            set {
+            set
+            {
                 _character.Spells = value;
                 onPropertyChanged(nameof(Spells));
             }
         }
 
-        public byte Acrobatics {
+        public byte Acrobatics
+        {
             get { return _character.Abilities["acrobatics"]; }
-            set {
+            set
+            {
                 _character.Abilities["acrobatics"] = value;
                 onPropertyChanged(nameof(Acrobatics));
             }
         }
 
-        public byte AnimalHandling {
+        public byte AnimalHandling
+        {
             get { return _character.Abilities["animal_handing"]; }
-            set {
+            set
+            {
                 _character.Abilities["animal_handing"] = value;
                 onPropertyChanged(nameof(AnimalHandling));
             }
         }
 
-        public byte Arcana {
+        public byte Arcana
+        {
             get { return _character.Abilities["arcana"]; }
-            set {
+            set
+            {
                 _character.Abilities["arcana"] = value;
                 onPropertyChanged(nameof(Arcana));
             }
         }
 
-        public byte Athletics {
+        public byte Athletics
+        {
             get { return _character.Abilities["athletics"]; }
-            set {
+            set
+            {
                 _character.Abilities["athletics"] = value;
                 onPropertyChanged(nameof(Athletics));
             }
         }
 
-        public byte Deception {
+        public byte Deception
+        {
             get { return _character.Abilities["deception"]; }
-            set {
+            set
+            {
                 _character.Abilities["deception"] = value;
                 onPropertyChanged(nameof(Deception));
             }
         }
-        public byte History {
+        public byte History
+        {
             get { return _character.Abilities["history"]; }
-            set {
+            set
+            {
                 _character.Abilities["history"] = value;
                 onPropertyChanged(nameof(History));
             }
         }
-        public byte Insight {
+        public byte Insight
+        {
             get { return _character.Abilities["insight"]; }
-            set {
+            set
+            {
                 _character.Abilities["insight"] = value;
                 onPropertyChanged(nameof(Insight));
             }
         }
-        public byte Intimidation {
+        public byte Intimidation
+        {
             get { return _character.Abilities["intimidation"]; }
-            set {
+            set
+            {
                 _character.Abilities["intimidation"] = value;
                 onPropertyChanged(nameof(Intimidation));
             }
         }
-        public byte Investigation {
+        public byte Investigation
+        {
             get { return _character.Abilities["investigation"]; }
-            set {
+            set
+            {
                 _character.Abilities["investigation"] = value;
                 onPropertyChanged(nameof(Investigation));
             }
         }
-        public byte Medicine {
+        public byte Medicine
+        {
             get { return _character.Abilities["medicine"]; }
-            set {
+            set
+            {
                 _character.Abilities["medicine"] = value;
                 onPropertyChanged(nameof(Medicine));
             }
         }
-        public byte Nature {
+        public byte Nature
+        {
             get { return _character.Abilities["nature"]; }
-            set {
+            set
+            {
                 _character.Abilities["nature"] = value;
                 onPropertyChanged(nameof(Nature));
             }
         }
-        public byte Perception {
+        public byte Perception
+        {
             get { return _character.Abilities["perception"]; }
-            set {
+            set
+            {
                 _character.Abilities["perception"] = value;
                 onPropertyChanged(nameof(Perception));
             }
         }
-        public byte Performance {
+        public byte Performance
+        {
             get { return _character.Abilities["performance"]; }
-            set {
+            set
+            {
                 _character.Abilities["performance"] = value;
                 onPropertyChanged(nameof(Performance));
             }
         }
 
-        public byte Persuasion {
+        public byte Persuasion
+        {
             get { return _character.Abilities["persuasion"]; }
-            set {
+            set
+            {
                 _character.Abilities["persuasion"] = value;
                 onPropertyChanged(nameof(Persuasion));
             }
         }
 
-        public byte Religion {
+        public byte Religion
+        {
             get { return _character.Abilities["religion"]; }
-            set {
+            set
+            {
                 _character.Abilities["religion"] = value;
                 onPropertyChanged(nameof(Religion));
             }
         }
-        public byte SleightOfHand {
+        public byte SleightOfHand
+        {
             get { return _character.Abilities["sleight_of_hand"]; }
-            set {
+            set
+            {
                 _character.Abilities["sleight_of_hand"] = value;
                 onPropertyChanged(nameof(SleightOfHand));
             }
         }
-        
-        public byte Stealth {
+
+        public byte Stealth
+        {
             get { return _character.Abilities["stealh"]; }
-            set {
+            set
+            {
                 _character.Abilities["stealh"] = value;
                 onPropertyChanged(nameof(Stealth));
             }
         }
 
-        public byte Survival {
+        public byte Survival
+        {
             get { return _character.Abilities["survival"]; }
-            set {
+            set
+            {
                 _character.Abilities["survival"] = value;
                 onPropertyChanged(nameof(Survival));
             }
         }
 
-        public string Weapon1 {
-            get { 
-                return _character.Weapons[0].WeaponName; }
-            set {
+        public string Weapon1
+        {
+            get
+            {
+                return _character.Weapons[0].WeaponName;
+            }
+            set
+            {
                 _character.Weapons[0].WeaponName = value;
                 onPropertyChanged(nameof(Weapon1));
             }
         }
 
-        public string Weapon1Dice {
-            get {
+        public string Weapon1Dice
+        {
+            get
+            {
                 return _character.Weapons[0].WeaponName;
             }
-            set {
+            set
+            {
                 _character.Weapons[0].DMG = new Dice(value);
                 onPropertyChanged(nameof(Weapon1Dice));
             }

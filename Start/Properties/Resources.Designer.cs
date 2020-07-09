@@ -261,7 +261,7 @@ namespace Start.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Uderzenie.
+        ///   Looks up a localized string similar to Życie.
         /// </summary>
         public static string HitPoints {
             get {

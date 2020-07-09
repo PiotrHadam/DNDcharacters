@@ -26,6 +26,13 @@ namespace Start.ViewModel
         #endregion
 
         #region Konstruktory
+        public EditCharacterViewModel(Model model)
+        {
+            this.model = model;
+            ClassNames = model.ClassNames;
+            RaceNames = model.RaceNames;
+            Characters = model.Characters;
+        }
 
         public EditCharacterViewModel(Model model, Character characterr)
         {

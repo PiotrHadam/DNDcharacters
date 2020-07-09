@@ -8,18 +8,25 @@ using System.Windows.Media.Animation;
 
 namespace Start.DAL.Encje
 {
-    public class Character {
+    public class Character
+    {
         //DO IMPLEMENTACJI WŁASNOŚCI NIE WYMAGAJĄCE INICJALIZACJI W KONSTRUKTORZE!!!
-        public byte Perception { get { return Convert.ToByte(10 + WisdomBonus); } set {Perception = value; } }
+        public byte Perception { get { return Convert.ToByte(10 + WisdomBonus); } set { Perception = value; } }
         public Money CHMoney { get; set; }
         public byte Speed { get { return 10; } set { Speed = value; } }
         public byte Proficiency { get { return Convert.ToByte(2 + (Level / 4)); } set { Proficiency = value; } }
-        public byte ArmorClass { get {
+        public byte ArmorClass
+        {
+            get
+            {
                 return Convert.ToByte(Armor.ClassBonus + ConstitutionBonus + 10);
-            } 
+            }
             set { ArmorClass = value; }
         }
-        public byte MaxHitPoints { get {
+        public byte MaxHitPoints
+        {
+            get
+            {
                 return Convert.ToByte(Level * 10);
             }
             set { MaxHitPoints = value; }
@@ -110,7 +117,8 @@ namespace Start.DAL.Encje
         #region Konstruktory
         public Character() { }
 
-        public Character(MySqlDataReader reader) {
+        public Character(MySqlDataReader reader)
+        {
             CharacterID = byte.Parse(reader["character_id"].ToString());
             Name = reader["character_name"].ToString();
             _raceID = byte.Parse(reader["character_race"].ToString());
@@ -124,7 +132,7 @@ namespace Start.DAL.Encje
             Intelligence = byte.Parse(reader["inteligence"].ToString());
             Wisdom = byte.Parse(reader["wisdom"].ToString());
             Charisma = byte.Parse(reader["charisma"].ToString());
-            Dictionary<string, byte> Abilities = new Dictionary<string, byte>(); 
+            Dictionary<string, byte> Abilities = new Dictionary<string, byte>();
             Abilities.Add(Rules.Abilities[0], byte.Parse(reader["ability_acrobatics"].ToString()));
             Abilities.Add(Rules.Abilities[1], byte.Parse(reader["ability_animal_handing"].ToString()));
             Abilities.Add(Rules.Abilities[2], byte.Parse(reader["ability_arcana"].ToString()));
@@ -163,9 +171,11 @@ namespace Start.DAL.Encje
             A_Survival = byte.Parse(reader["ability_survival"].ToString());*/
             PossibleSpellsPerDay = new Dictionary<byte, byte>();
 
-            for(byte i = 0; i < 10; i++) {
-                try {
-                    if(reader[$"known_spells_{i}"] != null)
+            for (byte i = 0; i < 10; i++)
+            {
+                try
+                {
+                    if (reader[$"known_spells_{i}"] != null)
                         PossibleSpellsPerDay.Add(Convert.ToByte(i + 1), byte.Parse(reader[$"known_spells_{i}"].ToString()));
                 }
                 catch { }
@@ -189,7 +199,8 @@ namespace Start.DAL.Encje
             KnownSpells7 = byte.Parse(reader["known_spells_7"].ToString());
             KnownSpells8 = byte.Parse(reader["known_spells_8"].ToString());
             KnownSpells9 = byte.Parse(reader["known_spells_9"].ToString());*/
-            try {
+            try
+            {
                 IsInspired = bool.Parse(reader["is_inspired"].ToString());
             }
             catch { }
@@ -198,41 +209,49 @@ namespace Start.DAL.Encje
             Level = byte.Parse(reader["character_lvl"].ToString());
 
             // Znajdywanie klasy po numerze ID klasy odczytanym z bazy
-            foreach(Class x in RepositoryClases.ReadAllClases()) {
-                if(x.ClassID == _classID) {
+            foreach (Class x in RepositoryClases.ReadAllClases())
+            {
+                if (x.ClassID == _classID)
+                {
                     Class = x;
                     break;
                 }
             }
-            if(Class == null)
+            if (Class == null)
                 throw new Exception("Invalid class ID");
 
             // Znajdywanie rasy po numerze ID odczytanym z bazy
-            foreach(Race x in RepositoryRaces.ReadAllRaces()) {
-                if(x.RaceID == _raceID) {
+            foreach (Race x in RepositoryRaces.ReadAllRaces())
+            {
+                if (x.RaceID == _raceID)
+                {
                     Race = x;
                     break;
                 }
             }
-            if(Race == null)
+            if (Race == null)
                 throw new Exception("Invalid Race ID");
 
             // Znajdywanie broni postaci w repozytorium wszystkich broni
             Weapons = new List<Weapon>();
-            foreach(Weapon weapon in RepositoryWeapons.ReadAllWeapons()) {
+            foreach (Weapon weapon in RepositoryWeapons.ReadAllWeapons())
+            {
 
-                if(weapon.CharacterID == CharacterID) {
+                if (weapon.CharacterID == CharacterID)
+                {
                     Weapons.Add(weapon);
                 }
             }
-            if(Class == null)
+            if (Class == null)
                 throw new Exception("Invalid weapon ID");
 
             Armor = null;
             // Znajdowanie zbroi w repozytroium zbro
-            foreach(Armor armor in RepositoryArmors.ReadAllArmors()) {
+            foreach (Armor armor in RepositoryArmors.ReadAllArmors())
+            {
 
-                if(armor.CharacterID == CharacterID) {
+                if (armor.CharacterID == CharacterID)
+                {
                     Armor = armor;
                     break;
                 }
@@ -240,8 +259,10 @@ namespace Start.DAL.Encje
 
             // Dodawanie ekwipunku
             Equipment = new List<Item>();
-            foreach(Item item in RepositoryItems.ReadAllItems()) {
-                if(item.CharacterID == CharacterID) {
+            foreach (Item item in RepositoryItems.ReadAllItems())
+            {
+                if (item.CharacterID == CharacterID)
+                {
                     Equipment.Add(item);
                 }
             }
@@ -302,7 +323,8 @@ namespace Start.DAL.Encje
         /// Konstruktor kopiujący
         /// </summary>
         /// <param name="character"></param>
-        public Character(Character character) {
+        public Character(Character character)
+        {
             CharacterID = character.CharacterID;
             Race = character.Race;
             Name = character.Name;
@@ -321,11 +343,13 @@ namespace Start.DAL.Encje
             Description = character.Description;
             Story = character.Story;
             Level = character.Level;
-            
+
 
             // Znajdywanie klasy po numerze ID klasy odczytanym z bazy
-            foreach(Class x in RepositoryClases.ReadAllClases()) {
-                if(x.ClassID == _classID) {
+            foreach (Class x in RepositoryClases.ReadAllClases())
+            {
+                if (x.ClassID == _classID)
+                {
                     Class = x;
                     break;
                 }
@@ -334,8 +358,10 @@ namespace Start.DAL.Encje
             }
 
             // Znajdywanie klasy po numerze ID odczytanym z bazy
-            foreach(Race x in RepositoryRaces.ReadAllRaces()) {
-                if(x.RaceID == _raceID) {
+            foreach (Race x in RepositoryRaces.ReadAllRaces())
+            {
+                if (x.RaceID == _raceID)
+                {
                     Race = x;
                     break;
                 }
@@ -345,9 +371,11 @@ namespace Start.DAL.Encje
 
             // Znajdywanie broni postaci w repozytorium wszystkich broni
             Weapons = new List<Weapon>();
-            foreach(Weapon weapon in RepositoryWeapons.ReadAllWeapons()) {
+            foreach (Weapon weapon in RepositoryWeapons.ReadAllWeapons())
+            {
 
-                if(weapon.CharacterID == CharacterID) {
+                if (weapon.CharacterID == CharacterID)
+                {
                     Weapons.Add(weapon);
                 }
                 else
@@ -356,9 +384,11 @@ namespace Start.DAL.Encje
 
             Armor = null;
             // Znajdowanie zbroi w repozytroium zbro
-            foreach(Armor armor in RepositoryArmors.ReadAllArmors()) {
+            foreach (Armor armor in RepositoryArmors.ReadAllArmors())
+            {
 
-                if(armor.CharacterID == CharacterID) {
+                if (armor.CharacterID == CharacterID)
+                {
                     Armor = armor;
                     break;
                 }
@@ -366,8 +396,10 @@ namespace Start.DAL.Encje
 
             // Dodawanie 
             Equipment = new List<Item>();
-            foreach(Item item in RepositoryItems.ReadAllItems()) {
-                if(item.CharacterID == CharacterID) {
+            foreach (Item item in RepositoryItems.ReadAllItems())
+            {
+                if (item.CharacterID == CharacterID)
+                {
                     Equipment.Add(item);
                 }
                 else
@@ -377,11 +409,12 @@ namespace Start.DAL.Encje
 
         #endregion
 
-        public Character(Builder builder) {
+        public Character(Builder builder)
+        {
             Name = builder._name;
             _classID = builder._classID;
             this.Class = builder._class;
-            HitPoints = builder._hitPoints;            
+            HitPoints = builder._hitPoints;
             Race = builder._race;
             this._raceID = builder._raceID;
             IsInspired = builder._isInspired;
@@ -399,6 +432,7 @@ namespace Start.DAL.Encje
             Story = builder._characterStory;
             Spells = builder._spells;
             Level = builder._lvl;
+            PossibleSpellsPerDay = builder._possibleSpellsPerDay;
         }
 
         /// <summary>
@@ -415,7 +449,8 @@ namespace Start.DAL.Encje
         ///                                         
         /// </summary>
         #region Builder
-        public class Builder {
+        public class Builder
+        {
             internal string _name;
             internal byte _classID;
             internal Class _class;
@@ -437,116 +472,148 @@ namespace Start.DAL.Encje
             internal string _characterStory;
             internal List<Spell> _spells;
             internal byte _lvl;
+            internal Dictionary<byte, byte> _possibleSpellsPerDay;
 
-            public Builder WithName(string name) {
+            public Builder WithName(string name)
+            {
                 _name = name;
                 return this;
             }
-            public Builder WithHitPoints(byte currentHitPoints) {
+            public Builder WithHitPoints(byte currentHitPoints)
+            {
                 _hitPoints = currentHitPoints;
                 return this;
             }
-            public Builder WithLvl(byte lvl) {
+            public Builder WithLvl(byte lvl)
+            {
                 _lvl = lvl;
                 return this;
             }
-            public Builder WithClassID(byte characterClassID) {
+            public Builder WithClassID(byte characterClassID)
+            {
                 _classID = characterClassID;
-                foreach(Class x in RepositoryClases.ReadAllClases()) {
-                    if(x.ClassID == _classID) {
+                foreach (Class x in RepositoryClases.ReadAllClases())
+                {
+                    if (x.ClassID == _classID)
+                    {
                         _class = x;
                         break;
                     }
                 }
-                if(_class == null)
+                if (_class == null)
                     throw new Exception("Invalid class ID");
                 return this;
             }
 
-            public Builder WithRaceID(byte raceID) {
+            public Builder WithRaceID(byte raceID)
+            {
 
                 _raceID = raceID;
-                foreach(Race x in RepositoryRaces.ReadAllRaces()) {
-                    if(x.RaceID == _raceID) {
+                foreach (Race x in RepositoryRaces.ReadAllRaces())
+                {
+                    if (x.RaceID == _raceID)
+                    {
                         _race = x;
                         break;
                     }
                 }
-                if(_class == null)
-                    throw new Exception("Invalid Race ID");              
+                if (_race == null)
+                    throw new Exception("Invalid Race ID");
                 return this;
             }
 
-            public Builder WithMaxHitPoints(bool isInspired) {
+            public Builder WithMaxHitPoints(bool isInspired)
+            {
                 _isInspired = isInspired;
                 return this;
             }
-            public Builder WithStrenght(byte strenght) {
+            public Builder WithStrenght(byte strenght)
+            {
                 _strenght = strenght;
                 return this;
             }
-            public Builder WithDexterity(byte dexterity) {
+            public Builder WithDexterity(byte dexterity)
+            {
                 _dexterity = dexterity;
                 return this;
             }
-            public Builder WithConstitution(byte constitution) {
+            public Builder WithConstitution(byte constitution)
+            {
                 _constitution = constitution;
                 return this;
             }
-            public Builder WithCharisma(byte charisma) {
+            public Builder WithCharisma(byte charisma)
+            {
                 _charisma = charisma;
                 return this;
             }
-            public Builder WithInteligence(byte inteligence) {
+            public Builder WithInteligence(byte inteligence)
+            {
                 _inteligence = inteligence;
                 return this;
             }
-            public Builder WithWisdom(byte wisdom) {
+            public Builder WithWisdom(byte wisdom)
+            {
                 _wisdom = wisdom;
                 return this;
             }
-            public Builder WithWeapon1(List<Weapon> weapons) {
+            public Builder WithWeapon1(List<Weapon> weapons)
+            {
                 _weapons = weapons;
                 return this;
             }
-            
-            public Builder WithArmor(Armor armor) {
+
+            public Builder WithArmor(Armor armor)
+            {
                 _armor = armor;
                 return this;
             }
-            public Builder WithOtehrEquipment(List<Item> otehrEquipment) {
+            public Builder WithOtehrEquipment(List<Item> otehrEquipment)
+            {
                 _otherEquipment = otehrEquipment;
                 return this;
             }
-            public Builder WithDescription(string description) {
+            public Builder WithDescription(string description)
+            {
                 _description = description;
                 return this;
             }
-            public Builder WithCharacterStory(string characterStory) {
+            public Builder WithCharacterStory(string characterStory)
+            {
                 _characterStory = characterStory;
                 return this;
             }
-            public Builder WithAbilities(List<byte> abilities) {
+            public Builder WithAbilities(List<byte> abilities)
+            {
                 _abilities = new Dictionary<string, byte>();
-                try {
-                    for(int i = 0; i < Rules.Abilities.Length; i++)
+                try
+                {
+                    for (int i = 0; i < Rules.Abilities.Length; i++)
                         _abilities.Add(Rules.Abilities[i], abilities[i]);
                 }
-                catch {
+                catch
+                {
                     throw new Exception("Invalid format or number of abilities!");
                 }
                 return this;
             }
-            public Builder WithAbilities(Dictionary<string,byte> abilities) {
+            public Builder WithAbilities(Dictionary<string, byte> abilities)
+            {
                 _abilities = abilities;
                 return this;
             }
-            public Builder WithSpells(List<Spell> spells) {
+            public Builder WithPossibleSpellsPerDay(Dictionary<byte, byte> possibleSpells) {
+                _possibleSpellsPerDay = possibleSpells;
+                return this;
+            }
+            public Builder WithSpells(List<Spell> spells)
+            {
                 _spells = spells;
                 spells.Sort();
                 return this;
             }
-            public Character Build() {
+            public Character Build()
+            {
                 return new Character(this);
             }
         }
@@ -556,33 +623,59 @@ namespace Start.DAL.Encje
         #region Metody
 
 
-        public string ToInsert()
-        {
+        public string ToInsert() {
             string possibleSpellsPerDay = string.Empty;
             string abilities = string.Empty;
-            for(byte i= 0; i < PossibleSpellsPerDay.Count; i++) {
-                possibleSpellsPerDay += PossibleSpellsPerDay[i].ToString() + ", ";
-            };
-            foreach(KeyValuePair<string,byte> ability in Abilities) {
+
+            try {
+                for(byte i = 0; i < PossibleSpellsPerDay.Count; i++) {
+                    possibleSpellsPerDay += PossibleSpellsPerDay[i].ToString() + ", ";
+                };
+            }
+            catch {
+                for(byte i = 0; i < 10; i++) {
+                    possibleSpellsPerDay += 0.ToString() + ", ";
+                };
+            }
+
+
+            foreach(KeyValuePair<string, byte> ability in Abilities) {
                 abilities += ability.Value.ToString() + ", ";
             }
-            return $"('{Name}', {Class.ClassID}, {Race.RaceID}, '{Image}', {Money}, {HitPoints}, {Charisma}, " +
-                $"{Constitution}, {Dexterity}, {Intelligence}, {Strength}, {Wisdom}, " +
+
+            /*return $"({Name}, {Class.ClassID}, {Race.RaceID},, {Money}, {HitPoints}, {Charisma}, " +
+                $"{Constitution}, {Dexterity}, {Intelligence}, {Strength}, {Wisdom}," +
                 $"{abilities} {possibleSpellsPerDay}" + // przecinki już są na końcu tych wyrażeń              
-                $" {IsInspired}, \"{Description}\", \"{Story}\", {Level})";
+                $"{Convert.ToInt32(IsInspired)}, \"{Description}\", \"{Story}\", {Level})";*/
+
+            return $"INSERT INTO `characters` (`character_id`, `character_name`, `character_race`, `character_class`," +
+                $" `character_image_path`, `character_money`, `hit_points`, `charisma`, `constitution`, `dexterity`," +
+                $" `inteligence`, `stregth`, `wisdom`, `ability_acrobatics`, `ability_animal_handing`, `ability_arcana`," +
+                $" `ability_athletics`, `ability_deception`, `ability_history`, `ability_insight`, `ability_intimidation`, " +
+                $"`ability_investigation`, `ability_medicine`, `ability_nature`, `ability_perception`, `ability_performance`, " +
+                $"`ability_persuasion`, `ability_religion`, `ability_sleight_of_hand`, `ability_stealh`, `ability_survival`, " +
+                $"`known_spells_0`, `known_spells_1`, `known_spells_2`, `known_spells_3`, `known_spells_4`, `known_spells_5`, " +
+                $"`known_spells_6`, `known_spells_7`, `known_spells_8`, `known_spells_9`, `is_inpired`, `character_description`, " +
+                $"`character_story`, `character_lvl`) " +
+                $"VALUES (NULL, '{Name}', '{Race.RaceID}', '{Class.ClassID}', NULL, '{Money}', '{HitPoints}', '{Charisma}', '{Constitution}', '{Dexterity}', '{Intelligence}', " +
+                $"'{Strength}', '{Wisdom}', '{Abilities["acrobatics"]}', '{Abilities["animal_handing"]}', '{Abilities["arcana"]}', '{Abilities["athletics"]}', " +
+                $"'{Abilities["deception"]}', '{Abilities["history"]}', '{Abilities["insight"]}', " +
+                $"'{Abilities["intimidation"]}', '{Abilities["investigation"]}', '{Abilities["medicine"]}', " +
+                $"'{Abilities["nature"]}', '{Abilities["perception"]}', '{Abilities["performance"]}', '{Abilities["persuasion"]}'," +
+                $" '{Abilities["religion"]}', '{Abilities["sleight_of_hand"]}', '{Abilities["stealh"]}', '{Abilities["survival"]}', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, b'{Convert.ToInt32(IsInspired)}', '{Description}', '{Story}', '{Level}');";
+
         }
 
         public string ToDelete()
         {
-            return $"'{CharacterID}";
+            return $"{CharacterID}";
         }
 
-       
 
-        public override int GetHashCode()
+        /*public override int GetHashCode()
         {
             return base.GetHashCode();
-        }
+        }*/
         #endregion
     }
 }

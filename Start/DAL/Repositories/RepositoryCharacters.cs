@@ -39,7 +39,8 @@ namespace Start.DAL.Repositories
             {
                 using (var connection = DBConnection.Instance.Connection)
                 {
-                    MySqlCommand command = new MySqlCommand($"{ADD_CHARACTER} {character.ToInsert()}", connection);
+                    //MySqlCommand command = new MySqlCommand($"{ADD_CHARACTER} {character.ToInsert()}", connection);
+                    MySqlCommand command = new MySqlCommand($"{character.ToInsert()}", connection);
                     connection.Open();
                     var id = command.ExecuteNonQuery();
                     state = true;
