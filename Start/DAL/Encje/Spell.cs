@@ -47,7 +47,8 @@ namespace Start.DAL.Encje
             Description = reader["description"].ToString();
         }
 
-        public int CompareTo(Spell other) {
+        public int CompareTo(Spell other)
+        {
             return this.RequiredLvl.CompareTo(other.RequiredLvl);
         }
         #endregion

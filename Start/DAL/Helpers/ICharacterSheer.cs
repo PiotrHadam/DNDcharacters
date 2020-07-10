@@ -1,12 +1,10 @@
 ﻿using Start.DAL.Encje;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Start.DAL.Helpers {
-    interface ICharacterSheet {
+namespace Start.DAL.Helpers
+{
+    interface ICharacterSheet
+    {
         #region Main things
         string Name { get; set; }
         ushort CurrentHitPoints { get; set; }

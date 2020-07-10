@@ -18,13 +18,6 @@ namespace Start.ViewModel
 
         private Model model = null;
         private ObservableCollection<Character> characters = null;
-        private ObservableCollection<Class> classes = null;
-        private ObservableCollection<Race> races = null;
-        private ObservableCollection<Armor> armors = null;
-        private ObservableCollection<Item> items = null;
-        private ObservableCollection<Weapon> weapons = null;
-        private ObservableCollection<Spell> spells = null;
-        private ObservableCollection<CharacterSpell> links = null;
 
         private int indexOfSelectedCharacter = -1;
         #endregion
@@ -34,13 +27,6 @@ namespace Start.ViewModel
         {
             this.model = model;
             characters = model.Characters;
-            classes = model.Classes;
-            races = model.Races;
-            armors = model.Armors;
-            items = model.Items;
-            weapons = model.Weapons;
-            spells = model.Spells;
-            links = model.Links;
         }
         #endregion
 
@@ -100,8 +86,7 @@ namespace Start.ViewModel
                     deleteCharacter = new RelayCommand(
                         arg =>
                         {
-                            if (model.DeleteCharacterFromDatabase(SelectedCharacter))
-                                System.Windows.MessageBox.Show("Postać usunięta!");
+                            model.DeleteCharacterFromDatabase(SelectedCharacter);
                             RefreshCharacters();
                         },
                         arg => IndexOfSelectedCharacter >= 0
@@ -119,7 +104,7 @@ namespace Start.ViewModel
                     editCharacter = new RelayCommand(
                         arg =>
                         {
-                            EditCharacterViewModel editvm = new EditCharacterViewModel(model, SelectedCharacter);
+                            EditCharacterViewModel editvm = new EditCharacterViewModel();
                         },
                         arg => IndexOfSelectedCharacter >= 0);
                 return editCharacter;

@@ -6,10 +6,10 @@
         xmlns:resx="clr-namespace:Start.Properties"
         mc:Ignorable="d"
         xmlns:properties="clr-namespace:Start.Properties"
-        Title="Dungeons &amp; Dragons" Height="600" Width="700" ResizeMode="CanMinimize" >
+        Title="Dungeons &amp; Dragons" Height="700" Width="700" ResizeMode="CanMinimize" >
 
     <Window.Background>
-        <ImageBrush ImageSource="{Binding Source={x:Static resx:Resources.Background}}" Opacity="0.6"/>
+        <ImageBrush ImageSource="Images/background.jpg" Opacity="0.6"/>
     </Window.Background>
     <DockPanel>
         <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"/>

@@ -4,10 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Start.DAL.Helpers {
-    public static class Rules {
-        public static string[] Abilities {
-            get {
+namespace Start.DAL.Helpers
+{
+    public static class Rules
+    {
+        public static string[] Abilities
+        {
+            get
+            {
                 return new string[] {
                     "acrobatics",
                     "animal_handing",

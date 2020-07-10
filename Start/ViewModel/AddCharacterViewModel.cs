@@ -15,10 +15,9 @@ namespace Start.ViewModel
     {
         #region Składowe prywatne
         private Model model = null;
-        private Character character = null;
 
         private string name = "", image, description = "", story = "";
-        private uint money = 20000; 
+        private uint money = 20000;
         private int hitpoints = 20;
         private byte strength = 0, dexterity = 0, constitution = 0, intelligence = 0, wisdom = 0, charisma = 0, level = 0;
         private bool isInspired = false;
@@ -35,35 +34,15 @@ namespace Start.ViewModel
             RaceNames = model.RaceNames;
             abilities = new Dictionary<string, byte>();
             possiblespellsperday = new Dictionary<byte, byte>();
-            for(int i =0; i <18; i++) {
+            for (int i = 0; i < 18; i++)
+            {
                 abilities.Add(Rules.Abilities[i], 0);
             }
-            for(byte i = 0; i <10; i++) {
+            for (byte i = 0; i < 10; i++)
+            {
                 possiblespellsperday.Add(i, 0);
             }
         }
-
-        /*public AddCharacterViewModel(Model model, Character character)
-        {
-            this.model = model;
-            this.character = character;
-            name = character.Name;
-            image = character.Image;
-            description = character.Description;
-            story = character.Story;
-            money = character.Money;
-            hitpoints = character.HitPoints;
-            strength = character.Strength;
-            dexterity = character.Dexterity;
-            constitution = character.Constitution;
-            intelligence = character.Intelligence;
-            wisdom = character.Wisdom;
-            charisma = character.Charisma;
-            level = character.Level;
-            IsInspired = character.IsInspired;
-            abilities = character.Abilities;
-            possiblespellsperday = character.PossibleSpellsPerDay;
-        }*/
         #endregion
 
         #region Właściwości
@@ -72,7 +51,6 @@ namespace Start.ViewModel
         public ObservableCollection<string> RaceNames { get; set; }
         public ObservableCollection<string> ClassNames { get; set; }
 
-        public Character CurrentCharacter { get; set; }
 
         public string Name
         {
@@ -233,29 +211,6 @@ namespace Start.ViewModel
             }
         }
 
-        /*public List<string> PossibleRaces {
-
-        public List<string> PossibleRaces {
-            get {
-                List<string> getter = new List<string>();
-                RepositoryRaces.ReadAllRaces().ForEach(race => {
-                    getter.Add(race.Name);
-                });
-                return getter;
-            }
-            set { PossibleRaces = value; }
-        }
-        public List<string> PossibleClasses {
-            get {
-                List<string> getter = new List<string>();
-                RepositoryClases.ReadAllClases().ForEach(x => {
-                    getter.Add(x.Name);
-                });
-                return getter;
-            }
-            set { { PossibleClasses = value; } }
-        }*/
-
         #endregion
         public string Race { get; set; }
         public string Class { get; set; }
@@ -263,25 +218,32 @@ namespace Start.ViewModel
 
         private void ClearSheet()
         {
-            name = "";
-            image = "";
-            money = 20000;
-            hitpoints = 20;
-            strength = 0;
-            dexterity = 0;
-            constitution = 0;
-            intelligence = 0;
-            wisdom = 0;
-            charisma = 0;
-            isInspired = false;
-            description = "";
-            story = "";
-            level = 0;
-           
-            abilities.Clear();
-            possiblespellsperday.Clear();
-            
-           
+            Name = "";
+            Image = "";
+            Money = 20000;
+            HitPoints = 20;
+            Strength = 0;
+            Dexterity = 0;
+            Constitution = 0;
+            Intelligence = 0;
+            Wisdom = 0;
+            Charisma = 0;
+            IsInspired = false;
+            Description = "";
+            Story = "";
+            Level = 0;
+
+            Abilities.Clear();
+            PossibleSpellsPerDay.Clear();
+            for (int i = 0; i < 18; i++)
+            {
+                abilities.Add(Rules.Abilities[i], 0);
+            }
+            for (byte i = 0; i < 10; i++)
+            {
+                possiblespellsperday.Add(i, 0);
+            }
+
         }
 
         #region Polecenia
@@ -324,23 +286,19 @@ namespace Start.ViewModel
                                                                     .WithDescription(Description)
                                                                     .WithDexterity(Dexterity)
                                                                     .WithHitPoints(Convert.ToByte(HitPoints))
+                                                                    .WithInspired(IsInspired)
                                                                     .WithInteligence(Intelligence)
                                                                     .WithLvl(Level)
                                                                     .WithName(Name)
                                                                     .WithStrenght(Strength)
-                                                                    .WithWisdom(Wisdom)       
+                                                                    .WithWisdom(Wisdom)
                                                                     .WithPossibleSpellsPerDay(PossibleSpellsPerDay)
                                                                     .Build();
 
-
-                            var final_string = character.ToInsert();
                             model.AddCharacterToDatabase(character);
-                            //model.Characters.Add(character);
-                            
-                            ClearSheet();
                         }
                         ,
-                        arg => (Name != "") && (Description != "") && (Story != "") && (Class != "") && (Race != "")
+                        arg => (Name != "") && (Class != "") && (Race != "")
                         );
                 return add;
             }

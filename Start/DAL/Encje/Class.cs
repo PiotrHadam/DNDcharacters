@@ -26,7 +26,8 @@ namespace Start.DAL.Encje
             HaveSpellcastAbility = byte.Parse(reader["have_spellcast_abiliy"].ToString());
         }
         #endregion
-        public override string ToString() {
+        public override string ToString()
+        {
             return Name;
         }
     }

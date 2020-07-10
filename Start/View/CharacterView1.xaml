@@ -1,0 +1,295 @@
+﻿<Page x:Class="Start.View.CharacterView1"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:resx="clr-namespace:Start.Properties"
+      xmlns:vm="clr-namespace:Start.ViewModel"
+      xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+      xmlns:local="clr-namespace:Start.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="700" d:DesignWidth="700"
+      Title="CharacterSheet">
+
+    <Page.Resources>
+        <vm:CharacterSheetViewModel x:Key="mainvm"/>
+        <Style x:Key="TextStyle" TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Segoe Script" />
+            <Setter Property="Height" Value="20"/>
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
+        <Style x:Key="TextBoxStyle" TargetType="TextBox">
+            <Setter Property="FontFamily" Value="Segoe Script" />
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="IsReadOnly" Value="True"/>
+        </Style>
+        <Style x:Key="LabelStyle" TargetType="Label">
+            <Setter Property="FontFamily" Value="Segoe Script" />
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
+
+    </Page.Resources>
+    <Grid DataContext="{StaticResource mainvm}">
+
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="18*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="18*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Pola -->
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50*"/>
+                <RowDefinition Height="51*"/>
+                <RowDefinition Height="52*"/>
+                <RowDefinition Height="52*"/>
+                <RowDefinition Height="52*"/>
+                <RowDefinition Height="52*"/>
+                <RowDefinition Height="51*"/>
+                <RowDefinition Height="56*"/>
+                <RowDefinition Height="49*"/>
+                <RowDefinition Height="51*"/>
+                <RowDefinition Height="51*"/>
+                <RowDefinition Height="51*"/>
+                <RowDefinition Height="51*"/>
+                <RowDefinition Height="50*"/>
+                <RowDefinition Height="50*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="0.5*"/>
+                <ColumnDefinition Width="0.5*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0" Margin="0,0,0.4,0.4">
+                <TextBlock Text="{Binding Source={x:Static resx:Resources.Name}}" Style="{StaticResource TextStyle}" Margin="0,0,10,0"/>
+                <TextBox Text="{Binding Name, Mode=TwoWay}" Width="120" Height="20" Style="{StaticResource TextBoxStyle}" Margin="0,0,10,0"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2">
+
+                <TextBlock Text="{Binding Source={x:Static resx:Resources.Clas}}" Style="{StaticResource TextStyle}" Margin="0,0,10,0"/>
+                <TextBox x:Name="Classes" Width="48" Height="20" Grid.ColumnSpan="2" Style="{StaticResource TextBoxStyle}" FontFamily="Viner Hand ITC" Text="{Binding Class, Mode=TwoWay}"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="3">
+
+                <TextBlock Text="{Binding Source={x:Static resx:Resources.Race}}" Style="{StaticResource TextStyle}" Margin="0,0,10,0"/>
+                <TextBox x:Name="Races" Style="{StaticResource TextBoxStyle}" Width="90" Height="20" FontFamily="Viner Hand ITC" Text="{Binding Race, Mode=TwoWay}"/>
+
+
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="3" Grid.RowSpan="2" >
+                <ListView x:Name="Spells" ItemsSource="{Binding Spells}" Foreground="White" Background="Transparent">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Width="90">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding SpellName}"/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                                <GridViewColumn.Header>
+                                    <TextBlock Text="{Binding Source={x:Static resx:Resources.Spell}}"/>
+                                </GridViewColumn.Header>
+                            </GridViewColumn>
+                            <GridViewColumn Width="90">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding RequiredLvl}" HorizontalAlignment="Center"/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                                <GridViewColumn.Header>
+                                    <TextBlock Text="{Binding Source={x:Static resx:Resources.ReqLVL}}"/>
+                                </GridViewColumn.Header>
+                            </GridViewColumn>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Grid.Row="4" Grid.Column="3" Grid.RowSpan="2" >
+                <ListView x:Name="Items" ItemsSource="{Binding Equipment}" Foreground="White" Background="Transparent">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Width="180">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding ItemName}"/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                                <GridViewColumn.Header>
+                                    <TextBlock Text="{Binding Source={x:Static resx:Resources.Item}}"/>
+                                </GridViewColumn.Header>
+                            </GridViewColumn>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Grid.Row="6" Grid.Column="3"  Grid.RowSpan="2">
+                <ListView x:Name="SWeapons" ItemsSource="{Binding Weapons}" Foreground="White" Background="Transparent">
+                    <ListView.View>
+                        <GridView>
+                            <GridView.Columns>
+                                <GridViewColumn Width="120">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding WeaponName}"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                    <GridViewColumn.Header>
+                                        <TextBlock Text="{Binding Source={x:Static resx:Resources.Weapon}}" ></TextBlock>
+                                    </GridViewColumn.Header>
+                                </GridViewColumn>
+
+                                <GridViewColumn Width="60" >
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding DMG}" HorizontalAlignment="Center"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                    <GridViewColumn.Header>
+                                        <TextBlock Text="{Binding Source={x:Static resx:Resources.Damage}}" >
+                                        </TextBlock>
+                                    </GridViewColumn.Header>
+                                </GridViewColumn>
+                            </GridView.Columns>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,0.6,0.2,0.6">
+
+                <TextBlock Text="{Binding Source={x:Static resx:Resources.Money}}" Style="{StaticResource TextStyle}" Margin="0,0,10,0"/>
+
+                <TextBox x:Name="Copper" Style="{StaticResource TextBoxStyle}" Width="60" Height="20" FontFamily="Viner Hand ITC" Margin="0,0,0,0" Text="{Binding Money, Mode=TwoWay}"/>
+                <TextBlock Text="miedziaków" Style="{StaticResource TextStyle}" Margin="0,0,0,0"/>
+
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Margin="104.6,0.6,-0.4,0.6">
+                <TextBlock Text="{Binding Source={x:Static resx:Resources.HitPoints}}" Style="{StaticResource TextStyle}" Margin="40,0,10,0"/>
+                <TextBox x:Name="HP" Style="{StaticResource TextBoxStyle}" Width="30" Height="20" FontFamily="Viner Hand ITC" Margin="0,0,10,0" Text="{Binding HitPoints, Mode=TwoWay}"/>
+                <TextBlock Text="/" Style="{StaticResource TextStyle}" Margin="10,0,10,0"/>
+                <TextBox x:Name="MaxHP" Style="{StaticResource TextBoxStyle}" Width="30" Height="20" FontFamily="Viner Hand ITC" Margin="10,0,10,0" Text="{Binding MaxHitPoints, Mode=TwoWay}"/>
+            </StackPanel>
+
+            <!-- Atrybuty -->
+            <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="0" Grid.RowSpan="6" Margin="0,50.6,0.4,0.6">
+                <StackPanel Orientation="Horizontal" >
+                    <TextBlock Text="{Binding Source={x:Static resx:Resources.Charisma}}" Style="{StaticResource TextStyle}" HorizontalAlignment="Left" Margin="0,0,30,0"/>
+                    <TextBox Text="{Binding Charisma, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PreviewTextInput="TextBox_PreviewTextInput" MaxLength="2"
+                             Width="60" Height="20" Style="{StaticResource TextBoxStyle}" HorizontalAlignment="Right">
+                    </TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{Binding Source={x:Static resx:Resources.Constitution}}" Style="{StaticResource TextStyle}" Margin="0,0,38,0"/>
+                    <TextBox Text="{Binding Constitution, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PreviewTextInput="TextBox_PreviewTextInput" MaxLength="2"
+                             Width="60" Height="20" Style="{StaticResource TextBoxStyle}" Margin="0,0,10,0" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{Binding Source={x:Static resx:Resources.Dexterity}}" Style="{StaticResource TextStyle}" Margin="0,0,33,0"/>
+                    <TextBox Text="{Binding Dexterity, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PreviewTextInput="TextBox_PreviewTextInput" MaxLength="2"
+                             Width="60" Height="20" Style="{StaticResource TextBoxStyle}" Margin="0,0,10,0" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{Binding Source={x:Static resx:Resources.Intelligence}}" Style="{StaticResource TextStyle}" Margin="0,0,23.5,0"/>
+                    <TextBox Text="{Binding Intelligence, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PreviewTextInput="TextBox_PreviewTextInput" MaxLength="2"
+                             Width="60" Height="20" Style="{StaticResource TextBoxStyle}" Margin="0,0,10,0" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{Binding Source={x:Static resx:Resources.Strength}}" Style="{StaticResource TextStyle}" Margin="0,0,71,0"/>
+                    <TextBox Text="{Binding Strength, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PreviewTextInput="TextBox_PreviewTextInput" MaxLength="2"
+                              Width="60" Height="20" Style="{StaticResource TextBoxStyle}" Margin="0,0,10,0" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{Binding Source={x:Static resx:Resources.Wisdom}}" Style="{StaticResource TextStyle}" Margin="0,0,43.5,0"/>
+                    <TextBox Text="{Binding Wisdom, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PreviewTextInput="TextBox_PreviewTextInput" MaxLength="2"
+                             Width="60" Height="20" Style="{StaticResource TextBoxStyle}" Margin="0,0,10,0" />
+                </StackPanel>
+            </StackPanel>
+
+            <!-- Umiejętności -->
+            <ListView x:Name="characterslist" Grid.Row="2" Grid.Column="1" Grid.RowSpan="6" Grid.ColumnSpan="2" Background="Transparent"  Foreground="White"
+                      ItemsSource="{Binding Abilies}">
+                <ListView.View>
+                    <GridView>
+                        <GridView.Columns>
+                            <GridViewColumn Width="125">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Key}"/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                                <GridViewColumn.Header>
+                                    <TextBlock Text="{Binding Source={x:Static resx:Resources.Skill}}" >
+                                    </TextBlock>
+                                </GridViewColumn.Header>
+                            </GridViewColumn>
+
+                            <GridViewColumn Width="50" >
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Value}" HorizontalAlignment="Center"/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                                <GridViewColumn.Header>
+                                    <TextBlock Text="{Binding Source={x:Static resx:Resources.Value}}" >
+                                    </TextBlock>
+                                </GridViewColumn.Header>
+                            </GridViewColumn>
+                        </GridView.Columns>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+
+
+            <StackPanel Orientation="Horizontal" Grid.Row="6" Grid.Column="0" VerticalAlignment="Center" Height="20" >
+                <TextBlock Text="{Binding Source={x:Static resx:Resources.IsInspired}}" Style="{StaticResource TextStyle}" />
+                <CheckBox x:Name="Inspired" IsThreeState="False" IsChecked="{Binding IsInspired, Mode=TwoWay}"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Grid.Row="9" Grid.Column="2" Grid.ColumnSpan="2">
+                <TextBlock Text="{Binding Source={x:Static resx:Resources.ArmorsName}}" Style="{StaticResource TextStyle}" Margin="0,0,15,0"/>
+                <TextBox Text="{Binding Armor, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                             Width="150" Height="20" Style="{StaticResource TextBoxStyle}" Margin="0,0,10,0" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Grid.Row="10" Grid.Column="2" Grid.ColumnSpan="2">
+                <TextBlock Text="{Binding Source={x:Static resx:Resources.ClassBonus}}" Style="{StaticResource TextStyle}" Margin="0,0,15,0"/>
+                <TextBox Text="{Binding ArmorClass, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PreviewTextInput="TextBox_PreviewTextInput" MaxLength="2"
+                             Width="60" Height="20" Style="{StaticResource TextBoxStyle}" Margin="0,0,10,0" />
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical" Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="3" HorizontalAlignment="Center"  Width="249">
+                <TextBlock Text="{Binding Source={x:Static resx:Resources.Description}}" Style="{StaticResource TextStyle}"/>
+                <TextBox Text="{Binding Description, Mode=TwoWay}" Width="250" Height="60" FontSize="12" Style="{StaticResource TextBoxStyle}"
+                         TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible"/>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Grid.Row="11" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="3" HorizontalAlignment="Center" Width="249">
+                <TextBlock Text="{Binding Source={x:Static resx:Resources.Story}}" Style="{StaticResource TextStyle}"/>
+                <TextBox Text="{Binding Story, Mode=TwoWay}" Width="250" Height="60" Style="{StaticResource TextBoxStyle}"
+                         FontSize="12" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible"/>
+            </StackPanel>
+        </Grid>
+
+        <!-- Przyciski -->
+        <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" >
+            <Button x:Name="Back" Click="Button_Click" Content="{Binding Source={x:Static resx:Resources.Back}}" Width="100" Height="40" FontFamily="Viner Hand ITC"  Margin="120,0,0,0"/>
+        </StackPanel>
+
+    </Grid>
+</Page>
+
+

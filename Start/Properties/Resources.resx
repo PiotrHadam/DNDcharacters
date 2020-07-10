@@ -169,6 +169,9 @@
   <data name="Constitution" xml:space="preserve">
     <value>Kondycja</value>
   </data>
+  <data name="Damage" xml:space="preserve">
+    <value>Obrażenia</value>
+  </data>
   <data name="Deception" xml:space="preserve">
     <value>Podstęp</value>
   </data>
@@ -213,6 +216,9 @@
   </data>
   <data name="IsInspired" xml:space="preserve">
     <value>Inspiracja</value>
+  </data>
+  <data name="Item" xml:space="preserve">
+    <value>Przedmiot</value>
   </data>
   <data name="ItemsDescription" xml:space="preserve">
     <value>Opis</value>
@@ -277,11 +283,20 @@
   <data name="Religion" xml:space="preserve">
     <value>Religia</value>
   </data>
+  <data name="ReqLVL" xml:space="preserve">
+    <value>Wymagany LVL</value>
+  </data>
   <data name="Save" xml:space="preserve">
     <value>ZAPISZ</value>
   </data>
+  <data name="Skill" xml:space="preserve">
+    <value>Umiejętność</value>
+  </data>
   <data name="SleightOfHand" xml:space="preserve">
     <value>Zręczność Ręki</value>
+  </data>
+  <data name="Spell" xml:space="preserve">
+    <value>Zaklęcie</value>
   </data>
   <data name="Stealth" xml:space="preserve">
     <value>Ostrożność</value>
@@ -306,6 +321,12 @@
   </data>
   <data name="Type" xml:space="preserve">
     <value>Typ</value>
+  </data>
+  <data name="Value" xml:space="preserve">
+    <value>Wartość</value>
+  </data>
+  <data name="Weapon" xml:space="preserve">
+    <value>Broń</value>
   </data>
   <data name="WeaponRange" xml:space="preserve">
     <value>Zasięg</value>

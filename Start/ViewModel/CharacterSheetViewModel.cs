@@ -11,18 +11,17 @@ namespace Start.ViewModel
     using DAL.Encje;
     using BaseClasses;
     using Model;
-    using Start.DAL.Helpers;
-    using System.Diagnostics;
+    using System.Collections.ObjectModel;
 
     class CharacterSheetViewModel : ViewModelBase
     {
-        //private Model model = null;
         private Character _character = new Character();
+        private Model _model = new Model();
+        private List<Spell> _spells = new List<Spell>();
 
 
         public CharacterSheetViewModel()
         {
-            //model = new Model();
             _character = ListOfCharactersViewModel.SelectedCharacter;
         }
 
@@ -54,7 +53,17 @@ namespace Start.ViewModel
             set
             {
                 _character.Class.Name = value;
-                onPropertyChanged(nameof(Name));
+                onPropertyChanged(nameof(Class));
+            }
+        }
+
+        public string Race
+        {
+            get { return _character.Race.Name; }
+            set
+            {
+                _character.Race.Name = value;
+                onPropertyChanged(nameof(Race));
             }
         }
         public string Description
@@ -74,6 +83,16 @@ namespace Start.ViewModel
             {
                 _character.Story = value;
                 onPropertyChanged(nameof(Story));
+            }
+        }
+
+        public string Armor
+        {
+            get { return _character.Armor.ArmorName; }
+            set
+            {
+                _character.Armor.ArmorName = value;
+                onPropertyChanged(nameof(Armor));
             }
         }
 
@@ -116,7 +135,15 @@ namespace Start.ViewModel
         }
 
 
-
+        public uint Money
+        {
+            get { return _character.Money; }
+            set
+            {
+                _character.Money = value;
+                onPropertyChanged(nameof(Money));
+            }
+        }
         public uint MoneyCopper
         {
             get { return _character.CHMoney.Copper; }
@@ -191,6 +218,17 @@ namespace Start.ViewModel
                 _character.StrengthBonus = value;
                 onPropertyChanged(nameof(StrengthBonus));
             }
+        }
+
+
+        public ObservableCollection<Weapon> Weapons
+        {
+            get { return _model.ReadWeaponsOfCharacter(_character); }
+        }
+
+        public ObservableCollection<Item> Equipment
+        {
+            get { return _model.ReadItemsOfCharacter(_character); }
         }
 
         public byte Dexterity
@@ -330,10 +368,14 @@ namespace Start.ViewModel
 
         public List<Spell> Spells
         {
-            get { return _character.Spells; }
+            get
+            {
+                _spells = _model.ReadSpellsOfCharacterToList(_character);
+                return _spells;
+            }
             set
             {
-                _character.Spells = value;
+                _spells = value;
                 onPropertyChanged(nameof(Spells));
             }
         }
@@ -509,32 +551,33 @@ namespace Start.ViewModel
             }
         }
 
-        public string Weapon1
+        public Dictionary<string, byte> Abilies
         {
             get
             {
-                return _character.Weapons[0].WeaponName;
-            }
-            set
-            {
-                _character.Weapons[0].WeaponName = value;
-                onPropertyChanged(nameof(Weapon1));
+                return new Dictionary<string, byte>
+                {
+                    ["Akrobatyka"] = Abilities["acrobatics"],
+                    ["Zwierzęta"] = Abilities["animal_handing"],
+                    ["Arkana"] = Abilities["arcana"],
+                    ["Atletyka"] = Abilities["athletics"],
+                    ["Podstęp"] = Abilities["deception"],
+                    ["Historia"] = Abilities["history"],
+                    ["Intuicja"] = Abilities["insight"],
+                    ["Zastraszanie"] = Abilities["intimidation"],
+                    ["Detektywistyka"] = Abilities["investigation"],
+                    ["Leczenie"] = Abilities["medicine"],
+                    ["Natura"] = Abilities["nature"],
+                    ["Percepcja"] = Abilities["perception"],
+                    ["Wydajność"] = Abilities["performance"],
+                    ["Perswazja"] = Abilities["persuasion"],
+                    ["Religia"] = Abilities["religion"],
+                    ["Zręczność ręki"] = Abilities["sleight_of_hand"],
+                    ["Ostrożność"] = Abilities["stealh"],
+                    ["Przetrwanie"] = Abilities["survival"]
+                };
             }
         }
-
-        public string Weapon1Dice
-        {
-            get
-            {
-                return _character.Weapons[0].ToString();
-            }
-            set
-            {
-                _character.Weapons[0].DMG = new Dice(value);
-                onPropertyChanged(nameof(Weapon1Dice));
-            }
-        }
-
 
 
         #endregion

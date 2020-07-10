@@ -1,13 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
-using Org.BouncyCastle.Cms;
 using Start.DAL.Helpers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
 
 
 namespace Start.DAL.Encje
@@ -24,7 +16,7 @@ namespace Start.DAL.Encje
         public string ItemDescription { get; set; }
         #endregion
 
-        
+
         #region Konstruktory
         public Weapon(MySqlDataReader reader)
         {
@@ -63,7 +55,7 @@ namespace Start.DAL.Encje
         #region Metody
         public string ToInsert()
         {
-            return $"({CharacterID}, '{WeaponName}', {DMG}, '{AttackRange}', '{DamageType}', '{ItemDescription}')";
+            return $"({CharacterID}, '{WeaponName}', {DMG.Amount}, {DMG.Size}, '{AttackRange}', '{DamageType}', '{ItemDescription}')";
         }
 
         public string ToDelete()
@@ -89,7 +81,8 @@ namespace Start.DAL.Encje
             return base.GetHashCode();
         }
 
-        public override string ToString() {
+        public override string ToString()
+        {
             return $"{this.WeaponName} {this.DMG}";
         }
         #endregion

@@ -216,6 +216,15 @@ namespace Start.Properties {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Obrażenia.
+        /// </summary>
+        public static string Damage {
+            get {
+                return ResourceManager.GetString("Damage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu Podstęp.
         /// </summary>
         public static string Deception {
@@ -347,6 +356,15 @@ namespace Start.Properties {
         public static string IsInspired {
             get {
                 return ResourceManager.GetString("IsInspired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Przedmiot.
+        /// </summary>
+        public static string Item {
+            get {
+                return ResourceManager.GetString("Item", resourceCulture);
             }
         }
         
@@ -540,6 +558,15 @@ namespace Start.Properties {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Wymagany LVL.
+        /// </summary>
+        public static string ReqLVL {
+            get {
+                return ResourceManager.GetString("ReqLVL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu ZAPISZ.
         /// </summary>
         public static string Save {
@@ -549,11 +576,29 @@ namespace Start.Properties {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Umiejętność.
+        /// </summary>
+        public static string Skill {
+            get {
+                return ResourceManager.GetString("Skill", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu Zręczność Ręki.
         /// </summary>
         public static string SleightOfHand {
             get {
                 return ResourceManager.GetString("SleightOfHand", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Zaklęcie.
+        /// </summary>
+        public static string Spell {
+            get {
+                return ResourceManager.GetString("Spell", resourceCulture);
             }
         }
         
@@ -628,6 +673,24 @@ namespace Start.Properties {
         public static string Type {
             get {
                 return ResourceManager.GetString("Type", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Wartość.
+        /// </summary>
+        public static string Value {
+            get {
+                return ResourceManager.GetString("Value", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Broń.
+        /// </summary>
+        public static string Weapon {
+            get {
+                return ResourceManager.GetString("Weapon", resourceCulture);
             }
         }
         

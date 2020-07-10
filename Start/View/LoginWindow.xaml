@@ -9,7 +9,7 @@
         Title="Logowanie" Height="400" Width="500" ResizeMode="CanMinimize">
 
     <Window.Background>
-        <ImageBrush ImageSource="{Binding Source={x:Static resx:Resources.LoginBackground}}"/>
+        <ImageBrush ImageSource="../Images/back2.jpg"/>
     </Window.Background>
 
     <Grid>

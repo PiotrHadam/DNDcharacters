@@ -51,7 +51,7 @@ namespace Start.Model
                 Items.Add(i);
             var races = RepositoryRaces.ReadAllRaces();
             foreach (var r in races)
-            { 
+            {
                 Races.Add(r);
                 RaceNames.Add(r.Name);
             }
@@ -88,60 +88,24 @@ namespace Start.Model
 
             return spells;
         }
-        #endregion
-        /*
-        #region Złączenie postaci z klasą
-        private Class FindClassByID(byte id)
-        {
-            foreach (var c in Classes)
-            {
-                if (c.ClassID == id)
-                    return c;
-            }
-            return null;
-        }
 
-        public Class ReadClassOfCharacter(Character character)
+        public List<Spell> ReadSpellsOfCharacterToList(Character character)
         {
-            var clas = new Class();
-            foreach (var c in Classes)
+            var spells = new List<Spell>();
+            foreach (var link in Links)
             {
-                if (c.ClassID == character.Class.ClassID)
+                if (link.CharacterID == character.CharacterID)
                 {
-                    clas = FindClassByID(clas.ClassID);
+                    spells.Add(FindSpellByID(link.SpellID));
                 }
             }
-            return clas;
+
+            return spells;
         }
         #endregion
 
-        #region Złączenie postaci z rasą
-        private Race FindRaceByID(byte id)
-        {
-            foreach (var r in Races)
-            {
-                if (r.RaceID == id)
-                    return r;
-            }
-            return null;
-        }
-
-        public Race ReadRaceOfCharacter(Character character)
-        {
-            var race = new Race();
-            foreach (var r in Races)
-            {
-                if (r.RaceID == character.Race.RaceID)
-                {
-                    race = FindRaceByID(race.RaceID);
-                }
-            }
-            return race;
-        }
-        #endregion
-        
         #region Złączenie postaci z przedmiotami
-        private Item FindItemByID(byte? id)
+        private Item FindItemByID(ushort id)
         {
             foreach (var i in Items)
             {
@@ -158,7 +122,7 @@ namespace Start.Model
             {
                 if (item.CharacterID == character.CharacterID)
                 {
-                    items.Add(FindItemByID(item.ItemID));
+                    items.Add(FindItemByID((ushort)(item.ItemID)));
                 }
             }
             return items;
@@ -166,7 +130,7 @@ namespace Start.Model
         #endregion
 
         #region Złączenie postaci z broniami
-        private Weapon FindWeaponByID(byte? id)
+        private Weapon FindWeaponByID(ushort id)
         {
             foreach (var w in Weapons)
             {
@@ -183,39 +147,13 @@ namespace Start.Model
             {
                 if (weapon.CharacterID == character.CharacterID)
                 {
-                    weapons.Add(FindWeaponByID(weapon.WeaponID));
+                    weapons.Add(FindWeaponByID((ushort)(weapon.WeaponID)));
                 }
             }
             return weapons;
         }
         #endregion
 
-        #region Złączenie postaci z pancerzem
-        private Armor FindArmorByID(byte? id)
-        {
-            foreach (var a in Armors)
-            {
-                if (a.ArmorID == id)
-                    return a;
-            }
-            return null;
-        }
-
-        public Armor ReadArmorOfCharacter(Character character)
-        {
-            var armor = new Armor();
-            foreach (var a in Armors)
-            {
-                if (a.CharacterID == character.CharacterID)
-                {
-                    armor = FindArmorByID(a.ArmorID);
-                }
-            }
-            return armor;
-        }
-        #endregion
-        */
-        
 
         #region Metody dla postaci
         public bool IsCharacterInRepository(Character character) => Characters.Contains(character);

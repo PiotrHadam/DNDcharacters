@@ -1,133 +1,3 @@
-C:\Users\Piotr Hadam\source\repos\Start\Start\bin\Debug\Start.exe.config
-C:\Users\Piotr Hadam\source\repos\Start\Start\bin\Debug\Start.exe
-C:\Users\Piotr Hadam\source\repos\Start\Start\bin\Debug\Start.pdb
-C:\Users\Piotr Hadam\source\repos\Start\Start\bin\Debug\BouncyCastle.Crypto.dll
-C:\Users\Piotr Hadam\source\repos\Start\Start\bin\Debug\Google.Protobuf.dll
-C:\Users\Piotr Hadam\source\repos\Start\Start\bin\Debug\K4os.Compression.LZ4.dll
-C:\Users\Piotr Hadam\source\repos\Start\Start\bin\Debug\K4os.Compression.LZ4.Streams.dll
-C:\Users\Piotr Hadam\source\repos\Start\Start\bin\Debug\K4os.Hash.xxHash.dll
-C:\Users\Piotr Hadam\source\repos\Start\Start\bin\Debug\Microsoft.Expression.Interactions.dll
-C:\Users\Piotr Hadam\source\repos\Start\Start\bin\Debug\MySql.Data.dll
-C:\Users\Piotr Hadam\source\repos\Start\Start\bin\Debug\Renci.SshNet.dll
-C:\Users\Piotr Hadam\source\repos\Start\Start\bin\Debug\System.Buffers.dll
-C:\Users\Piotr Hadam\source\repos\Start\Start\bin\Debug\System.Memory.dll
-C:\Users\Piotr Hadam\source\repos\Start\Start\bin\Debug\System.Numerics.Vectors.dll
-C:\Users\Piotr Hadam\source\repos\Start\Start\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
-C:\Users\Piotr Hadam\source\repos\Start\Start\bin\Debug\System.Windows.Interactivity.dll
-C:\Users\Piotr Hadam\source\repos\Start\Start\bin\Debug\Ubiety.Dns.Core.dll
-C:\Users\Piotr Hadam\source\repos\Start\Start\bin\Debug\Zstandard.Net.dll
-C:\Users\Piotr Hadam\source\repos\Start\Start\bin\Debug\Google.Protobuf.xml
-C:\Users\Piotr Hadam\source\repos\Start\Start\bin\Debug\K4os.Compression.LZ4.xml
-C:\Users\Piotr Hadam\source\repos\Start\Start\bin\Debug\K4os.Compression.LZ4.Streams.xml
-C:\Users\Piotr Hadam\source\repos\Start\Start\bin\Debug\K4os.Hash.xxHash.xml
-C:\Users\Piotr Hadam\source\repos\Start\Start\bin\Debug\Microsoft.Expression.Interactions.xml
-C:\Users\Piotr Hadam\source\repos\Start\Start\bin\Debug\MySql.Data.xml
-C:\Users\Piotr Hadam\source\repos\Start\Start\bin\Debug\Renci.SshNet.xml
-C:\Users\Piotr Hadam\source\repos\Start\Start\bin\Debug\System.Buffers.xml
-C:\Users\Piotr Hadam\source\repos\Start\Start\bin\Debug\System.Memory.xml
-C:\Users\Piotr Hadam\source\repos\Start\Start\bin\Debug\System.Numerics.Vectors.xml
-C:\Users\Piotr Hadam\source\repos\Start\Start\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
-C:\Users\Piotr Hadam\source\repos\Start\Start\bin\Debug\System.Windows.Interactivity.xml
-C:\Users\Piotr Hadam\source\repos\Start\Start\obj\Debug\Start.csprojAssemblyReference.cache
-C:\Users\Piotr Hadam\source\repos\Start\Start\obj\Debug\MainWindow.g.cs
-C:\Users\Piotr Hadam\source\repos\Start\Start\obj\Debug\View\AddCharacter.g.cs
-C:\Users\Piotr Hadam\source\repos\Start\Start\obj\Debug\View\ListOfCharacters.g.cs
-C:\Users\Piotr Hadam\source\repos\Start\Start\obj\Debug\View\MainPage.g.cs
-C:\Users\Piotr Hadam\source\repos\Start\Start\obj\Debug\App.g.cs
-C:\Users\Piotr Hadam\source\repos\Start\Start\obj\Debug\GeneratedInternalTypeHelper.g.cs
-C:\Users\Piotr Hadam\source\repos\Start\Start\obj\Debug\Start_MarkupCompile.cache
-C:\Users\Piotr Hadam\source\repos\Start\Start\obj\Debug\Start_MarkupCompile.lref
-C:\Users\Piotr Hadam\source\repos\Start\Start\obj\Debug\MainWindow.baml
-C:\Users\Piotr Hadam\source\repos\Start\Start\obj\Debug\View\AddCharacter.baml
-C:\Users\Piotr Hadam\source\repos\Start\Start\obj\Debug\View\ListOfCharacters.baml
-C:\Users\Piotr Hadam\source\repos\Start\Start\obj\Debug\View\MainPage.baml
-C:\Users\Piotr Hadam\source\repos\Start\Start\obj\Debug\Start.g.resources
-C:\Users\Piotr Hadam\source\repos\Start\Start\obj\Debug\Start.Properties.Resources.resources
-C:\Users\Piotr Hadam\source\repos\Start\Start\obj\Debug\Start.csproj.GenerateResource.cache
-C:\Users\Piotr Hadam\source\repos\Start\Start\obj\Debug\Start.csproj.CoreCompileInputs.cache
-C:\Users\Piotr Hadam\source\repos\Start\Start\obj\Debug\Start.csproj.CopyComplete
-C:\Users\Piotr Hadam\source\repos\Start\Start\obj\Debug\Start.exe
-C:\Users\Piotr Hadam\source\repos\Start\Start\obj\Debug\Start.pdb
-C:\Users\Piotr Hadam\source\repos\Start\Start\obj\Debug\View\EditCharacter.g.cs
-C:\Users\Piotr Hadam\source\repos\Start\Start\obj\Debug\View\EditCharacter.baml
-D:\repos2\NewAttempt\DNDcharacters\Start\bin\Debug\Start.exe.config
-D:\repos2\NewAttempt\DNDcharacters\Start\bin\Debug\Start.exe
-D:\repos2\NewAttempt\DNDcharacters\Start\bin\Debug\Start.pdb
-D:\repos2\NewAttempt\DNDcharacters\Start\bin\Debug\BouncyCastle.Crypto.dll
-D:\repos2\NewAttempt\DNDcharacters\Start\bin\Debug\Google.Protobuf.dll
-D:\repos2\NewAttempt\DNDcharacters\Start\bin\Debug\K4os.Compression.LZ4.dll
-D:\repos2\NewAttempt\DNDcharacters\Start\bin\Debug\K4os.Compression.LZ4.Streams.dll
-D:\repos2\NewAttempt\DNDcharacters\Start\bin\Debug\K4os.Hash.xxHash.dll
-D:\repos2\NewAttempt\DNDcharacters\Start\bin\Debug\Microsoft.Expression.Interactions.dll
-D:\repos2\NewAttempt\DNDcharacters\Start\bin\Debug\MySql.Data.dll
-D:\repos2\NewAttempt\DNDcharacters\Start\bin\Debug\Renci.SshNet.dll
-D:\repos2\NewAttempt\DNDcharacters\Start\bin\Debug\System.Buffers.dll
-D:\repos2\NewAttempt\DNDcharacters\Start\bin\Debug\System.Memory.dll
-D:\repos2\NewAttempt\DNDcharacters\Start\bin\Debug\System.Numerics.Vectors.dll
-D:\repos2\NewAttempt\DNDcharacters\Start\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
-D:\repos2\NewAttempt\DNDcharacters\Start\bin\Debug\System.Windows.Interactivity.dll
-D:\repos2\NewAttempt\DNDcharacters\Start\bin\Debug\Ubiety.Dns.Core.dll
-D:\repos2\NewAttempt\DNDcharacters\Start\bin\Debug\Zstandard.Net.dll
-D:\repos2\NewAttempt\DNDcharacters\Start\bin\Debug\Google.Protobuf.xml
-D:\repos2\NewAttempt\DNDcharacters\Start\bin\Debug\K4os.Compression.LZ4.xml
-D:\repos2\NewAttempt\DNDcharacters\Start\bin\Debug\K4os.Compression.LZ4.Streams.xml
-D:\repos2\NewAttempt\DNDcharacters\Start\bin\Debug\K4os.Hash.xxHash.xml
-D:\repos2\NewAttempt\DNDcharacters\Start\bin\Debug\Microsoft.Expression.Interactions.xml
-D:\repos2\NewAttempt\DNDcharacters\Start\bin\Debug\MySql.Data.xml
-D:\repos2\NewAttempt\DNDcharacters\Start\bin\Debug\Renci.SshNet.xml
-D:\repos2\NewAttempt\DNDcharacters\Start\bin\Debug\System.Buffers.xml
-D:\repos2\NewAttempt\DNDcharacters\Start\bin\Debug\System.Memory.xml
-D:\repos2\NewAttempt\DNDcharacters\Start\bin\Debug\System.Numerics.Vectors.xml
-D:\repos2\NewAttempt\DNDcharacters\Start\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
-D:\repos2\NewAttempt\DNDcharacters\Start\bin\Debug\System.Windows.Interactivity.xml
-D:\repos2\NewAttempt\DNDcharacters\Start\obj\Debug\Start.csprojAssemblyReference.cache
-D:\repos2\NewAttempt\DNDcharacters\Start\obj\Debug\MainWindow.g.cs
-D:\repos2\NewAttempt\DNDcharacters\Start\obj\Debug\View\AddCharacter.g.cs
-D:\repos2\NewAttempt\DNDcharacters\Start\obj\Debug\View\EditCharacter.g.cs
-D:\repos2\NewAttempt\DNDcharacters\Start\obj\Debug\View\ListOfCharacters.g.cs
-D:\repos2\NewAttempt\DNDcharacters\Start\obj\Debug\View\MainPage.g.cs
-D:\repos2\NewAttempt\DNDcharacters\Start\obj\Debug\App.g.cs
-D:\repos2\NewAttempt\DNDcharacters\Start\obj\Debug\GeneratedInternalTypeHelper.g.cs
-D:\repos2\NewAttempt\DNDcharacters\Start\obj\Debug\Start_MarkupCompile.cache
-D:\repos2\NewAttempt\DNDcharacters\Start\obj\Debug\Start_MarkupCompile.lref
-D:\repos2\NewAttempt\DNDcharacters\Start\obj\Debug\MainWindow.baml
-D:\repos2\NewAttempt\DNDcharacters\Start\obj\Debug\View\AddCharacter.baml
-D:\repos2\NewAttempt\DNDcharacters\Start\obj\Debug\View\EditCharacter.baml
-D:\repos2\NewAttempt\DNDcharacters\Start\obj\Debug\View\ListOfCharacters.baml
-D:\repos2\NewAttempt\DNDcharacters\Start\obj\Debug\View\MainPage.baml
-D:\repos2\NewAttempt\DNDcharacters\Start\obj\Debug\Start.g.resources
-D:\repos2\NewAttempt\DNDcharacters\Start\obj\Debug\Start.Properties.Resources.resources
-D:\repos2\NewAttempt\DNDcharacters\Start\obj\Debug\Start.csproj.GenerateResource.cache
-D:\repos2\NewAttempt\DNDcharacters\Start\obj\Debug\Start.csproj.CoreCompileInputs.cache
-D:\repos2\NewAttempt\DNDcharacters\Start\obj\Debug\Start.csproj.CopyComplete
-D:\repos2\NewAttempt\DNDcharacters\Start\obj\Debug\Start.exe
-D:\repos2\NewAttempt\DNDcharacters\Start\obj\Debug\Start.pdb
-D:\repos2\NewAttempt\DNDcharacters\Start\obj\Debug\View\CharacterSheet.g.cs
-D:\repos2\NewAttempt\DNDcharacters\Start\obj\Debug\View\CharacterSheet.baml
-C:\Users\Piotr Hadam\source\repos\Start\Start\obj\Debug\View\CharacterSheet.g.cs
-C:\Users\Piotr Hadam\source\repos\Start\Start\obj\Debug\View\CharacterSheet.baml
-C:\Users\Piotr Hadam\source\repos\Start\Start\obj\Debug\View\LoginWindow.g.cs
-C:\Users\Piotr Hadam\source\repos\Start\Start\obj\Debug\View\LoginWindow.baml
-C:\Users\Piotr Hadam\source\repos\Start\Start\obj\Debug\View\RegisterWindow.g.cs
-C:\Users\Piotr Hadam\source\repos\Start\Start\obj\Debug\View\RegisterWindow.baml
-D:\repos2\NewAttempt\DNDcharacters\Start\obj\Debug\View\LoginWindow.g.cs
-D:\repos2\NewAttempt\DNDcharacters\Start\obj\Debug\View\RegisterWindow.g.cs
-D:\repos2\NewAttempt\DNDcharacters\Start\obj\Debug\View\LoginWindow.baml
-D:\repos2\NewAttempt\DNDcharacters\Start\obj\Debug\View\RegisterWindow.baml
-C:\Users\Piotr Hadam\source\repos\DnD\DNDcharacters\Start\obj\Debug\Start.csprojAssemblyReference.cache
-C:\Users\Piotr Hadam\source\repos\DnD\DNDcharacters\Start\obj\Debug\MainWindow.g.cs
-C:\Users\Piotr Hadam\source\repos\DnD\DNDcharacters\Start\obj\Debug\View\AddCharacter.g.cs
-C:\Users\Piotr Hadam\source\repos\DnD\DNDcharacters\Start\obj\Debug\View\EditCharacter.g.cs
-C:\Users\Piotr Hadam\source\repos\DnD\DNDcharacters\Start\obj\Debug\View\ListOfCharacters.g.cs
-C:\Users\Piotr Hadam\source\repos\DnD\DNDcharacters\Start\obj\Debug\View\LoginWindow.g.cs
-C:\Users\Piotr Hadam\source\repos\DnD\DNDcharacters\Start\obj\Debug\View\MainPage.g.cs
-C:\Users\Piotr Hadam\source\repos\DnD\DNDcharacters\Start\obj\Debug\View\RegisterWindow.g.cs
-C:\Users\Piotr Hadam\source\repos\DnD\DNDcharacters\Start\obj\Debug\App.g.cs
-C:\Users\Piotr Hadam\source\repos\DnD\DNDcharacters\Start\obj\Debug\GeneratedInternalTypeHelper.g.cs
-C:\Users\Piotr Hadam\source\repos\DnD\DNDcharacters\Start\obj\Debug\Start_MarkupCompile.cache
-C:\Users\Piotr Hadam\source\repos\DnD\DNDcharacters\Start\obj\Debug\Start_MarkupCompile.lref
-C:\Users\Piotr Hadam\source\repos\DnD\DNDcharacters\Start\obj\Debug\Start.exe
-C:\Users\Piotr Hadam\source\repos\DnD\DNDcharacters\Start\obj\Debug\Start.pdb
 C:\Users\Piotr Hadam\source\repos\DnD\DNDcharacters\Start\bin\Debug\Start.exe.config
 C:\Users\Piotr Hadam\source\repos\DnD\DNDcharacters\Start\bin\Debug\Start.exe
 C:\Users\Piotr Hadam\source\repos\DnD\DNDcharacters\Start\bin\Debug\Start.pdb
@@ -158,10 +28,28 @@ C:\Users\Piotr Hadam\source\repos\DnD\DNDcharacters\Start\bin\Debug\System.Memor
 C:\Users\Piotr Hadam\source\repos\DnD\DNDcharacters\Start\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\Piotr Hadam\source\repos\DnD\DNDcharacters\Start\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\Piotr Hadam\source\repos\DnD\DNDcharacters\Start\bin\Debug\System.Windows.Interactivity.xml
-C:\Users\Piotr Hadam\source\repos\DnD\DNDcharacters\Start\obj\Debug\View\CharacterSheet.g.cs
+C:\Users\Piotr Hadam\source\repos\DnD\DNDcharacters\Start\obj\Debug\Start.csprojAssemblyReference.cache
+C:\Users\Piotr Hadam\source\repos\DnD\DNDcharacters\Start\obj\Debug\MainWindow.g.cs
+C:\Users\Piotr Hadam\source\repos\DnD\DNDcharacters\Start\obj\Debug\View\AddArmor.g.cs
+C:\Users\Piotr Hadam\source\repos\DnD\DNDcharacters\Start\obj\Debug\View\AddCharacter.g.cs
+C:\Users\Piotr Hadam\source\repos\DnD\DNDcharacters\Start\obj\Debug\View\AddItems.g.cs
+C:\Users\Piotr Hadam\source\repos\DnD\DNDcharacters\Start\obj\Debug\View\AddWeapons.g.cs
+C:\Users\Piotr Hadam\source\repos\DnD\DNDcharacters\Start\obj\Debug\View\CharacterView1.g.cs
+C:\Users\Piotr Hadam\source\repos\DnD\DNDcharacters\Start\obj\Debug\View\EditCharacter.g.cs
+C:\Users\Piotr Hadam\source\repos\DnD\DNDcharacters\Start\obj\Debug\View\ListOfCharacters.g.cs
+C:\Users\Piotr Hadam\source\repos\DnD\DNDcharacters\Start\obj\Debug\View\LoginWindow.g.cs
+C:\Users\Piotr Hadam\source\repos\DnD\DNDcharacters\Start\obj\Debug\View\MainPage.g.cs
+C:\Users\Piotr Hadam\source\repos\DnD\DNDcharacters\Start\obj\Debug\View\RegisterWindow.g.cs
+C:\Users\Piotr Hadam\source\repos\DnD\DNDcharacters\Start\obj\Debug\App.g.cs
+C:\Users\Piotr Hadam\source\repos\DnD\DNDcharacters\Start\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Piotr Hadam\source\repos\DnD\DNDcharacters\Start\obj\Debug\Start_MarkupCompile.cache
+C:\Users\Piotr Hadam\source\repos\DnD\DNDcharacters\Start\obj\Debug\Start_MarkupCompile.lref
 C:\Users\Piotr Hadam\source\repos\DnD\DNDcharacters\Start\obj\Debug\MainWindow.baml
+C:\Users\Piotr Hadam\source\repos\DnD\DNDcharacters\Start\obj\Debug\View\AddArmor.baml
 C:\Users\Piotr Hadam\source\repos\DnD\DNDcharacters\Start\obj\Debug\View\AddCharacter.baml
-C:\Users\Piotr Hadam\source\repos\DnD\DNDcharacters\Start\obj\Debug\View\CharacterSheet.baml
+C:\Users\Piotr Hadam\source\repos\DnD\DNDcharacters\Start\obj\Debug\View\AddItems.baml
+C:\Users\Piotr Hadam\source\repos\DnD\DNDcharacters\Start\obj\Debug\View\AddWeapons.baml
+C:\Users\Piotr Hadam\source\repos\DnD\DNDcharacters\Start\obj\Debug\View\CharacterView1.baml
 C:\Users\Piotr Hadam\source\repos\DnD\DNDcharacters\Start\obj\Debug\View\EditCharacter.baml
 C:\Users\Piotr Hadam\source\repos\DnD\DNDcharacters\Start\obj\Debug\View\ListOfCharacters.baml
 C:\Users\Piotr Hadam\source\repos\DnD\DNDcharacters\Start\obj\Debug\View\LoginWindow.baml
@@ -172,9 +60,5 @@ C:\Users\Piotr Hadam\source\repos\DnD\DNDcharacters\Start\obj\Debug\Start.Proper
 C:\Users\Piotr Hadam\source\repos\DnD\DNDcharacters\Start\obj\Debug\Start.csproj.GenerateResource.cache
 C:\Users\Piotr Hadam\source\repos\DnD\DNDcharacters\Start\obj\Debug\Start.csproj.CoreCompileInputs.cache
 C:\Users\Piotr Hadam\source\repos\DnD\DNDcharacters\Start\obj\Debug\Start.csproj.CopyComplete
-C:\Users\Piotr Hadam\source\repos\DnD\DNDcharacters\Start\obj\Debug\View\AddArmor.g.cs
-C:\Users\Piotr Hadam\source\repos\DnD\DNDcharacters\Start\obj\Debug\View\AddItems.g.cs
-C:\Users\Piotr Hadam\source\repos\DnD\DNDcharacters\Start\obj\Debug\View\AddWeapons.g.cs
-C:\Users\Piotr Hadam\source\repos\DnD\DNDcharacters\Start\obj\Debug\View\AddItems.baml
-C:\Users\Piotr Hadam\source\repos\DnD\DNDcharacters\Start\obj\Debug\View\AddWeapons.baml
-C:\Users\Piotr Hadam\source\repos\DnD\DNDcharacters\Start\obj\Debug\View\AddArmor.baml
+C:\Users\Piotr Hadam\source\repos\DnD\DNDcharacters\Start\obj\Debug\Start.exe
+C:\Users\Piotr Hadam\source\repos\DnD\DNDcharacters\Start\obj\Debug\Start.pdb

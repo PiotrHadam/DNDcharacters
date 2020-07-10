@@ -15,11 +15,10 @@ namespace Start.ViewModel
 
     class AddItemsViewModel : ViewModelBase
     {
-        private Model model = null;
+        private Model model = new Model();
         private ushort char_id;
         private string itemname = "", itemdescription = "", armorname = "", armordescription = "", weaponname = "", attackrange = "", damagetype = "", weapondescription = "";
         private byte armorclassbonus = 0, dmgdice = 0, dmgdicesize = 0;
-        private Dice dice;
         public AddItemsViewModel(Model model)
         {
             this.model = model;
@@ -218,7 +217,7 @@ namespace Start.ViewModel
                     addweapon = new RelayCommand(
                         arg =>
                         {
-                            var weapon = new Weapon(char_id, weaponname, dmgdice, dmgdicesize, attackrange, damagetype, weapondescription);
+                            var weapon = new Weapon(char_id, WeaponName, DmgDice, DmgDiceSize, AttackRange, DamageType, ItemDescription);
                             model.AddWeaponToDatabase(weapon);
                             ClearWeaponSheet();
                         },
@@ -236,7 +235,7 @@ namespace Start.ViewModel
                     addweaponnext = new RelayCommand(
                         arg =>
                         {
-                            var weapon = new Weapon(char_id, weaponname, dmgdice, dmgdicesize, attackrange, damagetype, weapondescription);
+                            var weapon = new Weapon(char_id, WeaponName, DmgDice, DmgDiceSize, AttackRange, DamageType, ItemDescription);
                             model.AddWeaponToDatabase(weapon);
                         },
                         arg => (WeaponName != "") && (WeaponDescription != "") && (AttackRange != "") && (DamageType != ""));

@@ -30,7 +30,8 @@ namespace Start.DAL.Encje
             WisdomThrowBonus = byte.Parse(reader["wisdom_throw_bonus"].ToString());
         }
         #endregion
-        public override string ToString() {
+        public override string ToString()
+        {
             return Name;
         }
     }

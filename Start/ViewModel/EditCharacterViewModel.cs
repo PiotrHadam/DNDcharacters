@@ -18,26 +18,20 @@ namespace Start.ViewModel
         private Model model = null;
 
         private ushort char_id = 0;
-        private string name = "", image, description = "", story = "";
-        private int money = 20000, hitpoints = 20;
-        private byte strength = 0, dexterity = 0, constitution = 0, intelligence = 0, wisdom = 0, charisma = 0, level = 0;
-        private bool isInspired = false;
-        private Dictionary<string, byte> abilities;
-        private Dictionary<byte, byte> possiblespellsperday;
+        private Dictionary<string, byte> abilities = new Dictionary<string, byte>();
+        private Dictionary<byte, byte> possiblespellsperday = new Dictionary<byte, byte>();
         #endregion
 
         #region Konstruktory
 
         public EditCharacterViewModel()
         {
-            _character = new Character(ListOfCharactersViewModel.SelectedCharacter);
+            _character = ListOfCharactersViewModel.SelectedCharacter;
             model = new Model();
             char_id = (ushort)_character.CharacterID;
             Characters = model.Characters;
             ClassNames = model.ClassNames;
             RaceNames = model.RaceNames;
-            abilities = new Dictionary<string, byte>();
-            possiblespellsperday = new Dictionary<byte, byte>();
             for (int i = 0; i < 18; i++)
             {
                 abilities.Add(Rules.Abilities[i], 0);
@@ -48,27 +42,6 @@ namespace Start.ViewModel
             }
         }
 
-        public EditCharacterViewModel(Model model, Character character)
-        {
-            this.model = model;
-            _character = character;
-            /*name = character.Name;
-            image = character.Image;
-            description = character.Description;
-            story = character.Story;
-            money = character.Money;
-            hitpoints = character.HitPoints;
-            strength = character.Strength;
-            dexterity = character.Dexterity;
-            constitution = character.Constitution;
-            intelligence = character.Intelligence;
-            wisdom = character.Wisdom;
-            charisma = character.Charisma;
-            level = character.Level;
-            IsInspired = character.IsInspired;
-            abilities = character.Abilities;
-            possiblespellsperday = character.PossibleSpellsPerDay;*/
-        }
         #endregion
 
         #region Właściwości
@@ -76,8 +49,6 @@ namespace Start.ViewModel
         public ObservableCollection<Character> Characters { get; set; }
         public ObservableCollection<string> RaceNames { get; set; }
         public ObservableCollection<string> ClassNames { get; set; }
-
-        public Character CurrentCharacter { get; set; }
 
         public Character Character
         {
@@ -128,7 +99,7 @@ namespace Start.ViewModel
             }
         }
 
-        public int Money
+        public uint Money
         {
             get { return _character.Money; }
             set
@@ -268,53 +239,37 @@ namespace Start.ViewModel
             }
         }
 
-        /*public List<string> PossibleRaces {
-
-        public List<string> PossibleRaces {
-            get {
-                List<string> getter = new List<string>();
-                RepositoryRaces.ReadAllRaces().ForEach(race => {
-                    getter.Add(race.Name);
-                });
-                return getter;
-            }
-            set { PossibleRaces = value; }
-        }
-        public List<string> PossibleClasses {
-            get {
-                List<string> getter = new List<string>();
-                RepositoryClases.ReadAllClases().ForEach(x => {
-                    getter.Add(x.Name);
-                });
-                return getter;
-            }
-            set { { PossibleClasses = value; } }
-        }*/
-
         #endregion
 
 
 
         private void ClearSheet()
         {
-            name = "";
-            image = "";
-            money = 20000;
-            hitpoints = 20;
-            strength = 0;
-            dexterity = 0;
-            constitution = 0;
-            intelligence = 0;
-            wisdom = 0;
-            charisma = 0;
-            isInspired = false;
-            description = "";
-            story = "";
-            level = 0;
+            Name = "";
+            Image = "";
+            Money = 20000;
+            HitPoints = 20;
+            Strength = 0;
+            Dexterity = 0;
+            Constitution = 0;
+            Intelligence = 0;
+            Wisdom = 0;
+            Charisma = 0;
+            IsInspired = false;
+            Description = "";
+            Story = "";
+            Level = 0;
 
-            abilities.Clear();
-            possiblespellsperday.Clear();
-
+            Abilities.Clear();
+            PossibleSpellsPerDay.Clear();
+            for (int i = 0; i < 18; i++)
+            {
+                abilities.Add(Rules.Abilities[i], 0);
+            }
+            for (byte i = 0; i < 10; i++)
+            {
+                possiblespellsperday.Add(i, 0);
+            }
 
         }
 
@@ -347,9 +302,10 @@ namespace Start.ViewModel
                 if (edit == null)
                     edit = new RelayCommand(
                         arg => {
-                            var character = new Character.Builder().WithName(Name)
+                            var characterr = new Character.Builder().WithName(Name)
                                                                     .WithRaceID(Convert.ToByte(FindRaceIDbyName(Race)))
                                                                     .WithAbilities(Abilities)
+                                                                    .WithMoney(Money)
                                                                     .WithCharacterStory(Story)
                                                                     .WithCharisma(Charisma)
                                                                     .WithClassID(Convert.ToByte(FindClassIDbyName(Class)))
@@ -359,6 +315,7 @@ namespace Start.ViewModel
                                                                     .WithHitPoints(Convert.ToByte(HitPoints))
                                                                     .WithInteligence(Intelligence)
                                                                     .WithLvl(Level)
+                                                                    .WithInspired(IsInspired)
                                                                     .WithName(Name)
                                                                     .WithStrenght(Strength)
                                                                     .WithWisdom(Wisdom)
@@ -366,16 +323,14 @@ namespace Start.ViewModel
                                                                     .Build();
 
 
-                            var final_string = character.ToInsert();
-                            if (model.EditCharacterInDatabase(character, char_id))
+                            if (model.EditCharacterInDatabase(characterr, char_id))
                             {
-                                //model.Characters.edit(character);
                                 ClearSheet();
                                 System.Windows.MessageBox.Show("Postać została edytowana!");
                             }
                         }
                         ,
-                        arg => (Name != "") && (Description != "") && (Story != "") && (Class != "") && (Race != "")
+                        arg => (Name != "") && (Class != "") && (Race != "")
                         );
                 return edit;
             }

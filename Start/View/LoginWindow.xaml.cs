@@ -50,7 +50,6 @@ namespace Start.View
             Close();
         }
 
-        // Sprawdzenie czy jest dostęp do bazy danych i czy istnieje użytkownik o podanych danych (nick + hasło):
         private bool AccountCheck(string nickname, string password)
         {
             if (DBConnection.LoginAsRoot() == false)

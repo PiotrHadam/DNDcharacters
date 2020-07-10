@@ -24,7 +24,8 @@ namespace Start.View
     public partial class AddCharacter : Page
     {
 
-        public AddCharacter() {
+        public AddCharacter()
+        {
             InitializeComponent();
 
         }

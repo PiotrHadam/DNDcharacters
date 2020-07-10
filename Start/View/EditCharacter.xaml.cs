@@ -27,12 +27,12 @@ namespace Start.View
             InitializeComponent();
         }
 
-        
+
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Button b = (Button)sender;
-            if (b == Back) this.NavigationService.Navigate(new MainPage());
+            if (b == Back) this.NavigationService.Navigate(new Uri("View/ListOfCharacters.xaml", UriKind.Relative));
         }
 
         private static readonly Regex _regex = new Regex("[^0-9]+"); //regex that matches disallowed text

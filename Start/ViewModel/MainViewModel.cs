@@ -19,14 +19,12 @@ namespace Start.ViewModel
         public AddCharacterViewModel AddCharacterVM { get; set; }
         public ListOfCharactersViewModel ListOfCharactersVM { get; set; }
         public AddItemsViewModel AddItemsVM { get; set; }
-        //public EditCharacterViewModel EditCharacterVM { get; set; }
 
         public MainViewModel()
         {
             AddCharacterVM = new AddCharacterViewModel(model);
             ListOfCharactersVM = new ListOfCharactersViewModel(model);
             AddItemsVM = new AddItemsViewModel(model);
-            //EditCharacterVM = new EditCharacterViewModel(model);
         }
 
 
